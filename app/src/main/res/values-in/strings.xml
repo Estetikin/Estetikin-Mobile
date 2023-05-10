@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_title">Halo, mari masuk</string>
+    <string name="login_message">Kami membantu kamu untuk meningkatkan skill fotografimu!</string>
+    <string name="new_to_estetikin">Pengguna baru Estetikin?</string>
+    <string name="register">Daftar</string>
+    <string name="already_have_an_account">Sudah memiliki akun?</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Kata sandi</string>
+    <string name="register_title">Ayo buat akun</string>
+    <string name="register_message">Baru di aplikasi ini? Ayo buat akun baru untuk kamu✨</string>
+    <string name="et_email_error_message">Alamat email tidak sesuai</string>
+    <string name="et_password_error_message">Kata sandi harus lebih dari 6 karakter</string>
+</resources>
