@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    >
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -17,43 +17,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_login"
-        style="@style/Text.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_24"
-        android:text="@string/login_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/tv_login_msg"
-        style="@style/Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_8"
-        android:text="@string/login_message"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
     <EditText
-        android:id="@+id/et_Username"
+        android:id="@+id/et_Fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_32"
         android:drawableStart="@drawable/ic_account"
         android:drawablePadding="@dimen/spacing_6"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_msg"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/fullname"
+        android:autofillHints="@string/fullname" />
+
+    <com.codegeniuses.estetikin.customViews.EmailEditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Fullname" />
+
+    <EditText
+        android:id="@+id/et_Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:drawableStart="@drawable/ic_account"
+        android:drawablePadding="@dimen/spacing_6"
+        app:layout_constraintTop_toBottomOf="@id/et_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/username"
         android:autofillHints="@string/username" />
-
 
     <com.codegeniuses.estetikin.customViews.PasswordEditText
         android:id="@+id/et_password"
@@ -66,33 +67,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Username" />
 
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
-        android:textColor="@color/dark_green"
-        app:layout_constraintTop_toBottomOf="@id/et_password"
-        app:layout_constraintEnd_toEndOf="@id/et_password"/>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_32"
         android:padding="@dimen/spacing_12"
-        android:text="@string/login"
+        android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password" />
+        app:layout_constraintTop_toBottomOf="@id/et_password" />
 
     <LinearLayout
         android:id="@+id/ll_login_with"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_signup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll_google_logo">
@@ -108,7 +101,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/or_login_with"
+            android:text="@string/or_signup_with"
             android:layout_marginStart="@dimen/spacing_24"
             android:layout_marginEnd="@dimen/spacing_24"
             android:textColor="@color/dark_green"/>
@@ -143,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/login_with_google"
+            android:text="@string/signup_with_google"
             android:layout_marginStart="@dimen/spacing_12"
             android:textColor="@color/dark_green" />
     </LinearLayout>
@@ -161,7 +154,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/new_to_estetikin"
+            android:text="@string/already_have_an_account"
             android:textColor="@color/dark_green" />
 
         <TextView
@@ -171,6 +164,5 @@
             android:text="@string/signup"
             android:textColor="@color/pink_500" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
