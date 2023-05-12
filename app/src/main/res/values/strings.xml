@@ -13,5 +13,9 @@
     <string name="register_message">New to this application? \nLet\'s create an account for you ✨</string>
     <string name="et_email_error_message">Email address is not valid</string>
     <string name="et_password_error_message">Passwords must be at least 6 characters</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or_login_with">Or Login With</string>
+    <string name="login_with_google">Login with Google</string>
 
 </resources>
