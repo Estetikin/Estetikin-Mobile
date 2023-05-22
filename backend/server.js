@@ -1,7 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const HapiJwt = require('hapi-auth-jwt2');
 const Jwt = require('jsonwebtoken');
-//const { uploadHandler } = require ('./handler');
+const { uploadHandler } = require ('./handler');
 //APP Secret Key for jwt
 const secretKey = 'CodeGeniuses';
 //USER (Will Be Replaced with DB)
@@ -58,6 +58,20 @@ const init = async () => {
                 return {message: 'Protected Route'};
             },
         },
+        {
+            //FILE UPLOAD API
+            method: 'POST',
+            path: '/upload',
+            options: {
+              payload: {
+                output: 'stream',
+                parse: true,
+                multipart: true,
+                maxBytes: 10 * 1024 * 1024, // 10MB limit
+              },
+            },
+            handler: uploadHandler,
+          },
     ]);
     await server.start();
     console.log('Running on %s', server.info.uri);
