@@ -18,4 +18,9 @@
     <string name="fullname">Nama Lengkap</string>
     <string name="or_signup_with">Atau Daftar Dengan</string>
     <string name="signup_with_google">Daftar menggunakan akun google</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_setting">Pengaturan</string>
+    <string name="title_module">Modul</string>
+    <string name="title_camera">Kamera</string>
+
 </resources>
