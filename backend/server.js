@@ -51,6 +51,29 @@ const init = async () => {
             },
         },
         {
+            //API FOR REGISTER
+            method: 'POST',
+            path: '/register',
+            handler : async (request, h) => {
+                const {email, username, password} = request.payload;
+                if (!email || !username || !password) {
+                    return { message: 'Invalid credetials' };
+                }
+                //adding to db (not-yet)
+                //checking if username/email exist
+                //GENERATING TOKEN
+                // const token = Jwt.sign({id: user.id}, secretKey, {expiresIn:'3h'});
+                // //GOTTA FIND WAYS TO MAKE TOKEN LONGER BUT SAVE/secure
+                // return {token};
+                return {message: 'Register Succesful'};
+            },
+            options: {
+                auth: false, //AUTH DISABLED FOR THIS ROUTE (USE THIS IN CASE U DONT NEED TOKEN AUTHORIZATION)
+            },
+
+
+        },
+        {
             //TESTING AUTHORIZATION
             method : 'GET',
             path : '/shield',
