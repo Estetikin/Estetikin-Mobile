@@ -1,174 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:contentDescription="@string/scroll_view"
+    tools:context=".ui.signup.SignUpActivity">
 
-    <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_40"
-        android:contentDescription="@string/logo_estetikin"
-        android:src="@drawable/logo_estetikin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/et_Fullname"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_32"
-        android:drawableStart="@drawable/ic_account"
-        android:drawablePadding="@dimen/spacing_6"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/fullname"
-        android:autofillHints="@string/fullname" />
+        android:layout_height="match_parent">
 
-    <com.codegeniuses.estetikin.customViews.EmailEditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Fullname" />
-
-    <EditText
-        android:id="@+id/et_Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:drawableStart="@drawable/ic_account"
-        android:drawablePadding="@dimen/spacing_6"
-        app:layout_constraintTop_toBottomOf="@id/et_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/username"
-        android:autofillHints="@string/username" />
-
-    <com.codegeniuses.estetikin.customViews.PasswordEditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_16"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username" />
-
-
-    <Button
-        android:id="@+id/btn_signup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_32"
-        android:padding="@dimen/spacing_12"
-        android:text="@string/signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_password" />
-
-    <LinearLayout
-        android:id="@+id/ll_login_with"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_signup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ll_google_logo">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/spacing_24"
-            android:layout_gravity="center_vertical"
-            android:background="@color/green_500"/>
-
-        <TextView
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/or_signup_with"
-            android:layout_marginStart="@dimen/spacing_24"
-            android:layout_marginEnd="@dimen/spacing_24"
-            android:textColor="@color/dark_green"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/spacing_24"
-            android:layout_gravity="center_vertical"
-            android:background="@color/green_500"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_google_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingVertical="@dimen/spacing_8"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_login_with"
-        app:layout_constraintBottom_toTopOf="@id/btn_register"
-        android:background="@drawable/rounded_rectangle">
+            android:elevation="2dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.739"
+            tools:visibility="visible" />
 
         <ImageView
-            android:id="@+id/iv_logo_google"
+            android:id="@+id/iv_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_google"
-            android:scaleX="0.8"
-            android:scaleY="0.8"/>
+            android:layout_marginTop="@dimen/spacing_40"
+            android:contentDescription="@string/logo_estetikin"
+            android:src="@drawable/logo_estetikin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et_Fullname"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/signup_with_google"
-            android:layout_marginStart="@dimen/spacing_12"
-            android:textColor="@color/dark_green" />
-    </LinearLayout>
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:autofillHints="@string/fullname"
+            android:drawableStart="@drawable/ic_account"
+            android:drawablePadding="@dimen/spacing_6"
+            android:hint="@string/fullname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
 
-    <LinearLayout
-        android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_8"
-        android:padding="@dimen/spacing_8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <com.codegeniuses.estetikin.customViews.EmailEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/already_have_an_account"
-            android:textColor="@color/dark_green" />
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Fullname" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et_Username"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:autofillHints="@string/username"
+            android:drawableStart="@drawable/ic_account"
+            android:drawablePadding="@dimen/spacing_6"
+            android:hint="@string/username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <com.codegeniuses.estetikin.customViews.PasswordEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Username"
+            app:passwordToggleEnabled="true" />
+
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:padding="@dimen/spacing_12"
             android:text="@string/signup"
-            android:textColor="@color/pink_500" />
-    </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/ll_login_with"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/ll_google_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_signup">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_weight="1"
+                android:background="@color/green_500" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_24"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:text="@string/or_signup_with"
+                android:textColor="@color/dark_green" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_24"
+                android:layout_weight="1"
+                android:background="@color/green_500" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_google_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_32"
+            android:background="@drawable/rounded_rectangle"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/spacing_8"
+            app:layout_constraintBottom_toTopOf="@id/btn_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_login_with">
+
+            <ImageView
+                android:id="@+id/iv_logo_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/logo_google" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/spacing_12"
+                android:text="@string/signup_with_google"
+                android:textColor="@color/dark_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_8"
+            android:padding="@dimen/spacing_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_an_account"
+                android:textColor="@color/dark_green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/signup"
+                android:textColor="@color/pink_500" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
