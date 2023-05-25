@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         val botNav: BottomNavigationView = binding.botNav
 
         val navHostFragment =
