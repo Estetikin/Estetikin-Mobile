@@ -24,4 +24,8 @@
     <dimen name="text_size_20">20sp</dimen>
     <dimen name="text_size_24">24sp</dimen>
     <dimen name="text_size_28">28sp</dimen>
+    <dimen name="spacing_88">88dp</dimen>
+    <dimen name="spacing_96">96dp</dimen>
+    <dimen name="spacing_108">108dp</dimen>
+    <dimen name="spacing_100">100dp</dimen>
 </resources>

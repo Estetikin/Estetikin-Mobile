@@ -22,6 +22,13 @@ class MainActivity : AppCompatActivity() {
         binding.botNav.background = null
         binding.botNav.menu.getItem(2).isEnabled = false
 
+
+        handleNavigation()
+        handleTest()
+
+    }
+
+    private fun handleTest() {
         binding.btnTestLogin.setOnClickListener{
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
@@ -31,13 +38,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, SignUpActivity::class.java)
             startActivity(intent)
         }
+    }
 
+    private fun handleNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_home_nav) as NavHostFragment
         val navController = navHostFragment.navController
 
         val botNav: BottomNavigationView = binding.botNav
         botNav.setupWithNavController(navController)
-
     }
 }
