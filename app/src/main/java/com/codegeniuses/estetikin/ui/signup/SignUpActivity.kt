@@ -2,12 +2,14 @@ package com.codegeniuses.estetikin.ui.signup
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivitySignUpBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
+import com.codegeniuses.estetikin.ui.login.LoginActivity
 
 class SignUpActivity : AppCompatActivity(), LoadingHandler {
 
@@ -21,6 +23,7 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
         supportActionBar?.hide()
 
         playAnimation()
+        setupAction()
     }
 
 
@@ -31,12 +34,12 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
         val username = ObjectAnimator.ofFloat(binding.etUsername, View.ALPHA, 1f).setDuration(500)
         val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
         val signUpButton =
-            ObjectAnimator.ofFloat(binding.btnSignup, View.ALPHA, 1f).setDuration(500)
+            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
         val loginWith = ObjectAnimator.ofFloat(binding.llLoginWith, View.ALPHA, 1f).setDuration(500)
         val googleLogo =
             ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
         val btnRegister =
-            ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(500)
+            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
@@ -70,6 +73,12 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
         }.start()
     }
 
+    fun setupAction(){
+        binding.btnLogin.setOnClickListener{
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
 
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {

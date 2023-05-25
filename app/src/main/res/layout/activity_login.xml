@@ -9,8 +9,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_animation"
-        android:layout_width="241dp"
-        android:layout_height="229dp"
+        android:layout_width="141dp"
+        android:layout_height="129dp"
         android:elevation="10dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +166,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="@dimen/spacing_8"
-        app:layout_constraintBottom_toTopOf="@id/btn_register"
+        app:layout_constraintBottom_toTopOf="@id/btn_sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_login_with"
@@ -190,7 +190,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_8"

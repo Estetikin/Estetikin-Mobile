@@ -2,12 +2,14 @@ package com.codegeniuses.estetikin.ui.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivityLoginBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
+import com.codegeniuses.estetikin.ui.signup.SignUpActivity
 
 class LoginActivity : AppCompatActivity(), LoadingHandler {
     private lateinit var binding: ActivityLoginBinding
@@ -39,7 +41,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
         val googleLogo =
             ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
         val btnRegister =
-            ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(500)
+            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
@@ -86,6 +88,10 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
     private fun setupAction() {
         binding.btnLogin.setOnClickListener {
             loadingHandler(true)
+        }
+        binding.btnSignUp.setOnClickListener{
+            val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 
