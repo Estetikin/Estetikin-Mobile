@@ -30,4 +30,17 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
             }
         }
 
+
+    companion object {
+        @Volatile
+        private var instance: Repository? = null
+        fun getInstance(
+            preferences: UserPreference,
+            apiService: ApiService
+        ): Repository =
+            instance ?: synchronized(this) {
+                instance ?: Repository(preferences, apiService)
+            }.also { instance = it }
+    }
+
 }
