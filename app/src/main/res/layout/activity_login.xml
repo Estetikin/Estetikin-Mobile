@@ -80,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
+
         android:layout_marginTop="@dimen/spacing_32"
         android:padding="@dimen/spacing_12"
         android:text="@string/login"

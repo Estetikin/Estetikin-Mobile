@@ -22,4 +22,12 @@
         <item name="fontFamily">@font/product_sans_bold</item>
         <item name="android:textSize">28sp</item>
     </style>
+
+    <style name="bottom_nav_overlay">
+        <!-- selected item -->
+        <item name="colorPrimary">@color/white</item>
+        <!-- other -->
+        <item name="colorOnSurface">@color/white</item>
+    </style>
+
 </resources>
