@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.codegeniuses.estetikin.data.Result
+import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.databinding.ActivitySignUpBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler

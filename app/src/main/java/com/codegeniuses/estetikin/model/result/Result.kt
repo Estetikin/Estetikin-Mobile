@@ -1,4 +1,4 @@
-package com.codegeniuses.estetikin.data
+package com.codegeniuses.estetikin.model.result
 
 sealed class Result<out R> private constructor() {
     data class Success<out T>(val data: T) : Result<T>()

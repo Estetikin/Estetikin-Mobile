@@ -5,15 +5,23 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityLoginBinding
+import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
+import com.codegeniuses.estetikin.model.response.LoginResponse
+import com.codegeniuses.estetikin.ui.home.HomeFragment
 import com.codegeniuses.estetikin.ui.signup.SignUpActivity
+import com.codegeniuses.estetikin.model.result.Result.*
+
 
 class LoginActivity : AppCompatActivity(), LoadingHandler {
     private lateinit var binding: ActivityLoginBinding
-    private val loginViewModel: LoginViewModel by viewModels()
+    private lateinit var factory: ViewModelFactory
+    private val loginViewModel: LoginViewModel by viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +30,14 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
         supportActionBar?.hide()
 
+        checkToken()
+        setupViewModel()
         playAnimation()
         setupAction()
+    }
+
+    fun setupViewModel() {
+        factory = ViewModelFactory.getInstance(binding.root.context)
     }
 
     private fun playAnimation() {
@@ -87,10 +101,53 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
     private fun setupAction() {
         binding.btnLogin.setOnClickListener {
-            loadingHandler(true)
+            val email = binding.etUsername.text.toString()
+            val password = binding.etPassword.text.toString()
+            loginViewModel.login(email, password).observe(this@LoginActivity) { result ->
+                if (result != null) {
+                    when (result) {
+                        is Loading -> {
+                            loadingHandler(true)
+                        }
+                        is Error -> {
+                            loadingHandler(false)
+                            Toast.makeText(this, "Failed to Login", Toast.LENGTH_SHORT).show()
+                        }
+                        is Success -> {
+                            loadingHandler(false)
+                            Toast.makeText(this, "Login Success!", Toast.LENGTH_SHORT).show()
+                            saveTokenToPreference(result.data)
+                            val intent = Intent(this@LoginActivity, HomeFragment::class.java)
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        }
+                    }
+                }
+
+            }
+
+
         }
-        binding.btnSignUp.setOnClickListener{
+        binding.btnSignUp.setOnClickListener {
             val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun saveTokenToPreference(data: LoginResponse) {
+        val pref = UserPreference(this)
+        val result = data.token
+        pref.saveToken(result)
+    }
+
+    private fun checkToken() {
+        val pref = UserPreference(this)
+        val token = pref.getToken()
+        if (token.isNotEmpty()) {
+            val intent = Intent(this@LoginActivity, HomeFragment::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
     }
