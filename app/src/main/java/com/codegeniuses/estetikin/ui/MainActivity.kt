@@ -1,8 +1,8 @@
 package com.codegeniuses.estetikin.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.codegeniuses.estetikin.R
@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        binding.btnTestLogin.setOnClickListener{
+        binding.btnTestLogin.setOnClickListener {
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
         }
 
-        binding.btnTestSignUp.setOnClickListener{
+        binding.btnTestSignUp.setOnClickListener {
             val intent = Intent(this@MainActivity, SignUpActivity::class.java)
             startActivity(intent)
         }

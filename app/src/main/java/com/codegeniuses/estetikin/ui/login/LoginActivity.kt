@@ -13,9 +13,9 @@ import com.codegeniuses.estetikin.databinding.ActivityLoginBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.LoginResponse
+import com.codegeniuses.estetikin.model.result.Result.*
 import com.codegeniuses.estetikin.ui.home.HomeFragment
 import com.codegeniuses.estetikin.ui.signup.SignUpActivity
-import com.codegeniuses.estetikin.model.result.Result.*
 
 
 class LoginActivity : AppCompatActivity(), LoadingHandler {

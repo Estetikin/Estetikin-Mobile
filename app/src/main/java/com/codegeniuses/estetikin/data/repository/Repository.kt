@@ -31,7 +31,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
             }
         }
 
-    fun login(email: String, password: String):LiveData<Result<LoginResponse>> = liveData {
+    fun login(email: String, password: String): LiveData<Result<LoginResponse>> = liveData {
         emit(Loading)
         try {
             val response = apiService.login(email, password)
