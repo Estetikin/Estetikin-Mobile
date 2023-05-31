@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
         supportActionBar?.hide()
 
-//        checkToken()
+        checkToken()
         setupViewModel()
         playAnimation()
         setupAction()
@@ -146,7 +146,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
     private fun checkToken() {
         val pref = UserPreference(this)
         val token = pref.getToken()
-        if (token.isNotEmpty()) {
+        if (token.isNullOrEmpty()) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
