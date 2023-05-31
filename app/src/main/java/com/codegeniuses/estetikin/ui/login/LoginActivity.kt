@@ -14,8 +14,10 @@ import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.LoginResponse
 import com.codegeniuses.estetikin.model.result.Result.*
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.home.HomeFragment
 import com.codegeniuses.estetikin.ui.signup.SignUpActivity
+import kotlinx.coroutines.MainScope
 
 
 class LoginActivity : AppCompatActivity(), LoadingHandler {
@@ -30,7 +32,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
         supportActionBar?.hide()
 
-        checkToken()
+//        checkToken()
         setupViewModel()
         playAnimation()
         setupAction()
@@ -145,7 +147,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
         val pref = UserPreference(this)
         val token = pref.getToken()
         if (token.isNotEmpty()) {
-            val intent = Intent(this@LoginActivity, HomeFragment::class.java)
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)

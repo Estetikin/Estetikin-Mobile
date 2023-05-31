@@ -27,6 +27,8 @@
     <string name="title_camera">Camera</string>
     <string name="scroll_view" translatable="false">This is Scroll View</string>
     <string name="confirm_password" translatable="false">Confirm Password</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="placeHolder">Place Holder</string>
 
 
 </resources>
