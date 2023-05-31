@@ -25,8 +25,8 @@
     <string name="title_album" translatable="false">Album</string>
     <string name="title_module">Module</string>
     <string name="title_camera">Camera</string>
-    <string name="placeHolder" translatable="false">Place Holder</string>
-    <string name="home" translatable="false">Home</string>
+    <string name="scroll_view" translatable="false">This is Scroll View</string>
+    <string name="confirm_password" translatable="false">Confirm Password</string>
 
 
 </resources>

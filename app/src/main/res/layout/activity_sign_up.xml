@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:context=".ui.signup.SignUpActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_animation"
+        android:layout_width="141dp"
+        android:layout_height="129dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.694"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"
+        tools:visibility="visible"/>
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -23,13 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_32"
+        android:autofillHints="@string/fullname"
         android:drawableStart="@drawable/ic_account"
         android:drawablePadding="@dimen/spacing_6"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        android:hint="@string/fullname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/fullname"
-        android:autofillHints="@string/fullname" />
+        app:layout_constraintTop_toBottomOf="@id/iv_logo" />
 
     <com.codegeniuses.estetikin.customViews.EmailEditText
         android:id="@+id/et_email"
@@ -42,34 +58,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Fullname" />
 
-    <EditText
-        android:id="@+id/et_Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:drawableStart="@drawable/ic_account"
-        android:drawablePadding="@dimen/spacing_6"
-        app:layout_constraintTop_toBottomOf="@id/et_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:hint="@string/username"
-        android:autofillHints="@string/username" />
-
     <com.codegeniuses.estetikin.customViews.PasswordEditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_16"
-        app:passwordToggleEnabled="true"
+        android:autofillHints="@string/password"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="@dimen/spacing_6"
+        android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username" />
+        app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+    <com.codegeniuses.estetikin.customViews.PasswordEditText
+        android:id="@+id/et_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:hint="@string/confirm_password"
+        android:autofillHints="@string/confirm_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
+        app:passwordToggleEnabled="true" />
 
 
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
@@ -78,41 +96,41 @@
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_password" />
+        app:layout_constraintTop_toBottomOf="@id/et_confirm_password" />
 
     <LinearLayout
         android:id="@+id/ll_login_with"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btn_signup"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_google_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ll_google_logo">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_up">
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginStart="@dimen/spacing_24"
             android:layout_gravity="center_vertical"
-            android:background="@color/green_500"/>
+            android:layout_marginStart="@dimen/spacing_24"
+            android:layout_weight="1"
+            android:background="@color/green_500" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/or_signup_with"
             android:layout_marginStart="@dimen/spacing_24"
             android:layout_marginEnd="@dimen/spacing_24"
-            android:textColor="@color/dark_green"/>
+            android:text="@string/or_signup_with"
+            android:textColor="@color/dark_green" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="@dimen/spacing_24"
             android:layout_gravity="center_vertical"
-            android:background="@color/green_500"/>
+            android:layout_marginEnd="@dimen/spacing_24"
+            android:layout_weight="1"
+            android:background="@color/green_500" />
 
     </LinearLayout>
 
@@ -120,35 +138,35 @@
         android:id="@+id/ll_google_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_32"
+        android:background="@drawable/rounded_rectangle"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="@dimen/spacing_8"
-        android:layout_marginHorizontal="@dimen/spacing_32"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_login_with"
-        app:layout_constraintBottom_toTopOf="@id/btn_register"
-        android:background="@drawable/rounded_rectangle">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_login_with">
 
         <ImageView
             android:id="@+id/iv_logo_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_google"
             android:scaleX="0.8"
-            android:scaleY="0.8"/>
+            android:scaleY="0.8"
+            android:src="@drawable/logo_google" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/signup_with_google"
             android:layout_marginStart="@dimen/spacing_12"
+            android:text="@string/signup_with_google"
             android:textColor="@color/dark_green" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_8"
@@ -167,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/signup"
+            android:text="@string/login"
             android:textColor="@color/pink_500" />
     </LinearLayout>
 
