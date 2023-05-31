@@ -16,4 +16,15 @@
     <color name="green_500">#a8c2cc</color>
     <color name="green_700">#6A9AA5</color>
     <color name="dark_green">#346470</color>
+
+
+    <!-- Estetikin Color Palette -->
+    <color name="light_green">#82DBB9</color>
+    <color name="pastel_orange">#FF966E</color>
+    <color name="blue">#3E85F3</color>
+    <color name="yellow">#FFCE46</color>
+    <color name="pink">#E27BF5</color>
+    <color name="purple">#7C5EF1</color>
+    <color name="gray">#BDBDBD</color>
+    <color name="dark_gray">#212121</color>
 </resources>

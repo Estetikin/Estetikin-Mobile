@@ -28,4 +28,5 @@
     <dimen name="spacing_96">96dp</dimen>
     <dimen name="spacing_108">108dp</dimen>
     <dimen name="spacing_100">100dp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
 </resources>

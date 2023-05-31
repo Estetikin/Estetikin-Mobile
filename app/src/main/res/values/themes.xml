@@ -19,7 +19,7 @@
     </style>
 
     <style name="Text.Title">
-        <item name="fontFamily">@font/product_sans_bold</item>
+        <item name="fontFamily">@font/opensans_bold</item>
         <item name="android:textSize">28sp</item>
     </style>
 

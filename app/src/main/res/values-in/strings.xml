@@ -23,4 +23,14 @@
     <string name="title_module">Modul</string>
     <string name="title_camera">Kamera</string>
 
+    <!-- OnBoarding -->
+    <string name="next_title">Selanjutnya</string>
+    <string name="skip_title">Lewati</string>
+    <string name="get_started_title">Mulai</string>
+    <string name="title_onboarding_1">Tingkatkan Kemampuan \n Fotografi Anda</string>
+    <string name="title_onboarding_2">Abadikan Momen dan \n Ceritakan Kisahnya</string>
+    <string name="description_onboarding_1">Temukan teknik yang digunakan \n oleh fotografer profesional.</string>
+    <string name="description_onboarding_2">Ubah gambar biasa menjadi \n karya yang luar biasa.</string>
+    <string name="splash_screen">Splash Screen</string>
+
 </resources>
