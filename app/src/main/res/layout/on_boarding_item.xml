@@ -6,8 +6,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:fitsSystemWindows="true"
-    android:id="@+id/dialogInfo"
     android:orientation="vertical">
+
+    <!--SKIP-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSkip"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="@dimen/spacing_12"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/skip_title"
+        app:cornerRadius="30dp"
+        android:textAllCaps="true"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:textColor="@color/dark_gray"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="@dimen/text_size_12"/>
 
     <!--ViewPager2-->
     <androidx.viewpager2.widget.ViewPager2
@@ -35,27 +51,12 @@
         android:layout_height="56dp"
         android:layout_gravity="center"
         android:gravity="center"
+        android:layout_marginBottom="@dimen/spacing_24"
         android:text="@string/next_title"
         android:textAllCaps="true"
         android:backgroundTint="@color/colorPrimary"
         android:fontFamily="@font/opensans_bold"
         android:textColor="@android:color/white"
         app:cornerRadius="100dp" />
-
-    <!--SKIP-->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSkip"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/skip_title"
-        android:visibility="invisible"
-        app:cornerRadius="30dp"
-        android:textAllCaps="true"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@android:color/darker_gray"
-        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

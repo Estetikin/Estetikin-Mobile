@@ -29,16 +29,17 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.codegeniuses.estetikin.ui.onBoarding.OnBoardingFragment"
         android:label="fragment_on_boarding "
-        tools:layout="@layout/fragment_on_boarding" >
+        tools:layout="@layout/fragment_on_boarding">
         <action
-            android:id="@+id/action_onBoardingFragment_to_homeFragment2"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_onBoardingFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/onBoardingFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.codegeniuses.estetikin.ui.splash.SplashScreenFragment"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
+        tools:layout="@layout/fragment_splash_screen">
         <action
             android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
             app:destination="@id/onBoardingFragment"

@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:id="@+id/home_fragment">
+    tools:context=".ui.home.HomeFragment">
 
     <Button
         android:id="@+id/btn_test_login"
@@ -26,14 +25,6 @@
         android:text="Test SignUp"
         app:layout_constraintTop_toBottomOf="@id/btn_test_login"
         app:layout_constraintStart_toStartOf="@id/btn_test_login" />
-
-    <Button
-        android:id="@+id/btn_test_on_boarding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test OnBoarding"
-        app:layout_constraintTop_toBottomOf="@id/btn_test_sign_up"
-        app:layout_constraintStart_toStartOf="@id/btn_test_sign_up" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -18,8 +18,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Estetikin"
-        tools:targetApi="31">
+        android:theme="@style/Theme.Estetikin">
 
         <activity
             android:name=".ui.signup.SignUpActivity"
@@ -30,6 +29,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
+<!--            android:theme="@style/Theme.SplashScreen">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

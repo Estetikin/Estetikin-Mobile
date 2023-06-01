@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.ui.login.LoginActivity
-import com.codegeniuses.estetikin.ui.onBoarding.OnBoardingFragment
 import com.codegeniuses.estetikin.ui.signup.SignUpActivity
 
 class HomeFragment : Fragment() {
@@ -40,13 +38,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.btnTestOnBoarding.setOnClickListener {
-            val fragment = OnBoardingFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_home_nav, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
     }
 
 

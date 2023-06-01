@@ -1,16 +1,16 @@
 package com.codegeniuses.estetikin.ui.onBoarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
-import com.codegeniuses.estetikin.ui.home.HomeFragment
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -23,7 +23,7 @@ class OnBoardingFragment : Fragment() {
         _binding = null
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = OnBoardingItemBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,16 +52,12 @@ class OnBoardingFragment : Fragment() {
         })
 
         binding.btnSkip.setOnClickListener {
-            findNavController().navigateUp()
+            navigateToHomeFragment()
         }
 
         binding.btnNext.setOnClickListener {
             if (binding.btnNext.text.toString() == getString(R.string.get_started_title)) {
-                    val fragment = HomeFragment()
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_nav, fragment)
-                        .addToBackStack(null)
-                        .commit()
+                navigateToHomeFragment()
             } else {
                 // to change current page - on click "Next BUTTON"
                 val current = (binding.viewPager2.currentItem) + 1
@@ -78,6 +74,18 @@ class OnBoardingFragment : Fragment() {
             }
         }
 
+    }
+
+    private fun navigateToHomeFragment() {
+        //TODO update this if to loginactivity if the login logic already finish
+        val action = R.id.action_onBoardingFragment_to_homeFragment
+        findNavController().navigate(action)
+        showBottomNavigationView()
+    }
+
+    private fun showBottomNavigationView() {
+        val mainActivity = activity as MainActivity
+        mainActivity.showBottomNavigationView()
     }
 
     companion object {
