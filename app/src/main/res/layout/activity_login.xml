@@ -25,8 +25,8 @@
 
     <ImageView
         android:id="@+id/iv_login_illustration"
-        android:layout_width="263dp"
-        android:layout_height="263dp"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
         android:layout_marginTop="@dimen/spacing_32"
         android:alpha="0"
         android:contentDescription="@string/illustration_login"
@@ -208,13 +208,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12"
             android:text="@string/new_to_estetikin"
             android:textColor="@color/dark_green" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/spacing_6"
+            android:textSize="@dimen/text_size_12"
             android:text="@string/signup"
             android:textColor="@color/pink_500" />
     </LinearLayout>

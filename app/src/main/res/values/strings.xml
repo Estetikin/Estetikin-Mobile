@@ -40,5 +40,10 @@
     <string name="illustration_login" translatable="false">Login Illustration</string>
     <string name="splash_screen">Splash Screen</string>
 
+    <!-- Home Fragment -->
+    <string name="upload_instruction">Choose how you want to \n input your picture.</string>
+    <string name="from_gallery">From Gallery</string>
+    <string name="use_camera">Use Camera</string>
+
 
 </resources>
