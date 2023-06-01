@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
         supportActionBar?.hide()
 
-        checkToken()
+//        checkToken()
         setupViewModel()
         playAnimation()
         setupAction()
@@ -42,7 +42,8 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
     private fun playAnimation() {
 
-        val image = ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.ALPHA, 1f).setDuration(500)
+        val image =
+            ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.ALPHA, 1f).setDuration(500)
         val title = ObjectAnimator.ofFloat(binding.tvLogin, View.ALPHA, 1f).setDuration(500)
         val loginMessage =
             ObjectAnimator.ofFloat(binding.tvLoginMsg, View.ALPHA, 1f).setDuration(500)
@@ -74,14 +75,19 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
         }.start()
 
         binding.ivLoginIllustration.animate().apply {
-            duration = 2000
-            rotationBy(360f)
-        }.withEndAction {
+            duration = 1000
+            alpha(.5f)
+            rotationYBy(360f)
+            translationYBy(200f)
+        }.withEndAction{
             binding.ivLoginIllustration.animate().apply {
-                duration = 2000
-                rotationBy(360f)
-            }.start()
-        }
+                duration = 1000
+                alpha(1f)
+                rotationXBy(360f)
+                translationYBy(-200f)
+            }
+        }.start()
+
         ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.TRANSLATION_X, -50f, 50f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE

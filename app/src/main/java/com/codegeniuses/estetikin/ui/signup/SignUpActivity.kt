@@ -64,14 +64,18 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
         }.start()
 
         binding.ivLogo.animate().apply {
-            duration = 2000
-            rotationBy(360f)
-        }.withEndAction {
+            duration = 1000
+            alpha(.5f)
+            rotationYBy(360f)
+            translationYBy(200f)
+        }.withEndAction{
             binding.ivLogo.animate().apply {
-                duration = 2000
-                rotationBy(360f)
-            }.start()
-        }
+                duration = 1000
+                alpha(1f)
+                rotationXBy(360f)
+                translationYBy(-200f)
+            }
+        }.start()
 
         ObjectAnimator.ofFloat(binding.ivLogo, View.TRANSLATION_X, -50f, 50f).apply {
             duration = 6000
