@@ -1,30 +1,35 @@
 <resources>
     <string name="app_name" translatable="false">Estetikin</string>
     <string name="logo_estetikin" translatable="false">Logo Estetikin</string>
-    <string name="new_to_estetikin">New to Estetikin?</string>
+
+    <!-- Sign Up -->
     <string name="signup">Sign Up</string>
+    <string name="signup_title">Let\'s create an account</string>
+    <string name="signup_message">Let\'s create an account for you ✨</string>
+    <string name="or_signup_with">Or Signup With</string>
+    <string name="signup_with_google">Signup with Google</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Login</string>
+    <string name="google_logo">Google Logo</string>
+    <!-- Login -->
+
     <string name="login_title">Hello, let\'s sign in</string>
     <string name="login_message">We help you improve your photography skills!</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="register_title">Let\'s create an account</string>
-    <string name="register_message">New to this application? \nLet\'s create an account for you ✨</string>
+    <string name="new_to_estetikin">New to Estetikin?</string>
     <string name="et_email_error_message">Email address is not valid</string>
     <string name="et_password_error_message">Passwords must be at least 6 characters</string>
-    <string name="username" translatable="false">Username</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="or_login_with">Or Login With</string>
     <string name="login_with_google">Login with Google</string>
     <string name="fullname">Full Name</string>
-    <string name="or_signup_with">Or Signup With</string>
-    <string name="signup_with_google">Signup with Google</string>
-    <string name="title_home">Home</string>
-    <string name="title_setting">Setting</string>
-    <string name="title_album" translatable="false">Album</string>
-    <string name="title_module">Module</string>
-    <string name="title_camera">Camera</string>
+
+
+
+
+
+
     <string name="scroll_view" translatable="false">This is Scroll View</string>
     <string name="confirm_password" translatable="false">Confirm Password</string>
     <string name="placeHolder" translatable="false">Place Holder</string>
@@ -41,9 +46,35 @@
     <string name="splash_screen">Splash Screen</string>
 
     <!-- Home Fragment -->
+    <string name="title_home">Home</string>
     <string name="upload_instruction">Choose how you want to \n input your picture.</string>
     <string name="from_gallery">From Gallery</string>
     <string name="use_camera">Use Camera</string>
 
+    <!-- Module Fragment -->
+    <string name="title_module">Module</string>
+    <string name="module_cover">Module Cover</string>
+    <string name="news_around_the_world">News Around The World</string>
+    <string name="news_cover">News Cover</string>
+    <string name="article_title">Article Title</string>
+    <string name="article_category">Article Category</string>
 
+    <!-- Album -->
+    <string name="title_album" translatable="false">Album</string>
+
+    <!-- Camera -->
+    <string name="title_camera">Camera</string>
+
+    <!-- Settings Fragment-->
+    <string name="title_setting">Settings</string>
+    <string name="language">Language</string>
+    <string name="language_selected">Language Selected</string>
+    <string name="language_icon">Language Icon</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="ui_mode_icon">UI Mode Icon</string>
+    <string name="ui_mode">UI Mode</string>
+    <string name="ui_mode_selected">UI Mode Selected</string>
+    <string name="light_theme">Light</string>
+    <string name="dark_theme">Dark</string>
+    <string name="logout">Logout</string>
 </resources>

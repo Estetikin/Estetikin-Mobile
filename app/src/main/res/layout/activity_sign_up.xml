@@ -23,29 +23,58 @@
         tools:visibility="visible"/>
 
     <ImageView
-        android:id="@+id/iv_logo"
+        android:id="@+id/iv_signup_illustration"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_24"
         android:contentDescription="@string/logo_estetikin"
         android:src="@drawable/illustration_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_signup"
+        style="@style/Text.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:textSize="@dimen/text_size_20"
+        android:alpha="0"
+        android:text="@string/signup_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_signup_illustration"
+        tools:alpha="1" />
+
+    <TextView
+        android:id="@+id/tv_signup_msg"
+        style="@style/Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:textSize="@dimen/text_size_12"
+        android:alpha="0"
+        android:text="@string/signup_message"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_signup"
+        tools:alpha="1" />
+
     <EditText
         android:id="@+id/et_Fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_18"
         android:autofillHints="@string/fullname"
         android:drawableStart="@drawable/ic_account"
         android:drawablePadding="@dimen/spacing_6"
         android:hint="@string/fullname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+        app:layout_constraintTop_toBottomOf="@id/tv_signup_msg" />
 
     <com.codegeniuses.estetikin.customViews.EmailEditText
         android:id="@+id/et_email"
@@ -91,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_18"
         android:padding="@dimen/spacing_12"
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +129,7 @@
         app:cornerRadius="100dp"/>
 
     <LinearLayout
-        android:id="@+id/ll_login_with"
+        android:id="@+id/ll_signup_with"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -143,19 +172,20 @@
         android:background="@drawable/rounded_rectangle"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingVertical="@dimen/spacing_8"
+        android:paddingVertical="@dimen/spacing_4"
         app:layout_constraintBottom_toTopOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_login_with">
+        app:layout_constraintTop_toBottomOf="@+id/ll_signup_with">
 
         <ImageView
             android:id="@+id/iv_logo_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@drawable/logo_google" />
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:src="@drawable/logo_google"
+            android:contentDescription="@string/google_logo" />
 
         <TextView
             android:layout_width="wrap_content"

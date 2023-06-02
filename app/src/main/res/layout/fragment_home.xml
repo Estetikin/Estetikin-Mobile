@@ -57,6 +57,7 @@
         android:text="@string/upload_instruction"
         android:textSize="@dimen/text_size_20"
         android:layout_marginBottom="@dimen/spacing_100"
+        android:layout_marginHorizontal="@dimen/spacing_32"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

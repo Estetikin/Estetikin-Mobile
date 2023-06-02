@@ -4,12 +4,13 @@
     <string name="login_message">Kami membantu kamu untuk meningkatkan skill fotografimu!</string>
     <string name="new_to_estetikin">Pengguna baru Estetikin?</string>
     <string name="signup">Daftar</string>
+    <string name="google_logo">Logo Google</string>
     <string name="already_have_an_account">Sudah memiliki akun?</string>
     <string name="login">Masuk</string>
     <string name="email">Email</string>
     <string name="password">Kata sandi</string>
-    <string name="register_title">Ayo buat akun</string>
-    <string name="register_message">Baru di aplikasi ini? Ayo buat akun baru untuk kamu✨</string>
+    <string name="signup_title">Ayo buat akun</string>
+    <string name="signup_message">Baru di aplikasi ini? Ayo buat akun baru untuk kamu✨</string>
     <string name="et_email_error_message">Alamat email tidak sesuai</string>
     <string name="et_password_error_message">Kata sandi harus lebih dari 6 karakter</string>
     <string name="forgot_password">Lupa Kata Sandi?</string>
@@ -18,10 +19,9 @@
     <string name="fullname">Nama Lengkap</string>
     <string name="or_signup_with">Atau Daftar Dengan</string>
     <string name="signup_with_google">Daftar menggunakan akun google</string>
-    <string name="title_home">Beranda</string>
-    <string name="title_setting">Pengaturan</string>
-    <string name="title_module">Modul</string>
-    <string name="title_camera">Kamera</string>
+
+
+
 
     <!-- OnBoarding -->
     <string name="next_title">Selanjutnya</string>
@@ -34,8 +34,36 @@
     <string name="splash_screen">Splash Screen</string>
 
     <!-- Home Fragment -->
-    <string name="upload_instruction">Pilihlah caramu memasukkan gambar.</string>
+    <string name="title_home">Beranda</string>
+    <string name="upload_instruction">Pilihlah caramu \n memasukkan gambar.</string>
     <string name="from_gallery">Dari Galeri</string>
     <string name="use_camera">Gunakan Kamera</string>
+
+    <!-- Module Fragment -->
+    <string name="title_module">Modul</string>
+    <string name="module_cover">Cover Modul</string>
+    <string name="news_around_the_world">Berita dari seluruh dunia</string>
+
+    <!-- Module Item -->
+    <string name="news_cover">Cover Berita</string>
+    <string name="article_title">Judul Artikel</string>
+    <string name="article_category">Kategori Artikel</string>
+
+    <!-- Camera -->
+    <string name="title_camera">Kamera</string>
+
+
+    <!-- Settings  -->
+    <string name="title_setting">Pengaturan</string>
+    <string name="language">Bahasa</string>
+    <string name="language_selected">Bahasa yang dipilih</string>
+    <string name="language_icon">Ikon Bahasa</string>
+    <string name="arrow_icon">Ikon Panah</string>
+    <string name="ui_mode_icon">Ikon Tema</string>
+    <string name="ui_mode">Mode UI</string>
+    <string name="ui_mode_selected">Mode UI Terpilih</string>
+    <string name="light_theme">Terang</string>
+    <string name="dark_theme">Gelap</string>
+    <string name="logout">Keluar</string>
 
 </resources>
