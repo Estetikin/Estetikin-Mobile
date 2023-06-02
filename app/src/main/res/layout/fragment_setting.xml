@@ -7,14 +7,173 @@
     android:layout_height="match_parent"
     tools:context=".ui.setting.SettingFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_setting"
-        android:theme="@style/Text.Title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_24"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            android:text="@string/title_setting"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/language_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/iv_language"
+            android:layout_width="@dimen/spacing_32"
+            android:layout_height="@dimen/spacing_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_language"
+            android:contentDescription="@string/language_icon" />
+
+        <TextView
+            android:id="@+id/tv_title_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@id/iv_language"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:textColor="@color/black"
+            android:text="@string/language"/>
+
+        <TextView
+            android:id="@+id/tv_language_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_4"
+            app:layout_constraintStart_toEndOf="@id/iv_language"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_language"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/text_size_10"
+            android:text="@string/language_selected"/>
+
+        <ImageView
+            android:id="@+id/ic_arrow_language"
+            android:layout_width="@dimen/spacing_16"
+            android:layout_height="@dimen/spacing_16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/gray"
+            android:src="@drawable/ic_arrow"
+            android:contentDescription="@string/arrow_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ui_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toBottomOf="@id/language_item">
+
+        <ImageView
+            android:id="@+id/iv_ui"
+            android:layout_width="@dimen/spacing_32"
+            android:layout_height="@dimen/spacing_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_light_mode"
+            android:contentDescription="@string/ui_mode_icon" />
+
+        <TextView
+            android:id="@+id/tv_title_ui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@id/iv_ui"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:textColor="@color/black"
+            android:text="@string/ui_mode"/>
+
+        <TextView
+            android:id="@+id/tv_ui_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_marginTop="@dimen/spacing_4"
+            app:layout_constraintStart_toEndOf="@id/iv_ui"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_ui"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/text_size_10"
+            android:text="@string/ui_mode_selected"/>
+
+        <ImageView
+            android:id="@+id/ic_arrow_ui"
+            android:layout_width="@dimen/spacing_16"
+            android:layout_height="@dimen/spacing_16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/gray"
+            android:src="@drawable/ic_arrow"
+            android:contentDescription="@string/arrow_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/logout_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toBottomOf="@id/ui_item">
+
+        <ImageView
+            android:id="@+id/iv_logout"
+            android:layout_width="@dimen/spacing_32"
+            android:layout_height="@dimen/spacing_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_logout"
+            android:contentDescription="@string/ui_mode_icon" />
+
+        <TextView
+            android:id="@+id/tv_title_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@id/iv_logout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:textColor="@color/black"
+            android:text="@string/logout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

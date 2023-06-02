@@ -34,7 +34,7 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
 
 
     private fun playAnimation() {
-        val image = ObjectAnimator.ofFloat(binding.ivLogo, View.ALPHA, 1f).setDuration(500)
+        val image = ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.ALPHA, 1f).setDuration(500)
         val name = ObjectAnimator.ofFloat(binding.etFullname, View.ALPHA, 1f).setDuration(500)
         val email = ObjectAnimator.ofFloat(binding.etEmail, View.ALPHA, 1f).setDuration(500)
         val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
@@ -42,7 +42,7 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
             ObjectAnimator.ofFloat(binding.etConfirmPassword, View.ALPHA, 1f).setDuration(500)
         val signUpButton =
             ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
-        val loginWith = ObjectAnimator.ofFloat(binding.llLoginWith, View.ALPHA, 1f).setDuration(500)
+        val loginWith = ObjectAnimator.ofFloat(binding.llSignupWith, View.ALPHA, 1f).setDuration(500)
         val googleLogo =
             ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
         val btnRegister =
@@ -63,13 +63,13 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
             startDelay = 500
         }.start()
 
-        binding.ivLogo.animate().apply {
+        binding.ivSignupIllustration.animate().apply {
             duration = 1000
             alpha(.5f)
             rotationYBy(360f)
             translationYBy(200f)
         }.withEndAction{
-            binding.ivLogo.animate().apply {
+            binding.ivSignupIllustration.animate().apply {
                 duration = 1000
                 alpha(1f)
                 rotationXBy(360f)
@@ -77,7 +77,7 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
             }
         }.start()
 
-        ObjectAnimator.ofFloat(binding.ivLogo, View.TRANSLATION_X, -50f, 50f).apply {
+        ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.TRANSLATION_X, -50f, 50f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE

@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:alpha="0"
+        android:textSize="@dimen/text_size_28"
         android:text="@string/login_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +56,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_4"
         android:alpha="0"
+        android:textSize="@dimen/text_size_12"
         android:text="@string/login_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +184,8 @@
             android:layout_height="wrap_content"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:src="@drawable/logo_google" />
+            android:src="@drawable/logo_google"
+            android:contentDescription="@string/google_logo" />
 
         <TextView
             android:layout_width="wrap_content"
