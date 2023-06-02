@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
         supportActionBar?.hide()
 
-        checkToken()
+//        checkToken()
         setupViewModel()
         playAnimation()
         setupAction()
@@ -44,11 +44,12 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
     private fun playAnimation() {
 
-        val image = ObjectAnimator.ofFloat(binding.ivLogo, View.ALPHA, 1f).setDuration(500)
+        val image =
+            ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.ALPHA, 1f).setDuration(500)
         val title = ObjectAnimator.ofFloat(binding.tvLogin, View.ALPHA, 1f).setDuration(500)
         val loginMessage =
             ObjectAnimator.ofFloat(binding.tvLoginMsg, View.ALPHA, 1f).setDuration(500)
-        val username = ObjectAnimator.ofFloat(binding.etUsername, View.ALPHA, 1f).setDuration(500)
+        val username = ObjectAnimator.ofFloat(binding.etEmail, View.ALPHA, 1f).setDuration(500)
         val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
         val forgotPassword =
             ObjectAnimator.ofFloat(binding.tvForgotPassword, View.ALPHA, 1f).setDuration(500)
@@ -75,16 +76,21 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
             startDelay = 500
         }.start()
 
-        binding.ivLogo.animate().apply {
-            duration = 2000
-            rotationBy(360f)
-        }.withEndAction {
-            binding.ivLogo.animate().apply {
-                duration = 2000
-                rotationBy(360f)
-            }.start()
-        }
-        ObjectAnimator.ofFloat(binding.ivLogo, View.TRANSLATION_X, -50f, 50f).apply {
+        binding.ivLoginIllustration.animate().apply {
+            duration = 1000
+            alpha(.5f)
+            rotationYBy(360f)
+            translationYBy(200f)
+        }.withEndAction{
+            binding.ivLoginIllustration.animate().apply {
+                duration = 1000
+                alpha(1f)
+                rotationXBy(360f)
+                translationYBy(-200f)
+            }
+        }.start()
+
+        ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.TRANSLATION_X, -50f, 50f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
@@ -103,7 +109,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
     private fun setupAction() {
         binding.btnLogin.setOnClickListener {
-            val email = binding.etUsername.text.toString()
+            val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             loginViewModel.login(email, password).observe(this@LoginActivity) { result ->
                 if (result != null) {

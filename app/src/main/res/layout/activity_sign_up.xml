@@ -24,11 +24,11 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_40"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/spacing_32"
         android:contentDescription="@string/logo_estetikin"
-        android:src="@drawable/logo_estetikin"
+        android:src="@drawable/illustration_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -96,7 +96,8 @@
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_confirm_password" />
+        app:layout_constraintTop_toBottomOf="@id/et_confirm_password"
+        app:cornerRadius="100dp"/>
 
     <LinearLayout
         android:id="@+id/ll_login_with"
@@ -179,12 +180,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_have_an_account"
+            android:textSize="@dimen/text_size_12"
             android:textColor="@color/dark_green" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/spacing_6"
+            android:textSize="@dimen/text_size_12"
             android:text="@string/login"
             android:textColor="@color/pink_500" />
     </LinearLayout>

@@ -29,6 +29,23 @@
     <string name="confirm_password" translatable="false">Confirm Password</string>
     <string name="home" translatable="false">Home</string>
     <string name="placeHolder">Place Holder</string>
+    <string name="placeHolder" translatable="false">Place Holder</string>
+
+    <!-- OnBoarding -->
+    <string name="next_title">Next</string>
+    <string name="skip_title">Skip</string>
+    <string name="get_started_title">Get Started</string>
+    <string name="title_onboarding_1">Enhance Your \n Photography Skills</string>
+    <string name="title_onboarding_2">Capture The Moments \n and Tell the Stories</string>
+    <string name="description_onboarding_1">Uncover the techniques used \n by professional photographers.</string>
+    <string name="description_onboarding_2">Transform ordinary scenes \n into extraordinary masterpieces.</string>
+    <string name="illustration_login" translatable="false">Login Illustration</string>
+    <string name="splash_screen">Splash Screen</string>
+
+    <!-- Home Fragment -->
+    <string name="upload_instruction">Choose how you want to \n input your picture.</string>
+    <string name="from_gallery">From Gallery</string>
+    <string name="use_camera">Use Camera</string>
 
 
 </resources>

@@ -24,13 +24,13 @@
         tools:visibility="visible" />
 
     <ImageView
-        android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_40"
+        android:id="@+id/iv_login_illustration"
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="@dimen/spacing_32"
         android:alpha="0"
-        android:contentDescription="@string/logo_estetikin"
-        android:src="@drawable/logo_estetikin"
+        android:contentDescription="@string/illustration_login"
+        android:src="@drawable/illustration_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,12 +41,12 @@
         style="@style/Text.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_24"
+        android:layout_marginTop="@dimen/spacing_16"
         android:alpha="0"
         android:text="@string/login_title"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_login_illustration"
         tools:alpha="1" />
 
     <TextView
@@ -58,13 +58,13 @@
         android:layout_marginTop="@dimen/spacing_8"
         android:alpha="0"
         android:text="@string/login_message"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login"
         tools:alpha="1" />
 
     <EditText
-        android:id="@+id/et_Username"
+        android:id="@+id/et_Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
@@ -91,7 +91,7 @@
         android:autofillHints="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username"
+        app:layout_constraintTop_toBottomOf="@+id/et_Email"
         app:passwordToggleEnabled="true"
         tools:alpha="1" />
 
@@ -112,14 +112,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
 
-        android:layout_marginTop="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_24"
         android:alpha="0"
         android:padding="@dimen/spacing_12"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
-        tools:alpha="1" />
+        tools:alpha="1"
+        app:cornerRadius="100dp"/>
 
     <LinearLayout
         android:id="@+id/ll_login_with"
@@ -207,13 +208,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12"
             android:text="@string/new_to_estetikin"
             android:textColor="@color/dark_green" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/spacing_6"
+            android:textSize="@dimen/text_size_12"
             android:text="@string/signup"
             android:textColor="@color/pink_500" />
     </LinearLayout>
