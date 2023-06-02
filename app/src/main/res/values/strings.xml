@@ -11,8 +11,8 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Login</string>
     <string name="google_logo">Google Logo</string>
-    <!-- Login -->
 
+    <!-- Login -->
     <string name="login_title">Hello, let\'s sign in</string>
     <string name="login_message">We help you improve your photography skills!</string>
     <string name="email">Email</string>
@@ -78,4 +78,8 @@
     <string name="light_theme">Light</string>
     <string name="dark_theme">Dark</string>
     <string name="logout">Logout</string>
+
+    <!-- Item Language  -->
+    <string name="english">English</string>
+    <string name="bahasa_indonesia">Bahasa Indonesia</string>
 </resources>

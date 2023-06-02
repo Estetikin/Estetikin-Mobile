@@ -60,7 +60,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         tools:itemCount="1"
-        tools:listitem="@layout/article_item" />
+        tools:listitem="@layout/item_article" />
 
 
 

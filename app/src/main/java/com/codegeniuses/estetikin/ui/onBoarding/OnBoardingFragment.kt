@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
-import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
+import com.codegeniuses.estetikin.databinding.ItemOnBoardingBinding
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class OnBoardingFragment : Fragment() {
-    private var _binding: OnBoardingItemBinding? = null
+    private var _binding: ItemOnBoardingBinding? = null
     private val binding get() = _binding!!
 
     override fun onDestroyView() {
@@ -24,7 +24,7 @@ class OnBoardingFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = OnBoardingItemBinding.inflate(inflater, container, false)
+        _binding = ItemOnBoardingBinding.inflate(inflater, container, false)
         return binding.root
     }
 

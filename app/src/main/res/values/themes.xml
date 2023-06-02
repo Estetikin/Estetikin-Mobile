@@ -11,7 +11,17 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Default Font Family -->
+        <item name="android:textViewStyle">@style/OpenSansStyle</item>
+    </style>
+
+    <style name="OpenSansStyle">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="Bottom_Sheet_Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
 
     <style name="Text">

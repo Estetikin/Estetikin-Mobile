@@ -53,7 +53,7 @@
     <string name="title_camera">Kamera</string>
 
 
-    <!-- Settings  -->
+    <!-- Settings -->
     <string name="title_setting">Pengaturan</string>
     <string name="language">Bahasa</string>
     <string name="language_selected">Bahasa yang dipilih</string>
@@ -65,5 +65,9 @@
     <string name="light_theme">Terang</string>
     <string name="dark_theme">Gelap</string>
     <string name="logout">Keluar</string>
+
+    <!-- Item Language  -->
+    <string name="english">English</string>
+    <string name="bahasa_indonesia">Bahasa Indonesia</string>
 
 </resources>
