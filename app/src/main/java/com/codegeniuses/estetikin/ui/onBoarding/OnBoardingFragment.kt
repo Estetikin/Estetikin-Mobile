@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
-import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -52,12 +51,12 @@ class OnBoardingFragment : Fragment() {
         })
 
         binding.btnSkip.setOnClickListener {
-            navigateToHomeFragment()
+            navigateToLoginActivity()
         }
 
         binding.btnNext.setOnClickListener {
             if (binding.btnNext.text.toString() == getString(R.string.get_started_title)) {
-                navigateToHomeFragment()
+                navigateToLoginActivity()
             } else {
                 // to change current page - on click "Next BUTTON"
                 val current = (binding.viewPager2.currentItem) + 1
@@ -76,16 +75,10 @@ class OnBoardingFragment : Fragment() {
 
     }
 
-    private fun navigateToHomeFragment() {
+    private fun navigateToLoginActivity() {
         //TODO update this if to loginactivity if the login logic already finish
-        val action = R.id.action_onBoardingFragment_to_homeFragment
+        val action = R.id.action_onBoardingFragment_to_loginActivity
         findNavController().navigate(action)
-        showBottomNavigationView()
-    }
-
-    private fun showBottomNavigationView() {
-        val mainActivity = activity as MainActivity
-        mainActivity.showBottomNavigationView()
     }
 
     companion object {

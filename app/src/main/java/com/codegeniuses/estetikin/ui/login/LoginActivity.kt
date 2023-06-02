@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityLoginBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
@@ -125,10 +127,9 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
                             loadingHandler(false)
                             Toast.makeText(this, "Login Success!", Toast.LENGTH_SHORT).show()
                             saveTokenToPreference(result.data)
-                            val intent = Intent(this@LoginActivity, HomeFragment::class.java)
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                            startActivity(intent)
+
+//                            val navController = Navigation.findNavController(this, R.id.main_navigation)
+//                            navController.navigate(R.id.action_loginActivity_to_homeFragment)
                         }
                     }
                 }
@@ -137,6 +138,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
 
 
         }
+
         binding.btnSignUp.setOnClickListener {
             val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent)
@@ -152,7 +154,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
     private fun checkToken() {
         val pref = UserPreference(this)
         val token = pref.getToken()
-        if (token.isNullOrEmpty()) {
+        if (!token.isNullOrEmpty()) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK

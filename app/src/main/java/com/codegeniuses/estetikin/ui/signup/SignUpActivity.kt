@@ -34,7 +34,8 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
 
 
     private fun playAnimation() {
-        val image = ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.ALPHA, 1f).setDuration(500)
+        val image =
+            ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.ALPHA, 1f).setDuration(500)
         val name = ObjectAnimator.ofFloat(binding.etFullname, View.ALPHA, 1f).setDuration(500)
         val email = ObjectAnimator.ofFloat(binding.etEmail, View.ALPHA, 1f).setDuration(500)
         val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
@@ -42,7 +43,8 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
             ObjectAnimator.ofFloat(binding.etConfirmPassword, View.ALPHA, 1f).setDuration(500)
         val signUpButton =
             ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
-        val loginWith = ObjectAnimator.ofFloat(binding.llSignupWith, View.ALPHA, 1f).setDuration(500)
+        val loginWith =
+            ObjectAnimator.ofFloat(binding.llSignupWith, View.ALPHA, 1f).setDuration(500)
         val googleLogo =
             ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
         val btnRegister =
@@ -68,7 +70,7 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
             alpha(.5f)
             rotationYBy(360f)
             translationYBy(200f)
-        }.withEndAction{
+        }.withEndAction {
             binding.ivSignupIllustration.animate().apply {
                 duration = 1000
                 alpha(1f)
@@ -114,11 +116,10 @@ class SignUpActivity : AppCompatActivity(), LoadingHandler {
                         }
                     }
                 }
-
-            binding.btnLogin.setOnClickListener {
-                val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
-                startActivity(intent)
-            }
+        }
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

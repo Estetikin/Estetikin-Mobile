@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.codegeniuses.estetikin.data.repository.Repository
 import com.codegeniuses.estetikin.di.Injection
+import com.codegeniuses.estetikin.ui.login.LoginViewModel
 import com.codegeniuses.estetikin.ui.signup.SignUpViewModel
 
 class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInstanceFactory() {
@@ -13,6 +14,9 @@ class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInst
         return when {
             modelClass.isAssignableFrom(SignUpViewModel::class.java) -> {
                 SignUpViewModel(repo) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repo) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

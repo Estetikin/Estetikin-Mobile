@@ -13,13 +13,13 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String,
-        @Field("confirmPassword") confirmPassword: String
+        @Field("passwordConfirm") confirmPassword: String
     ): GeneralResponse
 
     @FormUrlEncoded
     @POST("auth/login")
     suspend fun login(
-        @Field("username") username: String,
+        @Field("email") username: String,
         @Field("password") password: String
     ): LoginResponse
 

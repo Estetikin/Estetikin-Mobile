@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 binding.bottom.visibility = View.VISIBLE
             }
         }
+
     }
 
 //    private fun splashScreenConfiguration() {
