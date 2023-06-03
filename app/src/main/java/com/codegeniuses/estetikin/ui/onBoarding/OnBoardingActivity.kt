@@ -1,35 +1,25 @@
 package com.codegeniuses.estetikin.ui.onBoarding
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
+import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.login.LoginActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
-class OnBoardingFragment : Fragment() {
-    private var _binding: OnBoardingItemBinding? = null
-    private val binding get() = _binding!!
+class OnBoardingActivity : AppCompatActivity() {
+    private lateinit var binding: OnBoardingItemBinding
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = OnBoardingItemBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = OnBoardingItemBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.hide()
+        supportActionBar?.hide()
 
         binding.viewPager2.adapter = OnBoardingAdapter()
 
@@ -72,13 +62,12 @@ class OnBoardingFragment : Fragment() {
                 }
             }
         }
-
     }
 
     private fun navigateToLoginActivity() {
-        //TODO update this if to loginactivity if the login logic already finish
-        val action = R.id.action_onBoardingFragment_to_loginActivity
-        findNavController().navigate(action)
+        // TODO update this if to loginactivity if the login logic already finish
+        val intent = Intent(this@OnBoardingActivity, MainActivity::class.java)
+        startActivity(intent)
     }
 
     companion object {

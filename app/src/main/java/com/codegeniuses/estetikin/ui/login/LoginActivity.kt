@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityLoginBinding
@@ -19,7 +19,6 @@ import com.codegeniuses.estetikin.model.result.Result.*
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.home.HomeFragment
 import com.codegeniuses.estetikin.ui.signup.SignUpActivity
-import kotlinx.coroutines.MainScope
 
 
 class LoginActivity : AppCompatActivity(), LoadingHandler {
@@ -127,9 +126,7 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
                             loadingHandler(false)
                             Toast.makeText(this, "Login Success!", Toast.LENGTH_SHORT).show()
                             saveTokenToPreference(result.data)
-
-//                            val navController = Navigation.findNavController(this, R.id.main_navigation)
-//                            navController.navigate(R.id.action_loginActivity_to_homeFragment)
+                            navigateToHomeFragment()
                         }
                     }
                 }
@@ -144,6 +141,12 @@ class LoginActivity : AppCompatActivity(), LoadingHandler {
             startActivity(intent)
         }
     }
+
+    private fun navigateToHomeFragment() {
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+        startActivity(intent)
+    }
+
 
     private fun saveTokenToPreference(data: LoginResponse) {
         val pref = UserPreference(this)

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -25,30 +25,13 @@
         android:name="com.codegeniuses.estetikin.ui.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
-    <fragment
-        android:id="@+id/onBoardingFragment"
-        android:name="com.codegeniuses.estetikin.ui.onBoarding.OnBoardingFragment"
-        android:label="fragment_on_boarding "
-        tools:layout="@layout/fragment_on_boarding">
-        <action
-            android:id="@+id/action_onBoardingFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/onBoardingFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.codegeniuses.estetikin.ui.splash.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen">
-        <action
-            android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
-            app:destination="@id/onBoardingFragment"
-            app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_splashScreenFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.codegeniuses.estetikin.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/onBoardingActivity"
+        android:name="com.codegeniuses.estetikin.ui.onBoarding.OnBoardingActivity"
+        android:label="OnBoardingActivity" />
 </navigation>

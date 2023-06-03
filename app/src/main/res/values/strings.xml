@@ -26,10 +26,6 @@
     <string name="fullname">Full Name</string>
 
 
-
-
-
-
     <string name="scroll_view" translatable="false">This is Scroll View</string>
     <string name="confirm_password" translatable="false">Confirm Password</string>
     <string name="home" translatable="false">Home</string>
