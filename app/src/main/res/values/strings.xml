@@ -74,4 +74,6 @@
     <string name="light_theme">Light</string>
     <string name="dark_theme">Dark</string>
     <string name="logout">Logout</string>
+
+
 </resources>

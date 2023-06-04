@@ -20,6 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.authentication.AuthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Estetikin.NoActionBar" />
+        <activity
             android:name=".ui.onBoarding.OnBoardingActivity"
             android:exported="true">
             <intent-filter>
@@ -29,15 +33,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.signup.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.MainActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>

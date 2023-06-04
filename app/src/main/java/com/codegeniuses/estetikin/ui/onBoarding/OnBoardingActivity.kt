@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
-import com.codegeniuses.estetikin.ui.login.LoginActivity
+import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -65,7 +65,7 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private fun navigateToLoginActivity() {
         // TODO update this if to loginactivity if the login logic already finish
-        val intent = Intent(this@OnBoardingActivity, LoginActivity::class.java)
+        val intent = Intent(this@OnBoardingActivity, AuthActivity::class.java)
         startActivity(intent)
     }
 

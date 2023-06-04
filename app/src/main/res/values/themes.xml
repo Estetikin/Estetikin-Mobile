@@ -30,4 +30,13 @@
         <item name="colorOnSurface">@color/white</item>
     </style>
 
+    <style name="Theme.Estetikin.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Estetikin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Estetikin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
