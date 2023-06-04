@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,6 @@
         app:layout_constraintTop_toBottomOf="@id/tv_upload_instruction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_camera"
-        style="@style/Text"
         android:text="@string/from_gallery"
         app:drawableTopCompat="@drawable/ic_album_add" />
 
@@ -87,7 +86,6 @@
         android:drawablePadding="@dimen/spacing_6"
         android:fontFamily="@font/opensans_regular"
         android:textSize="@dimen/text_size_12"
-        style="@style/Text"
         android:text="@string/use_camera"
         android:layout_marginTop="@dimen/spacing_24"
         app:layout_constraintTop_toBottomOf="@id/tv_upload_instruction"

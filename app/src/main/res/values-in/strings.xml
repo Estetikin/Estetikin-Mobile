@@ -15,7 +15,7 @@
     <string name="et_password_error_message">Kata sandi harus lebih dari 6 karakter</string>
     <string name="forgot_password">Lupa Kata Sandi?</string>
     <string name="or_login_with">Atau Masuk Dengan</string>
-    <string name="login_with_google">Masuk menggunakan akun google</string>
+    <string name="login_with_google">Masuk dengan akun google</string>
     <string name="fullname">Nama Lengkap</string>
     <string name="or_signup_with">Atau Daftar Dengan</string>
     <string name="signup_with_google">Daftar menggunakan akun google</string>
@@ -69,5 +69,9 @@
     <!-- Item Language  -->
     <string name="english">English</string>
     <string name="bahasa_indonesia">Bahasa Indonesia</string>
+
+    <!-- Item UI Mode -->
+    <string name="light_mode">Terang</string>
+    <string name="dark_mode">Gelap</string>
 
 </resources>

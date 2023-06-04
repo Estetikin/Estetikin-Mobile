@@ -82,4 +82,8 @@
     <!-- Item Language  -->
     <string name="english">English</string>
     <string name="bahasa_indonesia">Bahasa Indonesia</string>
+
+    <!-- Item UI Mode -->
+    <string name="light_mode">Light</string>
+    <string name="dark_mode">Dark</string>
 </resources>

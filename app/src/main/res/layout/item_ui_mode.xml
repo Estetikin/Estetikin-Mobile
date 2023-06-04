@@ -3,25 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingVertical="@dimen/spacing_8"
+    android:paddingVertical="@dimen/spacing_12"
     android:paddingHorizontal="@dimen/spacing_16"
     android:orientation="vertical"
     android:background="@drawable/bg_bottom_sheet">
 
     <TextView
-        android:id="@+id/english"
+        android:id="@+id/light_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/english"/>
+        android:text="@string/light_mode"/>
 
     <TextView
-        android:id="@+id/bahasa_indonesia"
+        android:id="@+id/dark_mode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_8"
         android:layout_marginTop="@dimen/spacing_16"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/bahasa_indonesia"/>
+        android:text="@string/dark_mode"/>
 </LinearLayout>
