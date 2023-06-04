@@ -2,10 +2,13 @@ package com.codegeniuses.estetikin.ui.onBoarding
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
@@ -17,9 +20,21 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = OnBoardingItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         supportActionBar?.hide()
 
+        checkToken()
+        setupAction()
+    }
+
+    private fun checkToken() {
+        val pref = UserPreference(this)
+        val token = pref.getToken()
+        if (token != null) {
+            navigateToMainActivity()
+        }
+    }
+
+    private fun setupAction() {
         binding.viewPager2.adapter = OnBoardingAdapter()
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
@@ -66,6 +81,16 @@ class OnBoardingActivity : AppCompatActivity() {
     private fun navigateToLoginActivity() {
         // TODO update this if to loginactivity if the login logic already finish
         val intent = Intent(this@OnBoardingActivity, AuthActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+    }
+
+    private fun navigateToMainActivity() {
+        // TODO update this if to loginactivity if the login logic already finish
+        val intent = Intent(this@OnBoardingActivity, MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
 

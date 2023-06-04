@@ -50,7 +50,6 @@ class LoginFragment : Fragment(), LoadingHandler {
     private fun setupViewModel() {
         factory = ViewModelFactory.getInstance(requireContext())
     }
-
     private fun playAnimation() {
         val image =
             ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.ALPHA, 1f).setDuration(500)
@@ -150,6 +149,8 @@ class LoginFragment : Fragment(), LoadingHandler {
 
     private fun navigateToHomeFragment() {
         val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
 

@@ -116,6 +116,9 @@ dependencies {
     kaptTest 'com.google.dagger:hilt-android-compiler:2.46.1'
     testImplementation 'com.google.dagger:hilt-android-testing:2.41'
 
+    //datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.46.1'
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
 
@@ -123,6 +126,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+
 
     debugImplementation "androidx.fragment:fragment-testing:1.5.7"
 }

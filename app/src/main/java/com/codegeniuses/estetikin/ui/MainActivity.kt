@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.codegeniuses.estetikin.ui.home.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding.botNav.background = null
         binding.botNav.menu.getItem(2).isEnabled = false
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_home_nav) as NavHostFragment
@@ -42,9 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-        fun showBottomNavigationView() {
-            binding.bottom.visibility = View.VISIBLE
-        }
+    fun showBottomNavigationView() {
+        binding.bottom.visibility = View.VISIBLE
+    }
 
 }
 
