@@ -16,7 +16,7 @@ import com.codegeniuses.estetikin.databinding.FragmentSignUpBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.result.Result
-import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 
 class SignUpFragment : Fragment(), LoadingHandler {
 
@@ -49,50 +49,32 @@ class SignUpFragment : Fragment(), LoadingHandler {
     private fun playAnimation() {
         val image =
             ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.ALPHA, 1f).setDuration(500)
-        val name = ObjectAnimator.ofFloat(binding.etFullname, View.ALPHA, 1f).setDuration(500)
-        val email = ObjectAnimator.ofFloat(binding.etEmail, View.ALPHA, 1f).setDuration(500)
-        val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
-        val confirmPassword =
-            ObjectAnimator.ofFloat(binding.etConfirmPassword, View.ALPHA, 1f).setDuration(500)
-        val signUpButton =
-            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
-        val loginWith =
-            ObjectAnimator.ofFloat(binding.llSignupWith, View.ALPHA, 1f).setDuration(500)
-        val googleLogo =
-            ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
-        val btnRegister =
-            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
+        val tvSignUp = ObjectAnimator.ofFloat(binding.tvSignup, View.ALPHA, 1f).setDuration(500)
+        val tvSignUpMessage =
+            ObjectAnimator.ofFloat(binding.tvSignupMsg, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
                 image,
-                name,
-                email,
-                password,
-                confirmPassword,
-                signUpButton,
-                loginWith,
-                googleLogo,
-                btnRegister
+                tvSignUp,
+                tvSignUpMessage
             )
-            startDelay = 500
-        }.start()
-
-        binding.ivSignupIllustration.animate().apply {
-            duration = 1000
-            alpha(.5f)
-            rotationYBy(360f)
-            translationYBy(200f)
-        }.withEndAction {
-            binding.ivSignupIllustration.animate().apply {
-                duration = 1000
-                alpha(1f)
-                rotationXBy(360f)
-                translationYBy(-200f)
-            }
+            startDelay = 300
         }.start()
 
         ObjectAnimator.ofFloat(binding.ivSignupIllustration, View.TRANSLATION_X, -50f, 50f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        ObjectAnimator.ofFloat(binding.tvSignup, View.TRANSLATION_X, -50f, 50f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        ObjectAnimator.ofFloat(binding.tvSignupMsg, View.TRANSLATION_X, -50f, 50f).apply {
             duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
@@ -102,7 +84,7 @@ class SignUpFragment : Fragment(), LoadingHandler {
     private fun setupAction() {
         binding.btnSignUp.setOnClickListener {
             val name = binding.etFullname.text.toString()
-            val email = binding.etFullname.text.toString()
+            val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             val confirmPassword = binding.etConfirmPassword.text.toString()
             viewModel.register(name, email, password, confirmPassword)
@@ -128,7 +110,7 @@ class SignUpFragment : Fragment(), LoadingHandler {
                                     "Register Success!",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                val intent = Intent(requireContext(), MainActivity::class.java)
+                                val intent = Intent(requireContext(), AuthActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(intent)
@@ -136,9 +118,9 @@ class SignUpFragment : Fragment(), LoadingHandler {
                         }
                     }
                 }
-            binding.btnLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
-            }
+        }
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
     }
 

@@ -56,46 +56,14 @@ class LoginFragment : Fragment(), LoadingHandler {
         val title = ObjectAnimator.ofFloat(binding.tvLogin, View.ALPHA, 1f).setDuration(500)
         val loginMessage =
             ObjectAnimator.ofFloat(binding.tvLoginMsg, View.ALPHA, 1f).setDuration(500)
-        val username = ObjectAnimator.ofFloat(binding.etEmail, View.ALPHA, 1f).setDuration(500)
-        val password = ObjectAnimator.ofFloat(binding.etPassword, View.ALPHA, 1f).setDuration(500)
-        val forgotPassword =
-            ObjectAnimator.ofFloat(binding.tvForgotPassword, View.ALPHA, 1f).setDuration(500)
-        val loginButton =
-            ObjectAnimator.ofFloat(binding.btnLogin, View.ALPHA, 1f).setDuration(500)
-        val loginWith = ObjectAnimator.ofFloat(binding.llLoginWith, View.ALPHA, 1f).setDuration(500)
-        val googleLogo =
-            ObjectAnimator.ofFloat(binding.llGoogleLogo, View.ALPHA, 1f).setDuration(500)
-        val btnRegister =
-            ObjectAnimator.ofFloat(binding.btnSignUp, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
                 image,
                 title,
-                loginMessage,
-                username,
-                password,
-                forgotPassword,
-                loginButton,
-                loginWith,
-                googleLogo,
-                btnRegister
+                loginMessage
             )
-            startDelay = 500
-        }.start()
-
-        binding.ivLoginIllustration.animate().apply {
-            duration = 1000
-            alpha(.5f)
-            rotationYBy(360f)
-            translationYBy(200f)
-        }.withEndAction {
-            binding.ivLoginIllustration.animate().apply {
-                duration = 1000
-                alpha(1f)
-                rotationXBy(360f)
-                translationYBy(-200f)
-            }
+            startDelay = 300
         }.start()
 
         ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.TRANSLATION_X, -50f, 50f).apply {
