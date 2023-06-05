@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
         android:text="@string/english"/>
 
@@ -20,8 +21,9 @@
         android:id="@+id/bahasa_indonesia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_8"
         android:layout_marginTop="@dimen/spacing_16"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
         android:text="@string/bahasa_indonesia"/>
 </LinearLayout>

@@ -17,7 +17,9 @@ import java.util.*
 
 class SettingFragment : Fragment() {
 
+
     private lateinit var binding: FragmentSettingBinding
+    private lateinit var tvUiSelected: TextView  // Reference to tvUiSelected in the layout
     private val settingViewModel: SettingViewModel by viewModels()
 
     override fun onCreateView(
@@ -43,14 +45,17 @@ class SettingFragment : Fragment() {
         }
 
         val uiMode = binding.uiItem
+        tvUiSelected = binding.tvUiSelected  // Assign the reference to tvUiSelected
         uiMode.setOnClickListener {
             showUiBottomSheet()
         }
 
-
+        // Update the UI mode text initially
+        checkUiSelected()
 
         return binding.root
     }
+
 
     private fun showLanguageBottomSheet() {
         val dialog = Dialog(requireContext())
@@ -88,17 +93,15 @@ class SettingFragment : Fragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.item_ui_mode)
 
-        dialog.show()
-
         val light = dialog.findViewById<TextView>(R.id.light_mode)
         val dark = dialog.findViewById<TextView>(R.id.dark_mode)
-
 
         light.setOnClickListener {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             binding.ivUi.setImageResource(R.drawable.ic_light_mode)
             binding.ivLanguage.setImageResource(R.drawable.ic_language)
             binding.ivLogout.setImageResource(R.drawable.ic_logout)
+            tvUiSelected.setText(R.string.light_mode)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
             Toast.makeText(requireContext(), "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
@@ -108,6 +111,7 @@ class SettingFragment : Fragment() {
             binding.ivUi.setImageResource(R.drawable.ic_dark_mode)
             binding.ivLanguage.setImageResource(R.drawable.ic_language_light)
             binding.ivLogout.setImageResource(R.drawable.ic_logout_light)
+            tvUiSelected.setText(R.string.dark_mode)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
             Toast.makeText(requireContext(), "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
@@ -118,7 +122,46 @@ class SettingFragment : Fragment() {
             attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
             setGravity(Gravity.BOTTOM)
         }
+
+        dialog.show()
     }
+
+    private fun checkUiSelected() {
+        // Update the UI Mode Text based on the UI mode
+        val nightMode = AppCompatDelegate.getDefaultNightMode()
+        val uiModeTextResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.string.dark_mode
+        } else {
+            R.string.light_mode
+        }
+        tvUiSelected.setText(uiModeTextResId)
+
+        // Update the UI Mode icons based on the UI mode
+        val uiModeIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_dark_mode // Dark mode icon
+        } else {
+            R.drawable.ic_light_mode // Light mode icon
+        }
+        binding.ivUi.setImageResource(uiModeIconResId)
+
+        // Update the Language icons based on the UI mode
+        val languageIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_language_light // Dark mode icon
+        } else {
+            R.drawable.ic_language // Light mode icon
+        }
+        binding.ivLanguage.setImageResource(languageIconResId)
+
+        // Update the Logout icons based on the UI mode
+        val logoutIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_logout_light // Dark mode icon
+        } else {
+            R.drawable.ic_logout // Light mode icon
+        }
+        binding.ivLogout.setImageResource(logoutIconResId)
+    }
+
+
 
 
     private fun changeLanguage(languageCode: String) {
@@ -132,15 +175,17 @@ class SettingFragment : Fragment() {
         configuration.setLocale(locale)
         resources.updateConfiguration(configuration, resources.displayMetrics)
 
-        // Update the text of tv_title_language based on the selected language
+        // Update the text and background of btnLanguageSelected based on the selected language
         val languageTextResId = if (languageCode == "en") {
             R.string.english // English
         } else {
             R.string.bahasa_indonesia // Bahasa Indonesia
         }
-        binding.tvLanguageSelected.text = getString(languageTextResId)
+        binding.tvLanguageSelected.setText(languageTextResId)
+
 
         requireActivity().recreate()
     }
+
 }
 
