@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
- <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.modul.ModulFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.article.ArticleFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,44 +25,41 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_16"
-            android:text="@string/title_module"/>
+            android:text="@string/title_article"/>
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/iv_module_cover"
+        android:layout_width="400dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="@dimen/spacing_32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:src="@drawable/module_cover"
+        android:contentDescription="@string/module_cover" />
+
     <TextView
-        android:id="@+id/tv_module_title_placeholde"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_news_around_the_world"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:layout_marginStart="@dimen/spacing_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:fontFamily="@font/opensans_bold"
-        android:textSize="@dimen/text_size_16"
-        android:text="@string/module_title_placeholder"/>
-
-    <TextView
-        android:id="@+id/tv_module_description_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_12"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_module_title_placeholde"
-        android:textSize="@dimen/text_size_12"
-        android:text="@string/module_description_placeholder"/>
-
+        app:layout_constraintTop_toBottomOf="@id/iv_module_cover"
+        android:text="@string/article_around_the_world"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_module"
+        android:id="@+id/rv_article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible"
         android:layout_marginTop="@dimen/spacing_12"
-        app:layout_constraintTop_toBottomOf="@id/tv_module_description_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/tv_news_around_the_world"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         tools:itemCount="1"
-        tools:listitem="@layout/item_module" />
+        tools:listitem="@layout/item_article" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

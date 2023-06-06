@@ -26,4 +26,5 @@
     <color name="purple">#7C5EF1</color>
     <color name="gray">#BDBDBD</color>
     <color name="dark_gray">#212121</color>
+    <color name="white_mode">#EFEFEF</color>
 </resources>

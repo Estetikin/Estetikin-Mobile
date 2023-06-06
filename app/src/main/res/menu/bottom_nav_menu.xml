@@ -16,11 +16,16 @@
 
     <item
         android:id="@+id/modulFragment"
-        android:icon="@drawable/ic_module"
+        android:icon="@drawable/ic_books"
         android:title="@string/title_module" />
 
     <item
-        android:id="@+id/settingFragment"
-        android:icon="@drawable/ic_setting"
-        android:title="@string/title_setting" />
+        android:id="@+id/articleFragment"
+        android:icon="@drawable/ic_article"
+        android:title="@string/title_article" />
+
+<!--    <item-->
+<!--        android:id="@+id/settingFragment"-->
+<!--        android:icon="@drawable/ic_setting"-->
+<!--        android:title="@string/title_setting"/>-->
 </menu>

@@ -39,20 +39,6 @@
     <string name="from_gallery">Dari Galeri</string>
     <string name="use_camera">Gunakan Kamera</string>
 
-    <!-- Module Fragment -->
-    <string name="title_module">Modul</string>
-    <string name="module_cover">Cover Modul</string>
-    <string name="news_around_the_world">Berita dari seluruh dunia</string>
-
-    <!-- Module Item -->
-    <string name="news_cover">Cover Berita</string>
-    <string name="article_title">Judul Artikel</string>
-    <string name="article_category">Kategori Artikel</string>
-
-    <!-- Camera -->
-    <string name="title_camera">Kamera</string>
-
-
     <!-- Settings  -->
     <string name="title_setting">Pengaturan</string>
     <string name="language">Bahasa</string>
@@ -65,5 +51,27 @@
     <string name="light_theme">Terang</string>
     <string name="dark_theme">Gelap</string>
     <string name="logout">Keluar</string>
+
+    <!-- Camera -->
+    <string name="title_camera">Kamera</string>
+
+
+    <!-- Article Fragment -->
+    <string name="title_article">Artikel</string>
+    <string name="article_around_the_world">Artikel dari seluruh dunia</string>
+
+    <!-- Article Item -->
+    <string name="articles_title">Article`s Title</string>
+    <string name="article_cover">Cover Artikel</string>
+    <string name="article_category">Kategori Artikel</string>
+
+    <!-- Module Fragment -->
+    <string name="title_module">Modul</string>
+    <string name="module_cover">Cover Modul</string>
+    <string name="module_title_placeholder">Placeholder Judul Modul</string>
+    <string name="module_description_placeholder">Placeholder Deskripsi Modul</string>
+    <string name="number_placeholder">1</string>
+    <string name="module_step_image">Gambar Langkah-langkah Modul</string>
+    <string name="module_text_description_placeholder">Alternatively, buy your cameras individually. Once you know how many cameras you need, you\'ll need to think about what specific cameras you want. A home surveillance system can cost anywhere from a few hundred dollars to well over a thousand, so make sure you consider the type of cameras you need before buying — the features below should be clearly labeled on the box. While you can buy all of the parts separately, buying a full \"surveillance set\" is usually cheaper and easier to install. Wireless vs. Wired: Wireless cameras are easy to set-up without drilling or running cables through your house, but the quality can be sub-par the further they get away from the receiver. If you are covering a big area, go wired, but most houses find wireless an easier set-up process. Indoor or Outdoor: </string>
 
 </resources>

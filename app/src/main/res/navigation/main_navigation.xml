@@ -10,28 +10,30 @@
         android:name="com.codegeniuses.estetikin.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_signupFragment"
-            app:destination="@id/signUpFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.codegeniuses.estetikin.ui.album.AlbumFragment"
         android:label="fragment_album"
         tools:layout="@layout/fragment_album" />
+
     <fragment
         android:id="@+id/modulFragment"
         android:name="com.codegeniuses.estetikin.ui.modul.ModulFragment"
         android:label="fragment_modul"
         tools:layout="@layout/fragment_modul" />
+
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.codegeniuses.estetikin.ui.setting.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
 
-    <include app:graph="@navigation/auth_navigation" />
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.codegeniuses.estetikin.ui.article.ArticleFragment"
+        android:label="fragment_article"
+        tools:layout="@layout/fragment_article" />
+
 </navigation>

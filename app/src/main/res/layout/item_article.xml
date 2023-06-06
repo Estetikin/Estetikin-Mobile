@@ -13,7 +13,7 @@
         android:background="@drawable/rectangle_article_item">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/iv_news_cover"
+            android:id="@+id/iv_article_cover"
             android:layout_width="100dp"
             android:layout_height="68dp"
             app:cardCornerRadius="8dp"
@@ -28,8 +28,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/news_cover_placeholder"
-                android:contentDescription="@string/news_cover" />
+                android:src="@drawable/article_cover_placeholder"
+                android:contentDescription="@string/article_cover" />
         </androidx.cardview.widget.CardView>
 
 
@@ -45,9 +45,9 @@
             android:textSize="@dimen/text_size_12"
             android:lineSpacingExtra="@dimen/spacing_20"
             android:maxLines="2"
-            android:text="@string/article_title"
+            android:text="@string/articles_title"
             android:textColor="@color/dark_green"
-            app:layout_constraintStart_toEndOf="@id/iv_news_cover"
+            app:layout_constraintStart_toEndOf="@id/iv_article_cover"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tv_article_category"/>
 
@@ -63,7 +63,7 @@
             android:textColor="@color/dark_green"
             android:textSize="@dimen/text_size_8"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_news_cover"
+            app:layout_constraintStart_toEndOf="@id/iv_article_cover"
             app:layout_constraintTop_toBottomOf="@id/tv_article_title"
             android:layout_marginBottom="@dimen/spacing_16" />
     </androidx.constraintlayout.widget.ConstraintLayout>

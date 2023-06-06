@@ -2,23 +2,22 @@ package com.codegeniuses.estetikin.ui.onBoarding
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
-import com.codegeniuses.estetikin.databinding.OnBoardingItemBinding
+import com.codegeniuses.estetikin.databinding.ItemOnBoardingBinding
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 import com.codegeniuses.estetikin.ui.onBoarding.adapter.OnBoardingAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class OnBoardingActivity : AppCompatActivity() {
-    private lateinit var binding: OnBoardingItemBinding
+    private lateinit var binding: ItemOnBoardingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = OnBoardingItemBinding.inflate(layoutInflater)
+        binding = ItemOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
 

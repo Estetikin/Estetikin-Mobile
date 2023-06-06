@@ -48,16 +48,17 @@
     <string name="from_gallery">From Gallery</string>
     <string name="use_camera">Use Camera</string>
 
-    <!-- Module Fragment -->
-    <string name="title_module">Module</string>
-    <string name="module_cover">Module Cover</string>
-    <string name="news_around_the_world">News Around The World</string>
-    <string name="news_cover">News Cover</string>
-    <string name="article_title">Article Title</string>
-    <string name="article_category">Article Category</string>
-
     <!-- Album -->
     <string name="title_album" translatable="false">Album</string>
+
+    <!-- Article -->
+    <string name="title_article">Article</string>
+    <string name="article_around_the_world">Article Around The World</string>
+
+    <!-- Article Item -->
+    <string name="articles_title">Article`s Title</string>
+    <string name="article_cover">Article Cover</string>
+    <string name="article_category">Article Category</string>
 
     <!-- Camera -->
     <string name="title_camera">Camera</string>
@@ -75,5 +76,13 @@
     <string name="dark_theme">Dark</string>
     <string name="logout">Logout</string>
 
+    <!-- Module Fragment -->
+    <string name="title_module">Module</string>
+    <string name="module_cover">Module Cover</string>
+    <string name="module_title_placeholder">Module Title Placeholder</string>
+    <string name="module_description_placeholder">Module Description Placeholder</string>
+    <string name="number_placeholder">1</string>
+    <string name="module_step_image">Module Step Image</string>
+    <string name="module_text_description_placeholder">Alternatively, buy your cameras individually. Once you know how many cameras you need, you\'ll need to think about what specific cameras you want. A home surveillance system can cost anywhere from a few hundred dollars to well over a thousand, so make sure you consider the type of cameras you need before buying — the features below should be clearly labeled on the box. While you can buy all of the parts separately, buying a full \"surveillance set\" is usually cheaper and easier to install. Wireless vs. Wired: Wireless cameras are easy to set-up without drilling or running cables through your house, but the quality can be sub-par the further they get away from the receiver. If you are covering a big area, go wired, but most houses find wireless an easier set-up process. Indoor or Outdoor: </string>
 
 </resources>
