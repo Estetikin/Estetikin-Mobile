@@ -50,6 +50,7 @@ class LoginFragment : Fragment(), LoadingHandler {
     private fun setupViewModel() {
         factory = ViewModelFactory.getInstance(requireContext())
     }
+
     private fun playAnimation() {
         val image =
             ObjectAnimator.ofFloat(binding.ivLoginIllustration, View.ALPHA, 1f).setDuration(500)

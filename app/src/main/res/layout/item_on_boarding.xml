@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Add ViewPage2, TabLayout & 2 MaterialButton to your layout.-->
+<?xml version="1.0" encoding="utf-8"?><!--Add ViewPage2, TabLayout & 2 MaterialButton to your layout.-->
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +22,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:textColor="@color/dark_gray"
         android:fontFamily="@font/opensans_regular"
-        android:textSize="@dimen/text_size_12"/>
+        android:textSize="@dimen/text_size_12" />
 
     <!--ViewPager2-->
     <androidx.viewpager2.widget.ViewPager2

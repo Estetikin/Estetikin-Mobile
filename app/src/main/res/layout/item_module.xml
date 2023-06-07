@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/spacing_12"
             android:contentDescription="@string/module_step_image"
-            android:src="@drawable/module_step_placeholder"/>
+            android:src="@drawable/module_step_placeholder" />
 
         <TextView
             android:id="@+id/tv_module_text_description_placeholder"
@@ -59,6 +59,6 @@
             android:textAlignment="viewStart"
             android:justificationMode="inter_word"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/module_text_description_placeholder"/>
+            android:text="@string/module_text_description_placeholder" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

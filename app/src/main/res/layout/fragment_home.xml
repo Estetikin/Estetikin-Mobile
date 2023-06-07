@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,7 +41,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_16"
-            android:text="@string/title_home"/>
+            android:text="@string/title_home" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -89,6 +88,6 @@
         app:layout_constraintTop_toBottomOf="@id/tv_upload_instruction"
         app:layout_constraintStart_toEndOf="@id/tv_album"
         app:layout_constraintEnd_toEndOf="parent"
-        app:drawableTopCompat="@drawable/ic_camera_add"/>
+        app:drawableTopCompat="@drawable/ic_camera_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

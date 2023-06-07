@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.model.response.ArticleItem
 
-class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ListViewHolder>(){
+class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ListViewHolder>() {
     private var currentList: List<ArticleItem> = emptyList()
 
     private lateinit var onItemClickCallback: OnItemClickCallBack

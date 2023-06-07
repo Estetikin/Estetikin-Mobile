@@ -120,7 +120,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
         tools:alpha="1"
-        app:cornerRadius="100dp"/>
+        app:cornerRadius="100dp" />
 
     <LinearLayout
         android:id="@+id/ll_login_with"

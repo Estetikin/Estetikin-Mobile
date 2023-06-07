@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentSettingBinding
-import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 
 class SettingFragment : Fragment() {
@@ -31,8 +29,8 @@ class SettingFragment : Fragment() {
         setupAction()
     }
 
-    private fun setupAction(){
-        binding.logoutItem.setOnClickListener{
+    private fun setupAction() {
+        binding.logoutItem.setOnClickListener {
             logout()
             val intent = Intent(requireContext(), AuthActivity::class.java)
             intent.flags =

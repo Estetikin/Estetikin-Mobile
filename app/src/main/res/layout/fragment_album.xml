@@ -24,7 +24,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_16"
-            android:text="@string/title_album"/>
+            android:text="@string/title_album" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -36,6 +36,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

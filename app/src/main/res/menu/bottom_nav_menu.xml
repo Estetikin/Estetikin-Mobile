@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/placeHolder"
-        android:title="@string/placeHolder"/>
+        android:title="@string/placeHolder" />
 
     <item
         android:id="@+id/modulFragment"
@@ -24,8 +24,8 @@
         android:icon="@drawable/ic_article"
         android:title="@string/title_article" />
 
-<!--    <item-->
-<!--        android:id="@+id/settingFragment"-->
-<!--        android:icon="@drawable/ic_setting"-->
-<!--        android:title="@string/title_setting"/>-->
+    <!--    <item-->
+    <!--        android:id="@+id/settingFragment"-->
+    <!--        android:icon="@drawable/ic_setting"-->
+    <!--        android:title="@string/title_setting"/>-->
 </menu>

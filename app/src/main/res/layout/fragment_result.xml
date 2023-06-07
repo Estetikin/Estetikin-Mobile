@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +24,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_16"
-            android:text="@string/title_result"/>
+            android:text="@string/title_result" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -39,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="@font/opensans_bold"
         android:textSize="@dimen/text_size_16"
-        android:text="@string/your_picture"/>
+        android:text="@string/your_picture" />
 
     <ImageView
         android:id="@+id/iv_picture"
@@ -68,8 +67,8 @@
             android:textColor="?attr/colorOnSecondary"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_18"
-            android:text="@string/what_can_you_improve"/>
+            android:text="@string/what_can_you_improve" />
 
-        <include layout="@layout/item_suggestion"/>
+        <include layout="@layout/item_suggestion" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

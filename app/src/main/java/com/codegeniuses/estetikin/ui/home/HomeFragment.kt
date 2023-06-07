@@ -18,8 +18,8 @@ import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.helper.uriToFile
-import java.io.File
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
+import java.io.File
 
 class HomeFragment : Fragment(), LoadingHandler {
 
@@ -33,6 +33,7 @@ class HomeFragment : Fragment(), LoadingHandler {
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,10 +48,10 @@ class HomeFragment : Fragment(), LoadingHandler {
         setupAction()
 
         binding.tvCamera.setOnClickListener {
-            if (allPermissionsGranted()){
+            if (allPermissionsGranted()) {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
                 startActivity(intent)
-            }else{
+            } else {
                 setupPermission()
             }
         }

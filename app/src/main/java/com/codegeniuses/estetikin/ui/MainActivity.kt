@@ -79,10 +79,10 @@ class MainActivity : AppCompatActivity() {
         val botNav: BottomNavigationView = binding.botNav
         botNav.setupWithNavController(navController)
 
-        binding.camera.setOnClickListener{
-            if (allPermissionsGranted()){
+        binding.camera.setOnClickListener {
+            if (allPermissionsGranted()) {
                 startCameraX()
-            }else{
+            } else {
                 setupPermission()
             }
         }
@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
+
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {

@@ -62,10 +62,10 @@ class ArticleFragment : Fragment(), LoadingHandler {
 
     private fun setupAction() {
         binding.ivArticleCover.setOnClickListener {
-            if (allPermissionsGranted()){
+            if (allPermissionsGranted()) {
                 val intent = Intent(requireContext(), CameraActivity::class.java)
                 startActivity(intent)
-            }else{
+            } else {
                 setupPermission()
             }
 
@@ -76,6 +76,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
             }
         })
     }
+
     private fun showSelectedArticle(data: ArticleItem) {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(data.url)
@@ -103,7 +104,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
                         adapter.setArticleData(result.data.data)
                         Toast.makeText(
                             requireContext(),
-                            "article fetched successfully!",
+                            "Article fetched successfully!",
                             Toast.LENGTH_SHORT
                         )
                             .show()

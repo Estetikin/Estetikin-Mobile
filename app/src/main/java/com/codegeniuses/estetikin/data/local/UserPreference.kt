@@ -5,7 +5,7 @@ import android.content.Context
 class UserPreference(context: Context) {
     private val preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
-    fun getToken(): String?{
+    fun getToken(): String? {
         return preferences.getString(TOKEN, null)
     }
 

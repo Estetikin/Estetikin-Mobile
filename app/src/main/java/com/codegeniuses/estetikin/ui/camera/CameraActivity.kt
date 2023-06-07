@@ -56,8 +56,9 @@ class CameraActivity : AppCompatActivity() {
         binding.galleryIcon.setOnClickListener { startGallery() }
         binding.captureImage.setOnClickListener { takePhoto() }
         binding.switchCamera.setOnClickListener {
-            cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
-            else CameraSelector.DEFAULT_BACK_CAMERA
+            cameraSelector =
+                if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA
+                else CameraSelector.DEFAULT_BACK_CAMERA
             startCamera()
         }
 
@@ -170,7 +171,8 @@ class CameraActivity : AppCompatActivity() {
         cursor?.use {
             if (it.moveToFirst()) {
                 val columnIndexId = it.getColumnIndex(MediaStore.Images.ImageColumns._ID)
-                val columnIndexDateTaken = it.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN)
+                val columnIndexDateTaken =
+                    it.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN)
                 val imageUri = ContentUris.withAppendedId(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     it.getLong(columnIndexId)
@@ -185,7 +187,6 @@ class CameraActivity : AppCompatActivity() {
             }
         }
     }
-
 
 
     private fun registerContentObserver() {
@@ -222,14 +223,15 @@ class CameraActivity : AppCompatActivity() {
         launcherIntentGallery.launch(intent)
     }
 
-    private val launcherIntentGallery = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg = result.data?.data as Uri
-            selectedImg.let { uri ->
-                val myFile = uriToFile(uri, this@CameraActivity)
+    private val launcherIntentGallery =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val selectedImg = result.data?.data as Uri
+                selectedImg.let { uri ->
+                    val myFile = uriToFile(uri, this@CameraActivity)
+                }
             }
         }
-    }
 
     // Overlaying the Android UI setting
     @Suppress("DEPRECATION")

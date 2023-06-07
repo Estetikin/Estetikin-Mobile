@@ -4,11 +4,11 @@
 
     <corners
         android:topLeftRadius="@dimen/spacing_32"
-        android:topRightRadius="@dimen/spacing_32"/>
+        android:topRightRadius="@dimen/spacing_32" />
 
     <padding
         android:left="@dimen/spacing_24"
         android:right="@dimen/spacing_24"
         android:top="@dimen/spacing_24"
-        android:bottom="@dimen/spacing_24"/>
+        android:bottom="@dimen/spacing_24" />
 </shape>

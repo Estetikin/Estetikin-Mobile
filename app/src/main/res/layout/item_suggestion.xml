@@ -13,6 +13,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="@dimen/text_size_16"
         android:fontFamily="@font/opensans_regular"
-        android:text="@string/improve_suggestion_placeholder"/>
+        android:text="@string/improve_suggestion_placeholder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

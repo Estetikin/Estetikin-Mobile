@@ -22,12 +22,14 @@ class OnBoardingAdapter : RecyclerView.Adapter<OnBoardingPager>() {
             with(holder) {
                 if (position == 0) {
                     bindingDesign.tvTitle.text = context.getString(R.string.title_onboarding_1)
-                    bindingDesign.tvDescription.text = context.getString(R.string.description_onboarding_1)
+                    bindingDesign.tvDescription.text =
+                        context.getString(R.string.description_onboarding_1)
                     bindingDesign.ivIllustration.setImageResource(R.drawable.illustration_boarding_1)
                 }
                 if (position == 1) {
                     bindingDesign.tvTitle.text = context.getString(R.string.title_onboarding_2)
-                    bindingDesign.tvDescription.text = context.getString(R.string.description_onboarding_2)
+                    bindingDesign.tvDescription.text =
+                        context.getString(R.string.description_onboarding_2)
                     bindingDesign.ivIllustration.setImageResource(R.drawable.illustration_boarding_2)
                 }
             }

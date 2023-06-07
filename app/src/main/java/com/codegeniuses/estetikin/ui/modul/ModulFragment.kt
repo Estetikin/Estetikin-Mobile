@@ -45,12 +45,20 @@ class ModulFragment : Fragment(), LoadingHandler {
                     }
                     is Result.Error -> {
                         loadingHandler(false)
-                        Toast.makeText(requireContext(), "Failed to fetch module data", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to fetch module data",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
                     is Result.Success -> {
                         loadingHandler(false)
-                        Toast.makeText(requireContext(), "Module fetched successfully!", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            requireContext(),
+                            "Module fetched successfully!",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
                 }
