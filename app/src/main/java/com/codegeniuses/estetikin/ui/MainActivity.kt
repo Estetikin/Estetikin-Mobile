@@ -38,9 +38,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCameraX()
-            } else {
+            if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
                     "Tidak mendapatkan permission.",
