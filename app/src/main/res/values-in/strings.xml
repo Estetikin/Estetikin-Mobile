@@ -20,6 +20,8 @@
     <string name="or_signup_with">Atau Daftar Dengan</string>
     <string name="signup_with_google">Daftar menggunakan akun google</string>
 
+    <string name="back_button">Tombol Kembali</string>
+
 
     <!-- OnBoarding -->
     <string name="next_title">Selanjutnya</string>
@@ -61,6 +63,8 @@
     <string name="article_cover">Cover Artikel</string>
     <string name="article_category">Kategori Artikel</string>
     <string name="try_out_our_camera">Coba Kamera Kami!</string>
+    <string name="article_for_you">Artikel Untukmu</string>
+
 
     <!-- Module Fragment -->
     <string name="title_module">Modul</string>
@@ -85,7 +89,10 @@
     <string name="result_picture_placeholder">Placeholder Hasil Gambar</string>
     <string name="what_can_you_improve">Apa yang Bisa Ditingkatkan?</string>
     <string name="improve_suggestion_placeholder">Placeholder Saran yang Bisa Ditingkatkan</string>
+
+    <!-- Album Detail -->
     <string name="album_photo">Album Foto</string>
-    <string name="article_for_you">Artikel Untukmu</string>
+    <string name="date_time">Date Time</string>
+    <string name="album_recomendation">Rekomendasi Album</string>
 
 </resources>

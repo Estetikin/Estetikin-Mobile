@@ -11,8 +11,11 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Login</string>
     <string name="google_logo">Google Logo</string>
-    <!-- Login -->
 
+
+    <string name="back_button">Back Button</string>
+
+    <!-- Login -->
     <string name="login_title">Hello, let\'s sign in</string>
     <string name="login_message">We help you improve your photography skills!</string>
     <string name="email">Email</string>
@@ -60,6 +63,7 @@
     <string name="article_cover">Article Cover</string>
     <string name="article_category">Article Category</string>
     <string name="article_author">Author: </string>
+    <string name="article_for_you">Article For You</string>
 
     <!-- Settings Fragment-->
     <string name="title_setting">Settings</string>
@@ -98,6 +102,9 @@
     <string name="result_picture_placeholder">Result Picture Placeholder</string>
     <string name="what_can_you_improve">What Can You Improve?</string>
     <string name="improve_suggestion_placeholder">Improve Suggestion Placeholder</string>
+
+    <!-- Album Detail -->
     <string name="album_photo">Album Photo</string>
-    <string name="article_for_you">Article For You</string>
+    <string name="date_time">Date Time</string>
+    <string name="album_recomendation">Album Recomendation</string>
 </resources>
