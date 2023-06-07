@@ -29,7 +29,7 @@
                 android:textSize="@dimen/text_size_16" />
 
             <TextView
-                android:id="@+id/tv_module_title_placeholder"
+                android:id="@+id/tv_step_title_placeholder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_12"
