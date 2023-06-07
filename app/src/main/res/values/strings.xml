@@ -98,4 +98,6 @@
     <string name="result_picture_placeholder">Result Picture Placeholder</string>
     <string name="what_can_you_improve">What Can You Improve?</string>
     <string name="improve_suggestion_placeholder">Improve Suggestion Placeholder</string>
+    <string name="album_photo">Album Photo</string>
+    <string name="article_for_you">Article For You</string>
 </resources>

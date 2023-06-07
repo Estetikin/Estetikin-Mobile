@@ -85,5 +85,7 @@
     <string name="result_picture_placeholder">Placeholder Hasil Gambar</string>
     <string name="what_can_you_improve">Apa yang Bisa Ditingkatkan?</string>
     <string name="improve_suggestion_placeholder">Placeholder Saran yang Bisa Ditingkatkan</string>
+    <string name="album_photo">Album Foto</string>
+    <string name="article_for_you">Artikel Untukmu</string>
 
 </resources>
