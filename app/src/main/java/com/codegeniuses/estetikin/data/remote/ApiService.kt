@@ -2,9 +2,8 @@ package com.codegeniuses.estetikin.data.remote
 
 import com.codegeniuses.estetikin.model.response.GeneralResponse
 import com.codegeniuses.estetikin.model.response.LoginResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import com.codegeniuses.estetikin.model.response.ModuleResponse
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
@@ -21,6 +20,11 @@ interface ApiService {
     suspend fun login(
         @Field("email") username: String,
         @Field("password") password: String
-    ):LoginResponse
+    ): LoginResponse
 
+
+    @GET("module/module")
+    suspend fun getAllModule(
+        @Header("Authorization") token: String
+    ): ModuleResponse
 }
