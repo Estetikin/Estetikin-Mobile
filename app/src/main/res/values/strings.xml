@@ -59,6 +59,7 @@
     <string name="articles_title">Article`s Title</string>
     <string name="article_cover">Article Cover</string>
     <string name="article_category">Article Category</string>
+    <string name="article_author">Author: </string>
 
     <!-- Settings Fragment-->
     <string name="title_setting">Settings</string>
