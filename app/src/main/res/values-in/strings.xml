@@ -78,6 +78,13 @@
     <string name="switch_camera">Ganti Kamera</string>
     <string name="camera_background_icon">Ikon Kamera Background</string>
     <string name="title_gallery">Gallery</string>
-    <string name="step_title_placeholder">Step Title Placeholder</string>
+    <string name="step_title_placeholder">Placeholder Judul Langkah-langkah</string>
+
+    <!-- Result -->
+    <string name="title_result">Hasil</string>
+    <string name="your_picture">Gambarmu</string>
+    <string name="result_picture_placeholder">Placeholder Hasil Gambar</string>
+    <string name="what_can_you_improve">Apa yang Bisa Ditingkatkan?</string>
+    <string name="improve_suggestion_placeholder">Placeholder Saran yang Bisa Ditingkatkan</string>
 
 </resources>

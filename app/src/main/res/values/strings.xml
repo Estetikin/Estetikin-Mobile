@@ -90,4 +90,11 @@
     <string name="try_out_our_camera">Try Out Our Camera!</string>
     <string name="title_gallery">Gallery</string>
     <string name="step_title_placeholder">Step Title Placeholder</string>
+
+    <!-- Result -->
+    <string name="title_result">Result</string>
+    <string name="your_picture">Your Picture</string>
+    <string name="result_picture_placeholder">Result Picture Placeholder</string>
+    <string name="what_can_you_improve">What Can You Improve?</string>
+    <string name="improve_suggestion_placeholder">Improve Suggestion Placeholder</string>
 </resources>
