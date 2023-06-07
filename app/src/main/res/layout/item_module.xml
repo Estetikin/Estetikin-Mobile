@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_12"
                 android:fontFamily="@font/opensans_bold"
-                android:text="@string/module_title_placeholder"
+                android:text="@string/step_title_placeholder"
                 android:textSize="@dimen/text_size_16" />
         </LinearLayout>
 

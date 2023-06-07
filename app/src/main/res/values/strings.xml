@@ -89,4 +89,5 @@
     <string name="camera_background_icon">Camera Background Icon</string>
     <string name="try_out_our_camera">Try Out Our Camera!</string>
     <string name="title_gallery">Gallery</string>
+    <string name="step_title_placeholder">Step Title Placeholder</string>
 </resources>

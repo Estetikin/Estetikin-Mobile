@@ -78,5 +78,6 @@
     <string name="switch_camera">Ganti Kamera</string>
     <string name="camera_background_icon">Ikon Kamera Background</string>
     <string name="title_gallery">Gallery</string>
+    <string name="step_title_placeholder">Step Title Placeholder</string>
 
 </resources>
