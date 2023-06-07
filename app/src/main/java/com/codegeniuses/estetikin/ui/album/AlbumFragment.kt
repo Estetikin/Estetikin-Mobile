@@ -10,14 +10,16 @@ import com.codegeniuses.estetikin.databinding.FragmentAlbumBinding
 
 class AlbumFragment : Fragment() {
 
-    private lateinit var binding: FragmentAlbumBinding
+    private var _binding: FragmentAlbumBinding? = null
+    private val binding get() = _binding!!
+
     private val albumViewModel: AlbumViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAlbumBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentAlbumBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 }

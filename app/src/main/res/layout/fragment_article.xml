@@ -29,16 +29,33 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:id="@+id/iv_module_cover"
+    <FrameLayout
+        android:id="@+id/iv_article_cover"
         android:layout_width="400dp"
         android:layout_height="148dp"
         android:layout_marginTop="@dimen/spacing_32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:src="@drawable/module_cover"
-        android:contentDescription="@string/module_cover" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="148dp"
+            android:src="@drawable/article_cover"
+            android:contentDescription="@string/article_cover" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/spacing_24"
+            android:layout_marginStart="@dimen/spacing_32"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white_mode"
+            android:textSize="@dimen/text_size_16"
+            android:text="@string/try_out_our_camera"/>
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/tv_news_around_the_world"
@@ -47,7 +64,7 @@
         android:layout_marginTop="@dimen/spacing_16"
         android:layout_marginStart="@dimen/spacing_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_module_cover"
+        app:layout_constraintTop_toBottomOf="@id/iv_article_cover"
         android:text="@string/article_around_the_world"/>
 
     <androidx.recyclerview.widget.RecyclerView

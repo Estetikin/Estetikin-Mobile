@@ -20,6 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.camera.CameraActivity"
+            android:exported="false"
+            android:label="@string/title_camera"
+            android:theme="@style/Theme.Estetikin.NoActionBar" />
+        <activity
             android:name=".ui.authentication.AuthActivity"
             android:exported="false"
             android:theme="@style/Theme.Estetikin.NoActionBar" />
