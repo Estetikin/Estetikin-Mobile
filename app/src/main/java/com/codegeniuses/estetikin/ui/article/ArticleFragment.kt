@@ -28,12 +28,8 @@ class ArticleFragment : Fragment(), LoadingHandler {
     private lateinit var factory: ViewModelFactory
     private val articleViewModel: ArticleViewModel by viewModels { factory }
     private val adapter = ArticleAdapter()
-
-    companion object {
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
-
+    private val adapterPreference = ArticlePreferenceAdapter()
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +45,10 @@ class ArticleFragment : Fragment(), LoadingHandler {
         val layoutManager = LinearLayoutManager(requireContext())
         binding.rvArticle.layoutManager = layoutManager
         binding.rvArticle.adapter = adapter
+
+        val layoutManagerPreference = LinearLayoutManager(requireContext())
+        binding.rvArticleCategory.layoutManager = layoutManagerPreference
+        binding.rvArticleCategory.adapter = adapterPreference
 
         setupViewModel()
         setupAction()
@@ -71,6 +71,13 @@ class ArticleFragment : Fragment(), LoadingHandler {
 
         }
         adapter.setOnItemClickCallback(object : ArticleAdapter.OnItemClickCallBack {
+            override fun onItemClicked(data: ArticleItem) {
+                showSelectedArticle(data)
+            }
+        })
+
+        adapterPreference.setOnItemPreferenceClickCallback(object :
+            ArticlePreferenceAdapter.OnItemClickCallBack {
             override fun onItemClicked(data: ArticleItem) {
                 showSelectedArticle(data)
             }
@@ -102,16 +109,34 @@ class ArticleFragment : Fragment(), LoadingHandler {
                     is Result.Success -> {
                         loadingHandler(false)
                         adapter.setArticleData(result.data.data)
-                        Toast.makeText(
-                            requireContext(),
-                            "Article fetched successfully!",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
                     }
                 }
             }
         }
+
+        articleViewModel.getArticles("android").observe(requireActivity()) {
+            it?.let { result ->
+                when (result) {
+                    is Result.Loading -> {
+                        loadingHandler(true)
+                    }
+                    is Result.Error -> {
+                        loadingHandler(false)
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to fetch article",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                    is Result.Success -> {
+                        loadingHandler(false)
+                        adapterPreference.setArticlePreferenceData(result.data.data)
+                    }
+                }
+            }
+        }
+
     }
 
     override fun loadingHandler(isLoading: Boolean) {
@@ -134,5 +159,10 @@ class ArticleFragment : Fragment(), LoadingHandler {
                 REQUEST_CODE_PERMISSIONS
             )
         }
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 }
