@@ -19,10 +19,12 @@ import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.helper.uriToFile
 import java.io.File
+import com.codegeniuses.estetikin.ui.camera.CameraActivity
 
 class HomeFragment : Fragment(), LoadingHandler {
 
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
     private val homeViewModel: HomeViewModel by viewModels()
 
     private var getFile: File? = null
@@ -31,7 +33,7 @@ class HomeFragment : Fragment(), LoadingHandler {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(LayoutInflater.from(requireActivity()))
+        _binding = FragmentHomeBinding.inflate(LayoutInflater.from(requireActivity()))
         return binding.root
     }
 
@@ -39,6 +41,11 @@ class HomeFragment : Fragment(), LoadingHandler {
         super.onViewCreated(view, savedInstanceState)
         setupPermission()
         setupAction()
+
+        binding.tvCamera.setOnClickListener {
+            val intent = Intent(requireContext(), CameraActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
