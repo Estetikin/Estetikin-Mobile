@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.data.remote.ApiService
+import com.codegeniuses.estetikin.model.response.ArticleResponse
 import com.codegeniuses.estetikin.model.response.GeneralResponse
 import com.codegeniuses.estetikin.model.response.LoginResponse
 import com.codegeniuses.estetikin.model.response.ModuleResponse
@@ -61,6 +62,20 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
+    fun getArticles(type: String): LiveData<Result<ArticleResponse>> = liveData {
+        emit(Loading)
+        val token = pref.getToken()
+        try {
+            val response = apiService.getArticles("Bearer $token", type)
+            if (response.error) {
+                emit(Error(response.message))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+    }
 
     companion object {
         @Volatile

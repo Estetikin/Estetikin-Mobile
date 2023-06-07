@@ -29,7 +29,7 @@ class ModulFragment : Fragment(), LoadingHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
-        setupModule()
+//        setupModule()
     }
 
     private fun setupViewModel() {

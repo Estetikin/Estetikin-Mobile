@@ -40,6 +40,7 @@
     <string name="use_camera">Gunakan Kamera</string>
 
     <!-- Settings  -->
+    <string name="article_author">Author</string>
     <string name="title_setting">Pengaturan</string>
     <string name="language">Bahasa</string>
     <string name="language_selected">Bahasa yang dipilih</string>

@@ -1,5 +1,6 @@
 package com.codegeniuses.estetikin.data.remote
 
+import com.codegeniuses.estetikin.model.response.ArticleResponse
 import com.codegeniuses.estetikin.model.response.GeneralResponse
 import com.codegeniuses.estetikin.model.response.LoginResponse
 import com.codegeniuses.estetikin.model.response.ModuleResponse
@@ -22,9 +23,16 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
-
     @GET("module/module")
     suspend fun getAllModule(
         @Header("Authorization") token: String
     ): ModuleResponse
+
+    @GET("articles/{type}")
+    suspend fun getArticles(
+        @Header("Authorization") token: String,
+        @Path("type") type: String
+    ): ArticleResponse
+
+
 }

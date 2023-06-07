@@ -32,7 +32,6 @@
                 android:contentDescription="@string/article_cover" />
         </androidx.cardview.widget.CardView>
 
-
         <TextView
             android:id="@+id/tv_article_title"
             android:layout_width="wrap_content"
@@ -61,7 +60,7 @@
             android:fontFamily="@font/opensans_regular"
             android:text="@string/article_category"
             android:textColor="@color/dark_green"
-            android:textSize="@dimen/text_size_8"
+            android:textSize="@dimen/text_size_10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_article_cover"
             app:layout_constraintTop_toBottomOf="@id/tv_article_title"
