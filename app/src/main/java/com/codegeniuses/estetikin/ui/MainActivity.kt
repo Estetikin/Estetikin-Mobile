@@ -38,20 +38,30 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (!allPermissionsGranted()) {
+            if (allPermissionsGranted()) {
+                startCameraX()
+            } else {
                 Toast.makeText(
                     this,
                     "Tidak mendapatkan permission.",
                     Toast.LENGTH_SHORT
                 ).show()
-                finish()
             }
         }
+    }
+
+    private fun setupPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            REQUIRED_PERMISSIONS,
+            REQUEST_CODE_PERMISSIONS
+        )
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -69,23 +79,27 @@ class MainActivity : AppCompatActivity() {
         val botNav: BottomNavigationView = binding.botNav
         botNav.setupWithNavController(navController)
 
-        if (!allPermissionsGranted()) {
+        binding.camera.setOnClickListener{
+            if (allPermissionsGranted()){
+                startCameraX()
+            }else{
+                setupPermission()
+            }
+        }
+    }
+
+
+    private fun startCameraX() {
+        if (allPermissionsGranted()) {
+            val intent = Intent(this, CameraActivity::class.java)
+            launcherIntentCameraX.launch(intent)
+        } else {
             ActivityCompat.requestPermissions(
                 this,
                 REQUIRED_PERMISSIONS,
                 REQUEST_CODE_PERMISSIONS
             )
         }
-
-        binding.camera.setOnClickListener{
-            startCameraX()
-        }
-
-    }
-
-    private fun startCameraX() {
-        val intent = Intent(this, CameraActivity::class.java)
-        launcherIntentCameraX.launch(intent)
     }
     private val launcherIntentCameraX = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()

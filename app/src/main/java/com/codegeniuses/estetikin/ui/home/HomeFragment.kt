@@ -29,6 +29,10 @@ class HomeFragment : Fragment(), LoadingHandler {
 
     private var getFile: File? = null
 
+    companion object {
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,8 +47,12 @@ class HomeFragment : Fragment(), LoadingHandler {
         setupAction()
 
         binding.tvCamera.setOnClickListener {
-            val intent = Intent(requireContext(), CameraActivity::class.java)
-            startActivity(intent)
+            if (allPermissionsGranted()){
+                val intent = Intent(requireContext(), CameraActivity::class.java)
+                startActivity(intent)
+            }else{
+                setupPermission()
+            }
         }
     }
 
@@ -62,6 +70,8 @@ class HomeFragment : Fragment(), LoadingHandler {
         }
     }
 
+    @Suppress("DEPRECATION")
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -112,11 +122,6 @@ class HomeFragment : Fragment(), LoadingHandler {
                 //gambarnya mau diapain tulis disini
             }
         }
-    }
-    
-    companion object {
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 
 }
