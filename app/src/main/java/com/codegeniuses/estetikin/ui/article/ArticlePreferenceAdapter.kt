@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.codegeniuses.estetikin.R
-import com.codegeniuses.estetikin.model.response.ArticleItem
+import com.codegeniuses.estetikin.model.response.article.ArticleItem
 
 class ArticlePreferenceAdapter : RecyclerView.Adapter<ArticlePreferenceAdapter.ListViewHolder>() {
     private var currentList: List<ArticleItem> = emptyList()

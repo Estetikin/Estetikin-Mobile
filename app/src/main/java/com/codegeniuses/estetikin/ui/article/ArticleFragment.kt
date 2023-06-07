@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.codegeniuses.estetikin.databinding.FragmentArticleBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.model.response.ArticleItem
+import com.codegeniuses.estetikin.model.response.article.ArticleItem
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
 

@@ -16,7 +16,7 @@ import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentLoginBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.model.response.LoginResponse
+import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
 

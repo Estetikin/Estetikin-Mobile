@@ -1,4 +1,4 @@
-package com.codegeniuses.estetikin.model.response
+package com.codegeniuses.estetikin.model.response.module
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

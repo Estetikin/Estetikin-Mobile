@@ -1,9 +1,10 @@
 package com.codegeniuses.estetikin.data.remote
 
-import com.codegeniuses.estetikin.model.response.ArticleResponse
 import com.codegeniuses.estetikin.model.response.GeneralResponse
-import com.codegeniuses.estetikin.model.response.LoginResponse
-import com.codegeniuses.estetikin.model.response.ModuleResponse
+import com.codegeniuses.estetikin.model.response.album.AlbumResponse
+import com.codegeniuses.estetikin.model.response.article.ArticleResponse
+import com.codegeniuses.estetikin.model.response.login.LoginResponse
+import com.codegeniuses.estetikin.model.response.module.ModuleResponse
 import retrofit2.http.*
 
 interface ApiService {
@@ -34,5 +35,8 @@ interface ApiService {
         @Path("type") type: String
     ): ArticleResponse
 
-
+    @GET("album/album")
+    suspend fun getHistoryAlbum(
+        @Header("Authorization") token: String
+    ): AlbumResponse
 }

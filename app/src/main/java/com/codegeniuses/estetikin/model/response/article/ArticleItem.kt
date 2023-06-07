@@ -1,12 +1,11 @@
-package com.codegeniuses.estetikin.model.response
+package com.codegeniuses.estetikin.model.response.article
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ContentItem(
-    val description: String? = null,
-    val id: Int? = null,
+data class ArticleItem(
+    val author: String? = null,
     val title: String? = null,
     val url: String? = null
 ) : Parcelable

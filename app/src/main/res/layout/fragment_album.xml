@@ -22,11 +22,29 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_24"
             android:fontFamily="@font/opensans_bold"
+            android:text="@string/title_album"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_16"
-            android:text="@string/title_album" />
+            android:textSize="@dimen/text_size_16" />
 
     </androidx.appcompat.widget.Toolbar>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_animation"
+        android:layout_width="178dp"
+        android:layout_height="166dp"
+        android:elevation="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_album"
@@ -34,8 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_12"
         android:visibility="visible"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
