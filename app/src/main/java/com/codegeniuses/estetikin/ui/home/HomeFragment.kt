@@ -17,8 +17,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.helper.uriToFile
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
+import com.codegeniuses.estetikin.utils.uriToFile
 import java.io.File
 
 class HomeFragment : Fragment(), LoadingHandler {

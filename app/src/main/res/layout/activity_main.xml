@@ -23,7 +23,8 @@
         android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_100"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
