@@ -101,5 +101,6 @@
     <string name="icon_item_module">Ikon Item Modul</string>
     <string name="belajar_dasar_setting_kamera">Belajar Dasar Setting Kamera</string>
     <string name="title_module_detail">Module Detail</string>
+    <string name="send_button">Send Button</string>
 
 </resources>
