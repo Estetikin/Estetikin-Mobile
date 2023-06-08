@@ -13,6 +13,7 @@
 
     <color name="colorPrimary">@color/green_700</color>
     <color name="transparent_green">#dfe5e9</color>
+    <color name="colorPrimaryVariant">@color/green_500</color>
     <color name="green_500">#a8c2cc</color>
     <color name="green_700">#6A9AA5</color>
     <color name="dark_green">#346470</color>
