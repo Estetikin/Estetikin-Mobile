@@ -94,6 +94,7 @@
         android:layout_marginTop="356dp"
         android:layout_marginStart="318dp"
         android:fontFamily="@font/opensans_semi_bold"
+        android:layout_marginEnd="@dimen/spacing_40"
         android:textSize="@dimen/text_size_10"
         android:text="@string/video"
         android:background="@drawable/sentiment_button_background"/>

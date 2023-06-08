@@ -19,6 +19,7 @@ import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.LoginResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.sentiment.SentimentActivity
 
 class LoginFragment : Fragment(), LoadingHandler {
     private var _binding: FragmentLoginBinding? = null
@@ -104,7 +105,7 @@ class LoginFragment : Fragment(), LoadingHandler {
                             Toast.makeText(requireContext(), "Login Success!", Toast.LENGTH_SHORT)
                                 .show()
                             saveTokenToPreference(result.data)
-                            navigateToHomeFragment()
+                            navigateToSentimentActivity()
                         }
                     }
                 }
@@ -116,8 +117,10 @@ class LoginFragment : Fragment(), LoadingHandler {
         }
     }
 
-    private fun navigateToHomeFragment() {
-        val intent = Intent(requireContext(), MainActivity::class.java)
+
+
+    private fun navigateToSentimentActivity() {
+        val intent = Intent(requireContext(), SentimentActivity::class.java)
         intent.flags =
             Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)

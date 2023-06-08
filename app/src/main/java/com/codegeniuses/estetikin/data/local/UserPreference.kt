@@ -5,6 +5,17 @@ import android.content.Context
 class UserPreference(context: Context) {
     private val preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
+
+    fun saveUserPreference(pref: String) {
+        val edit = preferences.edit()
+        edit.putString(USER_PREFERENCE, pref)
+        edit.apply()
+    }
+
+    fun getUserPreference(): String? {
+        return preferences.getString(USER_PREFERENCE, null)
+    }
+
     fun getToken(): String? {
         return preferences.getString(TOKEN, null)
     }
@@ -21,5 +32,6 @@ class UserPreference(context: Context) {
 
     companion object {
         private const val TOKEN = "token"
+        private const val USER_PREFERENCE = "user_preference"
     }
 }
