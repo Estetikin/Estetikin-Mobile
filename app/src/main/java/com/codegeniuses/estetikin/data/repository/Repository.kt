@@ -4,10 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.data.remote.ApiService
-import com.codegeniuses.estetikin.model.response.ArticleResponse
-import com.codegeniuses.estetikin.model.response.GeneralResponse
-import com.codegeniuses.estetikin.model.response.LoginResponse
-import com.codegeniuses.estetikin.model.response.ModuleResponse
+import com.codegeniuses.estetikin.model.response.*
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.model.result.Result.*
 
@@ -47,7 +44,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
-    fun getAllModule(): LiveData<Result<ModuleResponse>> = liveData {
+    fun getAllModuleDetail(): LiveData<Result<ModuleDetailResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()
         try {

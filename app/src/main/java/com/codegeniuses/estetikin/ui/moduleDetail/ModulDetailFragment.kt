@@ -16,7 +16,7 @@ class ModulDetailFragment : Fragment(), LoadingHandler {
 
     private lateinit var binding: FragmentModulDetailBinding
     private lateinit var factory: ViewModelFactory
-    private val modulViewModel: ModulDetailViewModel by viewModels { factory }
+    private val moduleDetailViewModel: ModulDetailViewModel by viewModels { factory }
 
 
     override fun onCreateView(
@@ -36,8 +36,8 @@ class ModulDetailFragment : Fragment(), LoadingHandler {
         factory = ViewModelFactory.getInstance(requireContext())
     }
 
-    private fun setupModule() {
-        modulViewModel.getAllModule().observe(requireActivity()) {
+    private fun setupModuleDetail() {
+        moduleDetailViewModel.getAllModuleDetail().observe(requireActivity()) {
             it?.let { result ->
                 when (result) {
                     is Result.Loading -> {

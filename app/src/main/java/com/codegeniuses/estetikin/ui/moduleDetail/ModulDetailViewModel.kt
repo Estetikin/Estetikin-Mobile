@@ -4,5 +4,5 @@ import androidx.lifecycle.ViewModel
 import com.codegeniuses.estetikin.data.repository.Repository
 
 class ModulDetailViewModel(private val repo: Repository) : ViewModel() {
-    fun getAllModule() = repo.getAllModule()
+    fun getAllModuleDetail() = repo.getAllModuleDetail()
 }
