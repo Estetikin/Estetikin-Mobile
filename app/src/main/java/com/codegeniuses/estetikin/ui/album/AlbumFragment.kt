@@ -98,9 +98,6 @@ class AlbumFragment : Fragment(), LoadingHandler {
         fragmentTransaction.replace(R.id.fragment_home_nav, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-
-
-
     }
 
     override fun loadingHandler(isLoading: Boolean) {

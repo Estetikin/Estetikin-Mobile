@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentAlbumDetailBinding
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 
@@ -38,11 +40,15 @@ class AlbumDetailFragment : Fragment() {
         if (album != null) {
             binding.apply {
                 tvRecomendationTitle.text = album.dummytext
-                dateTime.text = album.dateUpload
+                dateTime.text = album.formattedDate
             }
             Glide.with(binding.ivAlbumPhoto.context)
                 .load(album.link)
                 .into(binding.ivAlbumPhoto)
         }
+
+//        binding.ivBackButton.setOnClickListener{
+//           findNavController().navigate(R.id.action_albumDetailFragment_to_albumFragment)
+//        }
     }
 }

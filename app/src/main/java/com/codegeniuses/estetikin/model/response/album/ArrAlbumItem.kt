@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ArrAlbumItem(
-    val dateUpload: String,
+    val formattedDate: String,
     val link: String,
     val dummytext: String
 ) : Parcelable

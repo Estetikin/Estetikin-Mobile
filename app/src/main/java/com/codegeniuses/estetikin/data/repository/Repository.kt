@@ -5,6 +5,10 @@ import androidx.lifecycle.liveData
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.data.remote.ApiService
 import com.codegeniuses.estetikin.model.response.*
+import com.codegeniuses.estetikin.model.response.album.AlbumResponse
+import com.codegeniuses.estetikin.model.response.article.ArticleResponse
+import com.codegeniuses.estetikin.model.response.login.LoginResponse
+import com.codegeniuses.estetikin.model.response.module.ModuleDetailResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.model.result.Result.*
 

@@ -34,5 +34,14 @@
         android:name="com.codegeniuses.estetikin.ui.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment"
+        android:label="fragment_album_detail"
+        tools:layout="@layout/fragment_album_detail" >
+        <action
+            android:id="@+id/action_albumDetailFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+    </fragment>
 
 </navigation>
