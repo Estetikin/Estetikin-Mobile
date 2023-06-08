@@ -1,5 +1,6 @@
 package com.codegeniuses.estetikin.ui.album
 
+import com.codegeniuses.estetikin.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 import com.codegeniuses.estetikin.model.result.Result
+import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment
 
 
 class AlbumFragment : Fragment(), LoadingHandler {
@@ -85,11 +87,20 @@ class AlbumFragment : Fragment(), LoadingHandler {
     }
 
     private fun moveToDetailAlbum(data: ArrAlbumItem) {
-        Toast.makeText(
-            requireContext(),
-            "Harusnya pindah ke detail ngirim extra object",
-            Toast.LENGTH_SHORT
-        ).show()
+        val fragment = AlbumDetailFragment()
+        val bundle = Bundle().apply {
+            putParcelable("data", data)
+        }
+        fragment.arguments = bundle
+
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_home_nav, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+
+
+
     }
 
     override fun loadingHandler(isLoading: Boolean) {
