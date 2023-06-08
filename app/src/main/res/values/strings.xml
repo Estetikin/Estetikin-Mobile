@@ -114,4 +114,15 @@
     <string name="icon_item_module">Icon Item Module</string>
     <string name="belajar_dasar_setting_kamera">Belajar Dasar Setting Kamera</string>
     <string name="title_module_detail">Module Detail</string>
+
+    <!-- Sentiment Analysis -->
+    <string name="sentiment_analysis_background">Sentiment Analysis Background</string>
+    <string name="sentiment_analysis_illustration">Sentiment Analysis Illustration</string>
+    <string name="hi_folks">Hi Folks</string>
+    <string name="personalize_your_preferences_n_and_elevate_our_services_to_new_heights">Personalize your preferences \n and elevate our services to new heights.</string>
+    <string name="what_do_you_use_to_take_a_picture">What do you use to take a picture?</string>
+    <string name="ios">IOS</string>
+    <string name="android">Android</string>
+    <string name="dslr">DSLR</string>
+    <string name="video">Video</string>
 </resources>
