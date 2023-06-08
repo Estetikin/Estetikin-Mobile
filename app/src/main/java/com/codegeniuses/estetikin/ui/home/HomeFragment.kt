@@ -38,11 +38,6 @@ class HomeFragment : Fragment(), LoadingHandler {
 
     var imageSize = 224
 
-    companion object {
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,7 +50,6 @@ class HomeFragment : Fragment(), LoadingHandler {
         super.onViewCreated(view, savedInstanceState)
         setupPermission()
         setupAction()
-
 
     }
 
@@ -179,7 +173,6 @@ class HomeFragment : Fragment(), LoadingHandler {
             Log.d("success", s)
 //            confidence.setText(s)
 
-
             // Releases model resources if no longer used.
             model.close()
         } catch (e: IOException) {
@@ -210,5 +203,10 @@ class HomeFragment : Fragment(), LoadingHandler {
 //                val uri: Uri =  // The Uri data you want to process as a Bitmap
             }
         }
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 }
