@@ -7,7 +7,6 @@ import com.codegeniuses.estetikin.data.repository.Repository
 import com.codegeniuses.estetikin.di.Injection
 import com.codegeniuses.estetikin.ui.article.ArticleViewModel
 import com.codegeniuses.estetikin.ui.login.LoginViewModel
-import com.codegeniuses.estetikin.ui.modul.ModulViewModel
 import com.codegeniuses.estetikin.ui.signup.SignUpViewModel
 
 class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInstanceFactory() {
@@ -19,9 +18,6 @@ class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repo) as T
-            }
-            modelClass.isAssignableFrom(ModulViewModel::class.java) -> {
-                ModulViewModel(repo) as T
             }
             modelClass.isAssignableFrom(ArticleViewModel::class.java) -> {
                 ArticleViewModel(repo) as T

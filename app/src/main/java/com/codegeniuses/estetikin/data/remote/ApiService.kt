@@ -1,9 +1,6 @@
 package com.codegeniuses.estetikin.data.remote
 
-import com.codegeniuses.estetikin.model.response.ArticleResponse
-import com.codegeniuses.estetikin.model.response.GeneralResponse
-import com.codegeniuses.estetikin.model.response.LoginResponse
-import com.codegeniuses.estetikin.model.response.ModuleResponse
+import com.codegeniuses.estetikin.model.response.*
 import retrofit2.http.*
 
 interface ApiService {
@@ -26,7 +23,7 @@ interface ApiService {
     @GET("module/module")
     suspend fun getAllModule(
         @Header("Authorization") token: String
-    ): ModuleResponse
+    ): ModuleDetailResponse
 
     @GET("articles/{type}")
     suspend fun getArticles(
