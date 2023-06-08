@@ -4,61 +4,36 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="@dimen/spacing_24"
-    android:id="@+id/cardItemModule">
+    android:layout_marginBottom="@dimen/spacing_24">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:id="@+id/ll_step_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tv_step_number"
-                android:layout_width="@dimen/spacing_32"
-                android:layout_height="@dimen/spacing_32"
-                android:backgroundTint="?attr/colorPrimary"
-                android:fontFamily="@font/opensans_bold"
-                android:gravity="center"
-                android:text="@string/number_placeholder"
-                android:textSize="@dimen/text_size_16" />
-
-            <TextView
-                android:id="@+id/tv_step_title_placeholder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_12"
-                android:fontFamily="@font/opensans_bold"
-                android:text="@string/step_title_placeholder"
-                android:textSize="@dimen/text_size_16" />
-        </LinearLayout>
-
+        android:layout_height="@dimen/spacing_72">
+        
         <ImageView
-            android:id="@+id/iv_step_module"
-            android:layout_width="288dp"
-            android:layout_height="180dp"
-            app:layout_constraintTop_toBottomOf="@+id/ll_step_title"
+            android:id="@+id/iv_icon_item_module"
+            android:layout_width="@dimen/spacing_48"
+            android:layout_height="@dimen/spacing_48"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/spacing_12"
-            android:contentDescription="@string/module_step_image"
-            android:src="@drawable/module_step_placeholder" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="@dimen/spacing_12"
+            android:layout_marginStart="@dimen/spacing_12"
+            android:src="@drawable/ic_module_dasar"
+            android:contentDescription="@string/icon_item_module" />
 
         <TextView
-            android:id="@+id/tv_module_text_description_placeholder"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_item_module_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_step_module"
-            android:textAlignment="viewStart"
-            android:justificationMode="inter_word"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_icon_item_module"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/spacing_20"
+            android:layout_marginEnd="@dimen/spacing_24"
+            android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/module_text_description_placeholder" />
+            android:text="@string/belajar_dasar_setting_kamera"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

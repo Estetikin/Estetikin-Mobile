@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.codegeniuses.estetikin.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home"></fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/albumFragment"
@@ -21,7 +21,7 @@
         android:id="@+id/modulFragment"
         android:name="com.codegeniuses.estetikin.ui.modul.ModulFragment"
         android:label="fragment_modul"
-        tools:layout="@layout/fragment_modul" />
+        tools:layout="@layout/fragment_modul_detail" />
 
     <fragment
         android:id="@+id/settingFragment"

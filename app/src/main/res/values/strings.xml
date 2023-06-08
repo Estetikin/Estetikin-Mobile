@@ -107,4 +107,11 @@
     <string name="album_photo">Album Photo</string>
     <string name="date_time">Date Time</string>
     <string name="album_recomendation">Album Recomendation</string>
+
+    <!-- Module Fragment <-->
+    <string name="unlock_your_photographic_potential">Unlock Your Photographic Potential</string>
+    <string name="master_the_art_of_photography_and_capture_breathtaking_moments">Master the art of photography and capture breathtaking moments.</string>
+    <string name="icon_item_module">Icon Item Module</string>
+    <string name="belajar_dasar_setting_kamera">Belajar Dasar Setting Kamera</string>
+    <string name="title_module_detail">Module Detail</string>
 </resources>

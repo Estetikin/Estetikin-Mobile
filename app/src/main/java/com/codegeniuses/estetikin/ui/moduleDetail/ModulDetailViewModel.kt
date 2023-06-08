@@ -1,8 +1,8 @@
-package com.codegeniuses.estetikin.ui.modul
+package com.codegeniuses.estetikin.ui.moduleDetail
 
 import androidx.lifecycle.ViewModel
 import com.codegeniuses.estetikin.data.repository.Repository
 
-class ModulViewModel(private val repo: Repository) : ViewModel() {
+class ModulDetailViewModel(private val repo: Repository) : ViewModel() {
     fun getAllModule() = repo.getAllModule()
 }

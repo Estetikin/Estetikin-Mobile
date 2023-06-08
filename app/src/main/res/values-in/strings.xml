@@ -95,4 +95,11 @@
     <string name="date_time">Date Time</string>
     <string name="album_recomendation">Rekomendasi Album</string>
 
+    <!-- Module Fragment <-->
+    <string name="unlock_your_photographic_potential">Gali Potensi Fotografimu</string>
+    <string name="master_the_art_of_photography_and_capture_breathtaking_moments">Kuasai seni fotografi dan rekam momen terbaikmu.</string>
+    <string name="icon_item_module">Ikon Item Modul</string>
+    <string name="belajar_dasar_setting_kamera">Belajar Dasar Setting Kamera</string>
+    <string name="title_module_detail">Module Detail</string>
+
 </resources>
