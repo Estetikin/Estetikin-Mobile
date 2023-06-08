@@ -103,4 +103,15 @@
     <string name="title_module_detail">Module Detail</string>
     <string name="send_button">Send Button</string>
 
+    <!-- Sentiment Analysis -->
+    <string name="sentiment_analysis_background">Background Analisis Sentimen</string>
+    <string name="sentiment_analysis_illustration">Ilustrasi Analisis Sentimen</string>
+    <string name="hi_folks">Halo Sobat</string>
+    <string name="personalize_your_preferences_n_and_elevate_our_services_to_new_heights">Ayo pilih preferensimu \n dan tingkatkan kami.</string>
+    <string name="what_do_you_use_to_take_a_picture">Apa yang kamu gunakan untuk mengambil gambar?</string>
+    <string name="ios">IOS</string>
+    <string name="android">Android</string>
+    <string name="dslr">DSLR</string>
+    <string name="video">Video</string>
+
 </resources>

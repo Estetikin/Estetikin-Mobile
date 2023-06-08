@@ -7,4 +7,96 @@
     android:layout_height="match_parent"
     tools:context=".ui.sentiment.SentimentActivity">
 
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-24dp"
+        android:src="@drawable/sentiment_background"
+        android:contentDescription="@string/sentiment_analysis_background" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_72"
+        android:layout_marginStart="206dp"
+        android:src="@drawable/sentiment_illustrator"
+        android:contentDescription="@string/sentiment_analysis_illustration" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_128"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/text_size_24"
+        android:text="@string/hi_folks"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="169dp"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="@dimen/text_size_12"
+        android:text="@string/personalize_your_preferences_n_and_elevate_our_services_to_new_heights"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:textSize="@dimen/text_size_16"
+        android:text="@string/what_do_you_use_to_take_a_picture"/>
+
+    
+    <Button
+        android:id="@+id/btn_ios"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        android:layout_marginTop="356dp"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:textSize="@dimen/text_size_10"
+        android:text="@string/ios"
+        android:background="@drawable/sentiment_button_background"/>
+
+    <Button
+        android:id="@+id/btn_android"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        android:layout_marginTop="356dp"
+        android:layout_marginStart="126dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:textSize="@dimen/text_size_10"
+        android:text="@string/android"
+        android:background="@drawable/sentiment_button_background"/>
+
+    <Button
+        android:id="@+id/btn_dslr"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        android:layout_marginTop="356dp"
+        android:layout_marginStart="222dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:textSize="@dimen/text_size_10"
+        android:text="@string/dslr"
+        android:background="@drawable/sentiment_button_background"/>
+
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        android:layout_marginTop="356dp"
+        android:layout_marginStart="318dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:layout_marginEnd="@dimen/spacing_40"
+        android:textSize="@dimen/text_size_10"
+        android:text="@string/video"
+        android:background="@drawable/sentiment_button_background"/>
+  </FrameLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>

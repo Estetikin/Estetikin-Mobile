@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentArticleBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
@@ -29,7 +30,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
     private val articleViewModel: ArticleViewModel by viewModels { factory }
     private val adapter = ArticleAdapter()
     private val adapterPreference = ArticlePreferenceAdapter()
-    
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -114,7 +115,9 @@ class ArticleFragment : Fragment(), LoadingHandler {
             }
         }
 
-        articleViewModel.getArticles("android").observe(requireActivity()) {
+        val userPref = getUserPreference()
+
+        articleViewModel.getArticles(userPref).observe(requireActivity()) {
             it?.let { result ->
                 when (result) {
                     is Result.Loading -> {
@@ -137,6 +140,11 @@ class ArticleFragment : Fragment(), LoadingHandler {
             }
         }
 
+    }
+
+    private fun getUserPreference(): String {
+        val pref = UserPreference(requireContext())
+        return pref.getUserPreference() ?:"all"
     }
 
     override fun loadingHandler(isLoading: Boolean) {
