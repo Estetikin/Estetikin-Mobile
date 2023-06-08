@@ -12,7 +12,7 @@
     <string name="signup_title">Ayo buat akun</string>
     <string name="signup_message">Baru di aplikasi ini? Ayo buat akun baru untuk kamu✨</string>
     <string name="et_email_error_message">Alamat email tidak sesuai</string>
-    <string name="et_password_error_message">Kata sandi harus lebih dari 6 karakter</string>
+    <string name="et_password_error_message">Kata sandi harus lebih dari 8 karakter</string>
     <string name="forgot_password">Lupa Kata Sandi?</string>
     <string name="or_login_with">Atau Masuk Dengan</string>
     <string name="login_with_google">Masuk menggunakan akun google</string>

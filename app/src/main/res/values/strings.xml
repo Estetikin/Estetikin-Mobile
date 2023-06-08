@@ -22,7 +22,7 @@
     <string name="password">Password</string>
     <string name="new_to_estetikin">New to Estetikin?</string>
     <string name="et_email_error_message">Email address is not valid</string>
-    <string name="et_password_error_message">Passwords must be at least 6 characters</string>
+    <string name="et_password_error_message">Passwords must be at least 8 characters</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="or_login_with">Or Login With</string>
     <string name="login_with_google">Login with Google</string>
