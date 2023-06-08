@@ -1,4 +1,4 @@
-package com.codegeniuses.estetikin.model.response
+package com.codegeniuses.estetikin.model.response.login
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

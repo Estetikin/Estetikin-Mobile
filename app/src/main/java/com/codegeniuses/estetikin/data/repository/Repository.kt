@@ -74,6 +74,21 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
+    fun getHisotryAlbum(): LiveData<Result<AlbumResponse>> = liveData {
+        emit(Loading)
+        val token = pref.getToken()
+        try {
+            val response = apiService.getHistoryAlbum("Bearer $token")
+            if (response.error) {
+                emit(Error(response.status))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: Repository? = null

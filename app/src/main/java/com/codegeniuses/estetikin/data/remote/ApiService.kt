@@ -31,5 +31,8 @@ interface ApiService {
         @Path("type") type: String
     ): ArticleResponse
 
-
+    @GET("album/album")
+    suspend fun getHistoryAlbum(
+        @Header("Authorization") token: String
+    ): AlbumResponse
 }
