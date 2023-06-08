@@ -1,12 +1,12 @@
 package com.codegeniuses.estetikin.model.response.album
 
-import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AlbumResponse(
-	val albumItems: List<AlbumItem>,
-	val error: Boolean,
-	val message: String,
-	val status: String
+    val arrAlbum: List<ArrAlbumItem>,
+    val error: Boolean,
+    val message: String,
+    val status: String
 ) : Parcelable

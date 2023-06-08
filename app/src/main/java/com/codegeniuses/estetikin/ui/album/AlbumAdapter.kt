@@ -8,16 +8,16 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.codegeniuses.estetikin.R
-import com.codegeniuses.estetikin.model.response.album.AlbumItem
+import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 
 
 class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.ListViewHolder>() {
 
-    private var currentList: List<AlbumItem> = emptyList()
+    private var currentList: List<ArrAlbumItem> = emptyList()
     private lateinit var onItemClickCallback: OnItemClickCallBack
 
     interface OnItemClickCallBack {
-        fun onItemClicked(data: AlbumItem)
+        fun onItemClicked(data: ArrAlbumItem)
     }
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,13 +26,14 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.ListViewHolder>() {
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         Glide.with(holder.itemView.context)
-            .load(currentList[position].photoUrl)
+            .load(currentList[position].link)
             .into(holder.imgPhoto)
 
         holder.itemView.setOnClickListener {
             onItemClickCallback.onItemClicked(currentList[holder.adapterPosition])
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View =
@@ -43,7 +44,7 @@ class AlbumAdapter : RecyclerView.Adapter<AlbumAdapter.ListViewHolder>() {
     override fun getItemCount() = currentList.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setAlbumData(albums: List<AlbumItem>) {
+    fun setAlbumData(albums: List<ArrAlbumItem>) {
         currentList = albums
         notifyDataSetChanged()
     }
