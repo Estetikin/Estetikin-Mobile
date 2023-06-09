@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -40,6 +41,12 @@ class AlbumFragment : Fragment(), LoadingHandler {
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_album))
         val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
         bottomNavigation.visibility = View.VISIBLE
+
+        val toolbar: Toolbar = requireActivity().findViewById(R.id.toolbar_container)
+        toolbar.visibility = View.VISIBLE
+        setupViewModel()
+        setupAlbum()
+        setupAction()
     }
 
 
@@ -49,10 +56,6 @@ class AlbumFragment : Fragment(), LoadingHandler {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvAlbum.layoutManager = layoutManager
         binding.rvAlbum.adapter = adapter
-
-        setupViewModel()
-        setupAlbum()
-        setupAction()
     }
 
     private fun setupAlbum() {

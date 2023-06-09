@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentAlbumDetailBinding
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 
@@ -30,7 +32,9 @@ class AlbumDetailFragment : Fragment() {
 
 
     private fun hideSupportActionBar() {
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
+        bottomNavigation.visibility = View.GONE
     }
 
     private fun setupAction() {

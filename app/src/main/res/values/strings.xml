@@ -53,6 +53,7 @@
 
     <!-- Album -->
     <string name="title_album" translatable="false">Album</string>
+    <string name="title_album_detail" translatable="false">Album Detail</string>
 
     <!-- Article -->
     <string name="title_article">Article</string>
