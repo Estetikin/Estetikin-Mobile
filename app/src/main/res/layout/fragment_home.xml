@@ -23,6 +23,106 @@
         app:lottie_rawRes="@raw/loading"
         tools:visibility="visible" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/greeting_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:layout_marginTop="@dimen/spacing_80">
+        <TextView
+            android:id="@+id/tv_greetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/halo"/>
+
+        <TextView
+            android:id="@+id/tv_user_nickcname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_greetings"
+            android:layout_marginStart="@dimen/spacing_4"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/kumaa"/>
+
+        <TextView
+            android:id="@+id/tv_greeting_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_greetings"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/text_size_12"
+            android:text="@string/greeting_message"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/preferences_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginEnd="@dimen/spacing_24"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        app:layout_constraintBottom_toBottomOf="@+id/greeting_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/greeting_container"
+        app:layout_constraintTop_toTopOf="@+id/greeting_container">
+
+        <ImageView
+            android:id="@+id/iv_preferences"
+            android:layout_width="@dimen/spacing_24"
+            android:layout_height="@dimen/spacing_24"
+            android:contentDescription="@string/language_icon"
+            android:src="@drawable/ic_preferences"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_preferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_12"
+            android:fontFamily="@font/opensans_regular"
+            android:text="@string/your_preferences"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_preferences"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_preferences_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_4"
+            android:fontFamily="@font/opensans_bold"
+            android:text="@string/preferences_selected"
+            android:textSize="@dimen/text_size_12"
+            app:layout_constraintStart_toEndOf="@id/tv_title_preferences"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ic_arrow_language"
+            android:layout_width="@dimen/spacing_12"
+            android:layout_height="@dimen/spacing_12"
+            android:contentDescription="@string/arrow_icon"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/tv_upload_instruction"
