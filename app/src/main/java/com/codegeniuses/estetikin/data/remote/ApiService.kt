@@ -5,7 +5,7 @@ import com.codegeniuses.estetikin.model.response.GeneralResponse
 import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
-import com.codegeniuses.estetikin.model.response.module.ModuleDetailResponse
+import com.codegeniuses.estetikin.model.response.module.ModuleResponse
 import retrofit2.http.*
 
 interface ApiService {
@@ -28,7 +28,7 @@ interface ApiService {
     @GET("api/v1/module")
     suspend fun getAllModule(
         @Header("Authorization") token: String
-    ): ModuleDetailResponse
+    ): ModuleResponse
 
     @GET("articles/{type}")
     suspend fun getArticles(

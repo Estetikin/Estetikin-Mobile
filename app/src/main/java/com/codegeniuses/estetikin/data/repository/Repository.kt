@@ -8,7 +8,7 @@ import com.codegeniuses.estetikin.model.response.*
 import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
-import com.codegeniuses.estetikin.model.response.module.ModuleDetailResponse
+import com.codegeniuses.estetikin.model.response.module.ModuleResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.model.result.Result.*
 
@@ -48,13 +48,13 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
-    fun getAllModuleDetail(): LiveData<Result<ModuleDetailResponse>> = liveData {
+    fun getAllModule(): LiveData<Result<ModuleResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()
         try {
             val response = apiService.getAllModule("Bearer $token")
             if (response.error) {
-                emit(Error(response.status))
+                emit(Error(response.message))
             } else {
                 emit(Success(response))
             }
