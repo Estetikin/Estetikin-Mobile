@@ -19,7 +19,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityCameraBinding
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.utils.createFile
@@ -37,8 +36,6 @@ class CameraActivity : AppCompatActivity() {
 
     private var recentPhotoUri: Uri? = null
     private var mediaStoreContentObserver: ContentObserver? = null
-
-    private lateinit var preferences: UserPreference
 
     companion object {
         private const val PERMISSION_REQUEST_CODE = 123
