@@ -196,11 +196,6 @@ class HomeFragment : Fragment(), LoadingHandler {
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
                 classifyImage(image)
-
-
-//                val myFile = uriToFile(uri, requireActivity())
-//                getFile = myFile
-//                val uri: Uri =  // The Uri data you want to process as a Bitmap
             }
         }
     }
