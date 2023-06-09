@@ -54,7 +54,7 @@
             app:fabCradleMargin="20dp"
             app:fabCradleVerticalOffset="10dp"
             app:fabCradleRoundedCornerRadius="20dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="?attr/colorPrimary"
             android:layout_gravity="bottom">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -75,7 +75,7 @@
             android:src="@drawable/ic_camera"
             app:maxImageSize="@dimen/spacing_28"
             app:fabCustomSize="@dimen/spacing_64"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="?attr/colorPrimary"
             app:tint="@color/white"
             app:layout_anchor="@id/bottomAppBar"
             app:layout_anchorGravity="center"
