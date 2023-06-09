@@ -2,6 +2,7 @@ package com.codegeniuses.estetikin.ui.setting
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -13,8 +14,10 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.R
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentSettingBinding
 import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.authentication.AuthActivity
 import java.util.*
 
 class SettingFragment : Fragment() {
@@ -30,8 +33,31 @@ class SettingFragment : Fragment() {
     ): View {
         binding = FragmentSettingBinding.inflate(inflater, container, false)
 
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val languageCode = sharedPreferences.getString("language", "en") // Default to English if not found
+        setupAction()
+        setHasOptionsMenu(true)
+
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Hide Botnav
+        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
+        bottomNavigation.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_setting))
+    }
+
+    private fun setupAction() {
+
+        val sharedPreferences =
+            requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val languageCode =
+            sharedPreferences.getString("language", "en") // Default to English if not found
         // Update the text of tv_title_language based on the saved language
         val languageTextResId = if (languageCode == "en") {
             R.string.english
@@ -52,22 +78,18 @@ class SettingFragment : Fragment() {
         }
         checkUiSelected()
 
-
-        setHasOptionsMenu(true)
-
-
-        return binding.root
+        binding.logoutItem.setOnClickListener {
+            val pref = UserPreference(requireContext())
+            pref.clearPreferences()
+            navigateToLogin()
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //Hide Botnav
-        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
-        bottomNavigation.visibility = View.GONE
-    }
-    override fun onResume() {
-        super.onResume()
-        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_setting))
+    private fun navigateToLogin() {
+        val intent = Intent(requireContext(), AuthActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 
     private fun showLanguageBottomSheet() {
@@ -174,7 +196,8 @@ class SettingFragment : Fragment() {
     }
 
     private fun changeLanguage(languageCode: String) {
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("language", languageCode)
         editor.apply()
