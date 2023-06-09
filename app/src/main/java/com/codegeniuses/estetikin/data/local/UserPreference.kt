@@ -1,6 +1,9 @@
 package com.codegeniuses.estetikin.data.local
 
 import android.content.Context
+import android.content.res.Configuration
+import androidx.appcompat.app.AppCompatDelegate
+import java.util.*
 
 class UserPreference(context: Context) {
     private val preferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -45,6 +48,27 @@ class UserPreference(context: Context) {
         preferences.edit().putString(PREF_THEME, theme).apply()
     }
 
+    fun applyTheme() {
+        val theme = getTheme()
+        if (!theme.isNullOrEmpty()) {
+            when (theme) {
+                "Light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                "Dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+        }
+    }
+
+    fun setLocale(context: Context) {
+        val language = getLanguage()
+        if (!language.isNullOrEmpty()) {
+            val locale = Locale(language)
+            Locale.setDefault(locale)
+
+            val configuration = Configuration()
+            configuration.setLocale(locale)
+            context.resources.updateConfiguration(configuration, context.resources.displayMetrics)
+        }
+    }
 
     companion object {
         private val PREF_LANGUAGE = "Language"

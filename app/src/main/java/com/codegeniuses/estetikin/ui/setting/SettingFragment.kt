@@ -3,6 +3,7 @@ package com.codegeniuses.estetikin.ui.setting
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -34,8 +35,6 @@ class SettingFragment : Fragment() {
     ): View {
         binding = FragmentSettingBinding.inflate(inflater, container, false)
 
-//        checkTheme()
-        checkLanguage()
         setupAction()
         setHasOptionsMenu(true)
 
@@ -56,6 +55,20 @@ class SettingFragment : Fragment() {
     }
 
     private fun setupAction() {
+
+        preferences = UserPreference(requireContext())
+
+        val sharedPreferences =
+            requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val languageCode = sharedPreferences.getString("language", "en") // Default to English if not found
+        // Update the text of tv_title_language based on the saved language
+        val languageTextResId = if (languageCode == "en") {
+            R.string.english
+        } else {
+            R.string.bahasa_indonesia
+        }
+
+        binding.tvLanguageSelected.text = getString(languageTextResId)
 
 
         val language = binding.languageItem
@@ -132,7 +145,7 @@ class SettingFragment : Fragment() {
             binding.ivLogout.setImageResource(R.drawable.ic_logout)
             tvUiSelected.setText(R.string.light_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
-            preferences.setLanguage("Light")
+            preferences.setTheme("Light")
             Toast.makeText(requireContext(), "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
 
@@ -143,7 +156,7 @@ class SettingFragment : Fragment() {
             binding.ivLogout.setImageResource(R.drawable.ic_logout_light)
             tvUiSelected.setText(R.string.dark_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
-            preferences.setLanguage("Light")
+            preferences.setTheme("Dark")
             Toast.makeText(requireContext(), "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
 
@@ -155,26 +168,6 @@ class SettingFragment : Fragment() {
         }
 
         dialog.show()
-    }
-
-    private fun checkLanguage() {
-        preferences = UserPreference(requireContext())
-
-        val sharedPreferences =
-            requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
-        val languageCode =
-            sharedPreferences.getString("language", "en") // Default to English if not found
-        // Update the text of tv_title_language based on the saved language
-        val languageTextResId = if (languageCode == "en") {
-            R.string.english
-        } else {
-            R.string.bahasa_indonesia
-        }
-
-        binding.tvLanguageSelected.text = getString(languageTextResId)
-        val language = preferences.getLanguage()
-        changeLanguage(language ?: "en")
-
     }
 
     private fun checkUiSelected() {
