@@ -26,7 +26,7 @@ class UserPreference(context: Context) {
         edit.apply()
     }
 
-    fun clearToken() {
+    fun clearPreferences() {
         preferences.edit().clear().apply()
     }
 
