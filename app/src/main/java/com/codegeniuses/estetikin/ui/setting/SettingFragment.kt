@@ -9,6 +9,7 @@ import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.R
@@ -31,12 +32,11 @@ class SettingFragment : Fragment() {
 
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val languageCode = sharedPreferences.getString("language", "en") // Default to English if not found
-
         // Update the text of tv_title_language based on the saved language
         val languageTextResId = if (languageCode == "en") {
-            R.string.english // English
+            R.string.english
         } else {
-            R.string.bahasa_indonesia // Bahasa Indonesia
+            R.string.bahasa_indonesia
         }
         binding.tvLanguageSelected.text = getString(languageTextResId)
 
@@ -46,17 +46,25 @@ class SettingFragment : Fragment() {
         }
 
         val uiMode = binding.uiItem
-        tvUiSelected = binding.tvUiSelected  // Assign the reference to tvUiSelected
+        tvUiSelected = binding.tvUiSelected
         uiMode.setOnClickListener {
             showUiBottomSheet()
         }
-
-        // Update the UI mode text initially
         checkUiSelected()
+
+
+        setHasOptionsMenu(true)
+
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Hide Botnav
+        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
+        bottomNavigation.visibility = View.GONE
+    }
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_setting))
@@ -132,7 +140,6 @@ class SettingFragment : Fragment() {
     }
 
     private fun checkUiSelected() {
-        // Update the UI Mode Text based on the UI mode
         val nightMode = AppCompatDelegate.getDefaultNightMode()
         val uiModeTextResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
             R.string.dark_theme
@@ -141,33 +148,30 @@ class SettingFragment : Fragment() {
         }
         tvUiSelected.setText(uiModeTextResId)
 
-        // Update the UI Mode icons based on the UI mode
+
         val uiModeIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_dark_mode // Dark mode icon
+            R.drawable.ic_dark_mode
         } else {
-            R.drawable.ic_light_mode // Light mode icon
+            R.drawable.ic_light_mode
         }
         binding.ivUi.setImageResource(uiModeIconResId)
 
-        // Update the Language icons based on the UI mode
+
         val languageIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_language_light // Dark mode icon
+            R.drawable.ic_language_light
         } else {
-            R.drawable.ic_language // Light mode icon
+            R.drawable.ic_language
         }
         binding.ivLanguage.setImageResource(languageIconResId)
 
-        // Update the Logout icons based on the UI mode
+
         val logoutIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_logout_light // Dark mode icon
+            R.drawable.ic_logout_light
         } else {
-            R.drawable.ic_logout // Light mode icon
+            R.drawable.ic_logout
         }
         binding.ivLogout.setImageResource(logoutIconResId)
     }
-
-
-
 
     private fun changeLanguage(languageCode: String) {
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
@@ -182,9 +186,9 @@ class SettingFragment : Fragment() {
 
         // Update the text and background of btnLanguageSelected based on the selected language
         val languageTextResId = if (languageCode == "en") {
-            R.string.english // English
+            R.string.english
         } else {
-            R.string.bahasa_indonesia // Bahasa Indonesia
+            R.string.bahasa_indonesia
         }
         binding.tvLanguageSelected.setText(languageTextResId)
 
@@ -192,5 +196,8 @@ class SettingFragment : Fragment() {
         requireActivity().recreate()
     }
 
+    fun getPreviousFragmentTag(): String {
+        return ""
+    }
 }
 

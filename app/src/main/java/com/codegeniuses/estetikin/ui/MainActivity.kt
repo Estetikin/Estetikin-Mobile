@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -13,19 +15,22 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.ActivityMainBinding
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
+import com.codegeniuses.estetikin.ui.setting.SettingFragment
 import com.codegeniuses.estetikin.utils.rotateFile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var navController: NavController
     companion object {
         const val CAMERA_X_RESULT = 200
 
@@ -74,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_home_nav) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         val botNav: BottomNavigationView = binding.botNav
         botNav.setupWithNavController(navController)
@@ -82,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = binding.toolbarContainer
         setSupportActionBar(toolbar)
         supportActionBar?.title = ""
+        toolbar.setOnMenuItemClickListener(this)
 
         binding.camera.setOnClickListener {
             if (allPermissionsGranted()) {
@@ -97,8 +103,6 @@ class MainActivity : AppCompatActivity() {
         val titleTextView: TextView = toolbar.findViewById(R.id.tv_toolbar_title)
         titleTextView.text = title
     }
-
-
 
     private fun startCameraX() {
         if (allPermissionsGranted()) {
@@ -130,6 +134,46 @@ class MainActivity : AppCompatActivity() {
                 rotateFile(file, isBackCamera)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onMenuItemClick(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.settingFragment -> {
+                navigateToSettingFragment()
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_home_nav)
+                if (currentFragment is SettingFragment) {
+                    // Handle the back navigation from SettingsFragment
+                    val previousFragmentTag = currentFragment.getPreviousFragmentTag()
+                    val previousFragment = supportFragmentManager.findFragmentByTag(previousFragmentTag)
+                    if (previousFragment != null) {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_home_nav, previousFragment)
+                            .commit()
+                    }
+                    return true
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun navigateToSettingFragment() {
+        navController = findNavController(R.id.fragment_home_nav)
+        navController.navigate(R.id.settingFragment)
     }
 }
 

@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -58,6 +59,8 @@ class HomeFragment : Fragment(), LoadingHandler {
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_home))
+        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
+        bottomNavigation.visibility = View.VISIBLE
     }
 
 

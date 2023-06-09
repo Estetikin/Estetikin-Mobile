@@ -15,7 +15,7 @@
         android:padding="@dimen/spacing_8"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/light_mode"/>
+        android:text="@string/light_theme"/>
 
     <TextView
         android:id="@+id/dark_mode"
@@ -25,5 +25,5 @@
         android:padding="@dimen/spacing_8"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/dark_mode"/>
+        android:text="@string/dark_theme"/>
 </LinearLayout>

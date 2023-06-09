@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentModulBinding
@@ -29,5 +30,7 @@ class ModulFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_module))
+        val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
+        bottomNavigation.visibility = View.VISIBLE
     }
 }
