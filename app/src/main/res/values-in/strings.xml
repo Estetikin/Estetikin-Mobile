@@ -53,6 +53,9 @@
     <string name="dark_theme">Gelap</string>
     <string name="logout">Keluar</string>
 
+    <!-- Item Language  -->
+    <string name="english">English</string>
+    <string name="bahasa_indonesia">Bahasa Indonesia</string>
 
     <!-- Article Fragment -->
     <string name="title_article">Artikel</string>

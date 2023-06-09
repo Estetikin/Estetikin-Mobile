@@ -78,6 +78,10 @@
     <string name="dark_theme">Dark</string>
     <string name="logout">Logout</string>
 
+    <!-- Item Language  -->
+    <string name="english">English</string>
+    <string name="bahasa_indonesia">Bahasa Indonesia</string>
+
     <!-- Module Fragment -->
     <string name="title_module">Module</string>
     <string name="module_cover">Module Cover</string>

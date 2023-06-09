@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentSettingBinding
+import com.codegeniuses.estetikin.ui.MainActivity
 import java.util.*
 
 class SettingFragment : Fragment() {
@@ -56,6 +57,10 @@ class SettingFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_setting))
+    }
 
     private fun showLanguageBottomSheet() {
         val dialog = Dialog(requireContext())
@@ -101,7 +106,7 @@ class SettingFragment : Fragment() {
             binding.ivUi.setImageResource(R.drawable.ic_light_mode)
             binding.ivLanguage.setImageResource(R.drawable.ic_language)
             binding.ivLogout.setImageResource(R.drawable.ic_logout)
-            tvUiSelected.setText(R.string.light_mode)  // Use the stored reference to update tvUiSelected
+            tvUiSelected.setText(R.string.light_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
             Toast.makeText(requireContext(), "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
@@ -111,7 +116,7 @@ class SettingFragment : Fragment() {
             binding.ivUi.setImageResource(R.drawable.ic_dark_mode)
             binding.ivLanguage.setImageResource(R.drawable.ic_language_light)
             binding.ivLogout.setImageResource(R.drawable.ic_logout_light)
-            tvUiSelected.setText(R.string.dark_mode)  // Use the stored reference to update tvUiSelected
+            tvUiSelected.setText(R.string.dark_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
             Toast.makeText(requireContext(), "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
@@ -130,9 +135,9 @@ class SettingFragment : Fragment() {
         // Update the UI Mode Text based on the UI mode
         val nightMode = AppCompatDelegate.getDefaultNightMode()
         val uiModeTextResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.string.dark_mode
+            R.string.dark_theme
         } else {
-            R.string.light_mode
+            R.string.light_theme
         }
         tvUiSelected.setText(uiModeTextResId)
 
