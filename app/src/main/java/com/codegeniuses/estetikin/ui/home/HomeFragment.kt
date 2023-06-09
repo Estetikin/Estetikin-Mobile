@@ -21,14 +21,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.ml.Model
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+
+// Machine Learning Deploy
+import com.codegeniuses.estetikin.ml.Model1
+import com.codegeniuses.estetikin.ml.Model2
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 class HomeFragment : Fragment(), LoadingHandler {
 
@@ -119,7 +122,8 @@ class HomeFragment : Fragment(), LoadingHandler {
 
     private fun classifyImage(image: Bitmap) {
         try {
-            val model = Model.newInstance(requireActivity().applicationContext)
+            val model1 = Model1.newInstance(requireActivity().applicationContext)
+            val model2 = Model2.newInstance(requireActivity().applicationContext)
 
             // Creates inputs for reference.
             val inputFeature0: TensorBuffer =
@@ -144,37 +148,69 @@ class HomeFragment : Fragment(), LoadingHandler {
             inputFeature0.loadBuffer(byteBuffer)
 
             // Runs model inference and gets result.
-            val outputs: Model.Outputs = model.process(inputFeature0)
-            val outputFeature0: TensorBuffer = outputs.getOutputFeature0AsTensorBuffer()
-            val confidences: FloatArray = outputFeature0.getFloatArray()
+            // Model 1
+            val outputs1: Model1.Outputs = model1.process(inputFeature0)
+            val outputFeature1: TensorBuffer = outputs1.getOutputFeature0AsTensorBuffer()
+            val confidences1: FloatArray = outputFeature1.getFloatArray()
+
             // find the index of the class with the biggest confidence.
-            var maxPos = 0
-            var maxConfidence = 0f
-            for (i in confidences.indices) {
-                if (confidences[i] > maxConfidence) {
-                    maxConfidence = confidences[i]
-                    maxPos = i
+            var maxPos1 = 0
+            var maxConfidence1 = 0f
+            for (i in confidences1.indices) {
+                if (confidences1[i] > maxConfidence1) {
+                    maxConfidence1 = confidences1[i]
+                    maxPos1 = i
                 }
             }
-            val classes = arrayOf("well-focused picture", "blurry picture")
+
+            //make the feature output data
+            val classes1 = arrayOf("well-focused picture", "blurry picture")
             Toast.makeText(
                 requireActivity().applicationContext,
-                classes[maxPos],
+                classes1[maxPos1],
                 Toast.LENGTH_SHORT
             ).show()
-            Log.d("success", classes[maxPos])
-//            result.setText(classes[maxPos])
-            var s = ""
-            for (i in classes.indices) {
-                s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100)
+            Log.d("success", classes1[maxPos1])
+            var s1 = ""
+            for (i in classes1.indices) {
+                s1 += String.format("%s: %.1f%%\n", classes1[i], confidences1[i] * 100)
+            }
+            Toast.makeText(requireActivity().applicationContext, s1, Toast.LENGTH_SHORT).show()
+            Log.d("success", s1)
+
+            // Model 2
+            val outputs2: Model2.Outputs = model2.process(inputFeature0)
+            val outputFeature2: TensorBuffer = outputs2.getOutputFeature0AsTensorBuffer()
+            val confidences2: FloatArray = outputFeature2.getFloatArray()
+
+            // find the index of the class with the biggest confidence.
+            var maxPos2 = 0
+            var maxConfidence2 = 0f
+            for (i in confidences2.indices) {
+                if (confidences2[i] > maxConfidence2) {
+                    maxConfidence2 = confidences2[i]
+                    maxPos2 = i
+                }
             }
 
-            Toast.makeText(requireActivity().applicationContext, s, Toast.LENGTH_SHORT).show()
-            Log.d("success", s)
-//            confidence.setText(s)
+            //make the feature output data
+            val classes2 = arrayOf("food and drinks", "indoor", "outdoor", "modeling")
+            Toast.makeText(
+                requireActivity().applicationContext,
+                classes2[maxPos2],
+                Toast.LENGTH_SHORT
+            ).show()
+            Log.d("success", classes2[maxPos2])
+            var s2 = ""
+            for (i in classes2.indices) {
+                s2 += String.format("%s: %.1f%%\n", classes2[i], confidences2[i] * 100)
+            }
+            Toast.makeText(requireActivity().applicationContext, s2, Toast.LENGTH_SHORT).show()
+            Log.d("success", s2)
 
             // Releases model resources if no longer used.
-            model.close()
+            model1.close()
+            model2.close()
         } catch (e: IOException) {
             // TODO Handle the exception
         }
