@@ -26,6 +26,7 @@ class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
     private lateinit var tvUiSelected: TextView  // Reference to tvUiSelected in the layout
     private val settingViewModel: SettingViewModel by viewModels()
+    private lateinit var preferences: UserPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +34,8 @@ class SettingFragment : Fragment() {
     ): View {
         binding = FragmentSettingBinding.inflate(inflater, container, false)
 
+//        checkTheme()
+        checkLanguage()
         setupAction()
         setHasOptionsMenu(true)
 
@@ -54,17 +57,6 @@ class SettingFragment : Fragment() {
 
     private fun setupAction() {
 
-        val sharedPreferences =
-            requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val languageCode =
-            sharedPreferences.getString("language", "en") // Default to English if not found
-        // Update the text of tv_title_language based on the saved language
-        val languageTextResId = if (languageCode == "en") {
-            R.string.english
-        } else {
-            R.string.bahasa_indonesia
-        }
-        binding.tvLanguageSelected.text = getString(languageTextResId)
 
         val language = binding.languageItem
         language.setOnClickListener {
@@ -104,12 +96,14 @@ class SettingFragment : Fragment() {
             changeLanguage("en")
             binding.tvLanguageSelected
             dialog.dismiss()
+            preferences.setLanguage("en")
             Toast.makeText(requireContext(), "English is Clicked", Toast.LENGTH_SHORT).show()
         }
 
         indonesian.setOnClickListener {
             changeLanguage("id")
             dialog.dismiss()
+            preferences.setLanguage("id")
             Toast.makeText(requireContext(), "Bahasa Indonesia is Clicked", Toast.LENGTH_SHORT)
                 .show()
         }
@@ -138,6 +132,7 @@ class SettingFragment : Fragment() {
             binding.ivLogout.setImageResource(R.drawable.ic_logout)
             tvUiSelected.setText(R.string.light_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
+            preferences.setLanguage("Light")
             Toast.makeText(requireContext(), "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
 
@@ -148,6 +143,7 @@ class SettingFragment : Fragment() {
             binding.ivLogout.setImageResource(R.drawable.ic_logout_light)
             tvUiSelected.setText(R.string.dark_theme)  // Use the stored reference to update tvUiSelected
             dialog.dismiss()
+            preferences.setLanguage("Light")
             Toast.makeText(requireContext(), "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
         }
 
@@ -159,6 +155,26 @@ class SettingFragment : Fragment() {
         }
 
         dialog.show()
+    }
+
+    private fun checkLanguage() {
+        preferences = UserPreference(requireContext())
+
+        val sharedPreferences =
+            requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val languageCode =
+            sharedPreferences.getString("language", "en") // Default to English if not found
+        // Update the text of tv_title_language based on the saved language
+        val languageTextResId = if (languageCode == "en") {
+            R.string.english
+        } else {
+            R.string.bahasa_indonesia
+        }
+
+        binding.tvLanguageSelected.text = getString(languageTextResId)
+        val language = preferences.getLanguage()
+        changeLanguage(language ?: "en")
+
     }
 
     private fun checkUiSelected() {
@@ -197,7 +213,7 @@ class SettingFragment : Fragment() {
 
     private fun changeLanguage(languageCode: String) {
         val sharedPreferences =
-            requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("language", languageCode)
         editor.apply()
