@@ -23,36 +23,14 @@
         app:lottie_rawRes="@raw/loading"
         tools:visibility="visible" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            style="@style/Text.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_24"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_16"
-            android:text="@string/title_article" />
-
-    </androidx.appcompat.widget.Toolbar>
-
     <FrameLayout
         android:id="@+id/iv_article_cover"
         android:layout_width="400dp"
         android:layout_height="148dp"
-        android:layout_marginTop="@dimen/spacing_32"
+        android:layout_marginTop="@dimen/spacing_88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="400dp"

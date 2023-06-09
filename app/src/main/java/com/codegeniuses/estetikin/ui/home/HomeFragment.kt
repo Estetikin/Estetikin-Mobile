@@ -19,9 +19,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.ml.Model
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -52,6 +54,12 @@ class HomeFragment : Fragment(), LoadingHandler {
         setupAction()
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_home))
+    }
+
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED

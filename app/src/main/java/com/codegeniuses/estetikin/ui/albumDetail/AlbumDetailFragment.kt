@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentAlbumDetailBinding
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 
@@ -19,7 +17,7 @@ class AlbumDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAlbumDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

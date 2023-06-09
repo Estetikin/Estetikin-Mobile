@@ -14,12 +14,14 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentArticleBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.article.ArticleItem
 import com.codegeniuses.estetikin.model.result.Result
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
 
 class ArticleFragment : Fragment(), LoadingHandler {
@@ -55,6 +57,11 @@ class ArticleFragment : Fragment(), LoadingHandler {
         setupAction()
         setupArticle()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_article))
     }
 
     private fun setupViewModel() {

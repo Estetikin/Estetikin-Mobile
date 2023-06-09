@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentResultBinding
+import com.codegeniuses.estetikin.ui.MainActivity
 
 
 class ResultFragment : Fragment() {
@@ -17,8 +19,12 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentResultBinding.inflate(LayoutInflater.from(requireActivity()))
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_result))
     }
 
 }

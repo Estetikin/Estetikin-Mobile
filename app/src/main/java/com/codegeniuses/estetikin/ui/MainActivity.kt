@@ -5,9 +5,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -77,6 +79,10 @@ class MainActivity : AppCompatActivity() {
         val botNav: BottomNavigationView = binding.botNav
         botNav.setupWithNavController(navController)
 
+        val toolbar: Toolbar = binding.toolbarContainer
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = ""
+
         binding.camera.setOnClickListener {
             if (allPermissionsGranted()) {
                 startCameraX()
@@ -85,6 +91,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun setActionBarTitle(title: String) {
+        val toolbar: Toolbar = binding.toolbarContainer
+        val titleTextView: TextView = toolbar.findViewById(R.id.tv_toolbar_title)
+        titleTextView.text = title
+    }
+
 
 
     private fun startCameraX() {

@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentModulDetailBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.result.Result
+import com.codegeniuses.estetikin.ui.MainActivity
 
 class ModulDetailFragment : Fragment(), LoadingHandler {
 
-    private lateinit var binding: FragmentModulDetailBinding
+    private var _binding: FragmentModulDetailBinding? = null
+    private val binding get() = _binding!!
     private lateinit var factory: ViewModelFactory
     private val moduleDetailViewModel: ModulDetailViewModel by viewModels { factory }
 
@@ -22,7 +25,6 @@ class ModulDetailFragment : Fragment(), LoadingHandler {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentModulDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -30,6 +32,11 @@ class ModulDetailFragment : Fragment(), LoadingHandler {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
 //        setupModule()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_module_detail))
     }
 
     private fun setupViewModel() {

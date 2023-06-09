@@ -14,6 +14,7 @@ import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 import com.codegeniuses.estetikin.model.result.Result
+import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment
 
 
@@ -32,6 +33,12 @@ class AlbumFragment : Fragment(), LoadingHandler {
         _binding = FragmentAlbumBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_album))
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
