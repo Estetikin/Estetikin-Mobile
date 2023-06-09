@@ -16,6 +16,7 @@ class SentimentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySentimentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         setupAction()
     }

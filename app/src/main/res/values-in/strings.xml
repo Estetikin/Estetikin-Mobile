@@ -116,5 +116,6 @@
     <string name="android">Android</string>
     <string name="dslr">DSLR</string>
     <string name="video">Video</string>
-
+    <string name="sentiment_lines">Sentiment Lines</string>
+    <string name="sentiment_slogan">Make your life more aesthetic</string>
 </resources>
