@@ -21,7 +21,7 @@ class SettingFragment : Fragment() {
 
 
     private lateinit var binding: FragmentSettingBinding
-    private lateinit var tvUiSelected: TextView  // Reference to tvUiSelected in the layout
+    private lateinit var tvUiSelected: TextView
     private val settingViewModel: SettingViewModel by viewModels()
 
     override fun onCreateView(

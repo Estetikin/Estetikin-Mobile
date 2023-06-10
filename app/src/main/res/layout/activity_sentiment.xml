@@ -93,7 +93,7 @@
         android:textSize="@dimen/text_size_10" />
 
     <Button
-        android:id="@+id/btn_video"
+        android:id="@+id/btn_mirrorless"
         android:layout_width="@dimen/spacing_72"
         android:layout_height="@dimen/spacing_32"
         android:layout_marginStart="318dp"
@@ -101,7 +101,7 @@
         android:layout_marginEnd="@dimen/spacing_88"
         android:background="@drawable/sentiment_button_background"
         android:fontFamily="@font/opensans_semi_bold"
-        android:text="@string/video"
+        android:text="@string/mirrorless"
         android:textSize="@dimen/text_size_10" />
   </FrameLayout>
 

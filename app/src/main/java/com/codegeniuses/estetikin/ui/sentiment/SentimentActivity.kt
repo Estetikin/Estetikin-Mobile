@@ -40,7 +40,7 @@ class SentimentActivity : AppCompatActivity() {
             navigateToHomeFragment()
         }
 
-        binding.btnVideo.setOnClickListener {
+        binding.btnMirrorless.setOnClickListener {
             saveUserPreference("video")
             makeText("video")
             navigateToHomeFragment()

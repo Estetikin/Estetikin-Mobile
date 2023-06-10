@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="@dimen/spacing_12"
+    android:paddingHorizontal="@dimen/spacing_16"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet">
+
+    <TextView
+        android:id="@+id/ios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_size_12"
+        android:text="@string/ios"/>
+
+    <TextView
+        android:id="@+id/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_size_12"
+        android:text="@string/android"/>
+
+    <TextView
+        android:id="@+id/dslr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_size_12"
+        android:text="@string/dslr"/>
+
+    <TextView
+        android:id="@+id/mirrorless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:padding="@dimen/spacing_8"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_size_12"
+        android:text="@string/mirrorless"/>
+</LinearLayout>
