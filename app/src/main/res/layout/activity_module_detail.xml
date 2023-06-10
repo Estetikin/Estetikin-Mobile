@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.moduleDetail.ModulDetailFragment">
+    tools:context=".ui.moduleDetail.ModuleDetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,25 +18,25 @@
         android:paddingEnd="@dimen/spacing_8"
         android:paddingStart="@dimen/spacing_24">
 
-    <ImageView
-        android:id="@+id/iv_back_button"
-        android:layout_width="@dimen/spacing_24"
-        android:layout_height="@dimen/spacing_20"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/ic_back_button"
-        android:contentDescription="@string/back_button" />
+        <ImageView
+            android:id="@+id/iv_back_button"
+            android:layout_width="@dimen/spacing_24"
+            android:layout_height="@dimen/spacing_20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_back_button"
+            android:contentDescription="@string/back_button" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_16"
-        android:fontFamily="@font/opensans_bold"
-        android:textColor="@color/white"
-        android:text="@string/title_module_detail"
-        android:textSize="@dimen/text_size_16"
-        app:layout_constraintStart_toEndOf="@+id/iv_back_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
+            android:text="@string/title_module_detail"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintStart_toEndOf="@+id/iv_back_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.appcompat.widget.Toolbar>
     <com.airbnb.lottie.LottieAnimationView

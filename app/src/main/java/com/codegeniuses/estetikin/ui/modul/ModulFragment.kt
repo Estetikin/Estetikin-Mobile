@@ -1,5 +1,6 @@
 package com.codegeniuses.estetikin.ui.modul
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,7 @@ import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.module.DataItem
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
-import com.codegeniuses.estetikin.ui.moduleDetail.ModulDetailFragment
+import com.codegeniuses.estetikin.ui.moduleDetail.ModuleDetailActivity
 
 class ModulFragment : Fragment(), LoadingHandler {
     private var _binding: FragmentModulBinding? = null
@@ -48,6 +49,7 @@ class ModulFragment : Fragment(), LoadingHandler {
 
         swipeRefresh()
     }
+
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_module))
@@ -62,25 +64,22 @@ class ModulFragment : Fragment(), LoadingHandler {
 
     private fun setupModule() {
         isRefreshing = true
-        moduleViewModel.getAllModule().observe(requireActivity()) {
-            it?.let { result ->
-                when (result) {
-                    is Result.Loading -> {
-                        loadingHandler(true)
-                    }
-                    is Result.Error -> {
-                        loadingHandler(false)
-                        Toast.makeText(
-                            requireContext(),
-                            "Failed to fetch module",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    }
-                    is Result.Success -> {
-                        loadingHandler(false)
-                        adapter.setModuleData(result.data.data)
-                    }
+        moduleViewModel.getAllModule().observe(requireActivity()) { result ->
+            when (result) {
+                is Result.Loading -> {
+                    loadingHandler(true)
+                }
+                is Result.Error -> {
+                    loadingHandler(false)
+                    Toast.makeText(
+                        requireContext(),
+                        "Failed to fetch module",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is Result.Success -> {
+                    loadingHandler(false)
+                    adapter.setModuleData(result.data.data)
                 }
             }
         }
@@ -94,22 +93,10 @@ class ModulFragment : Fragment(), LoadingHandler {
         })
     }
 
-    private fun showSelectedModule(data: DataItem){
-        moveToDetailModule(data)
-    }
-
-    private fun moveToDetailModule(data: DataItem){
-        val fragment = ModulDetailFragment()
-        val bundle = Bundle().apply {
-            putParcelable("module", data)
-        }
-        fragment.arguments = bundle
-
-        val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_home_nav, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+    private fun showSelectedModule(data: DataItem) {
+        val intent = Intent(requireContext(), ModuleDetailActivity::class.java)
+        intent.putExtra("module", data)
+        startActivity(intent)
     }
 
     private fun setupViewModel() {
@@ -121,6 +108,7 @@ class ModulFragment : Fragment(), LoadingHandler {
             setupModule()
         }
     }
+
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingAnimation.visibility = View.VISIBLE
@@ -132,5 +120,5 @@ class ModulFragment : Fragment(), LoadingHandler {
             }
         }
     }
-
 }
+

@@ -17,16 +17,16 @@
         android:label="fragment_album"
         tools:layout="@layout/fragment_album" />
 
-    <fragment
-        android:id="@+id/modulFragment"
-        android:name="com.codegeniuses.estetikin.ui.modul.ModulFragment"
-        android:label="fragment_modul"
-        tools:layout="@layout/fragment_modul_detail" />
 
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.codegeniuses.estetikin.ui.article.ArticleFragment"
         android:label="fragment_article"
         tools:layout="@layout/fragment_article" />
+    <fragment
+        android:id="@+id/modulFragment"
+        android:name="com.codegeniuses.estetikin.ui.modul.ModulFragment"
+        android:label="fragment_modul"
+        tools:layout="@layout/fragment_modul" />
 
 </navigation>
