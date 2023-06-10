@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.codegeniuses.estetikin.databinding.ActivityCameraBinding
 import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.confirmPage.ConfirmActivity
 import com.codegeniuses.estetikin.utils.createFile
 import com.codegeniuses.estetikin.utils.uriToFile
 import java.util.*
@@ -120,6 +121,7 @@ class CameraActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                     saveImageToGallery(savedUri)
+                    sendImageToConfirmFragment(savedUri)
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
                     intent.putExtra(
@@ -129,6 +131,12 @@ class CameraActivity : AppCompatActivity() {
                     finish()
                 }
             })
+    }
+
+    private fun sendImageToConfirmFragment(uri: Uri) {
+        val intent = Intent(this, ConfirmActivity::class.java)
+        intent.putExtra("image", uri)
+        startActivity(intent)
     }
 
     private fun saveImageToGallery(uri: Uri) {

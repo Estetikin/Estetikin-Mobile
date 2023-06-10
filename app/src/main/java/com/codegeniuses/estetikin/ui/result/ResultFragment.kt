@@ -1,5 +1,6 @@
 package com.codegeniuses.estetikin.ui.result
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentResultBinding.inflate(inflater, container, false)
         return binding.root
     }
 
