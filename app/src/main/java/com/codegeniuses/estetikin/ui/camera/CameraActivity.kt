@@ -5,7 +5,9 @@ import android.content.ContentValues
 import android.content.Intent
 import android.database.ContentObserver
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.*
 import android.provider.MediaStore
@@ -33,6 +35,7 @@ import com.codegeniuses.estetikin.ml.Model2
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
+import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -239,7 +242,18 @@ class CameraActivity : AppCompatActivity() {
                     saveImageToGallery(savedUri)
 
                     // pasang ml di gambar hasil kamera
+                    val selectedImg = savedUri as Uri
+                    selectedImg.let { uri ->
 
+                        val inputStream: InputStream? = contentResolver.openInputStream(uri)
+                        var image = BitmapFactory.decodeStream(inputStream)
+
+                        val dimension = Math.min(image.width, image.height)
+                        image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
+
+                        image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
+                        classifyImage(image)
+                    }
 
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
