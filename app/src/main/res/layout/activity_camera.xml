@@ -28,7 +28,7 @@
 
         <!-- Background circle -->
         <ImageView
-            android:id="@+id/gallery_icon_background"
+            android:id="@+id/gallery_icon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_camera_activity_background"
@@ -36,7 +36,7 @@
             android:contentDescription="@string/camera_background_icon" />
 
         <ImageView
-            android:id="@+id/gallery_icon"
+            android:id="@+id/gallery_icon_background"
             android:layout_width="@dimen/spacing_24"
             android:layout_height="@dimen/spacing_24"
             android:layout_gravity="center"

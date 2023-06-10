@@ -20,6 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.result.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.confirmPage.ConfirmActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.moduleDetail.ModuleDetailActivity"
             android:exported="false" />
         <activity
