@@ -52,7 +52,6 @@ class CameraActivity : AppCompatActivity() {
 
         // Overlaying the Android UI setting
         hideSystemUI()
-
         binding.galleryIcon.setOnClickListener { startGallery() }
         binding.captureImage.setOnClickListener { takePhoto() }
         binding.switchCamera.setOnClickListener {
@@ -78,6 +77,7 @@ class CameraActivity : AppCompatActivity() {
         unregisterContentObserver()
     }
 
+
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
@@ -92,16 +92,11 @@ class CameraActivity : AppCompatActivity() {
             try {
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
-                    this,
-                    cameraSelector,
-                    preview,
-                    imageCapture
+                    this, cameraSelector, preview, imageCapture
                 )
             } catch (exc: Exception) {
                 Toast.makeText(
-                    this@CameraActivity,
-                    "Gagal memunculkan kamera.",
-                    Toast.LENGTH_SHORT
+                    this@CameraActivity, "Gagal memunculkan kamera.", Toast.LENGTH_SHORT
                 ).show()
             }
         }, ContextCompat.getMainExecutor(this))
@@ -113,15 +108,12 @@ class CameraActivity : AppCompatActivity() {
         val photoFile = createFile(application)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-        imageCapture.takePicture(
-            outputOptions,
+        imageCapture.takePicture(outputOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(
-                        this@CameraActivity,
-                        "Gagal mengambil gambar.",
-                        Toast.LENGTH_SHORT
+                        this@CameraActivity, "Gagal mengambil gambar.", Toast.LENGTH_SHORT
                     ).show()
                 }
 
@@ -131,14 +123,12 @@ class CameraActivity : AppCompatActivity() {
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
                     intent.putExtra(
-                        "isBackCamera",
-                        cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
+                        "isBackCamera", cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
                     )
                     setResult(MainActivity.CAMERA_X_RESULT, intent)
                     finish()
                 }
-            }
-        )
+            })
     }
 
     private fun saveImageToGallery(uri: Uri) {
@@ -154,18 +144,13 @@ class CameraActivity : AppCompatActivity() {
 
     private fun loadRecentPhoto() {
         val projection = arrayOf(
-            MediaStore.Images.ImageColumns._ID,
-            MediaStore.Images.ImageColumns.DATE_TAKEN
+            MediaStore.Images.ImageColumns._ID, MediaStore.Images.ImageColumns.DATE_TAKEN
         )
 
         val sortOrder = "${MediaStore.Images.ImageColumns.DATE_TAKEN} DESC"
 
         val cursor = contentResolver.query(
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-            projection,
-            null,
-            null,
-            sortOrder
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null, null, sortOrder
         )
 
         cursor?.use {
@@ -174,13 +159,11 @@ class CameraActivity : AppCompatActivity() {
                 val columnIndexDateTaken =
                     it.getColumnIndex(MediaStore.Images.ImageColumns.DATE_TAKEN)
                 val imageUri = ContentUris.withAppendedId(
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    it.getLong(columnIndexId)
+                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI, it.getLong(columnIndexId)
                 )
                 recentPhotoUri = imageUri
                 galleryIcon?.let { icon ->
-                    Glide.with(this)
-                        .load(imageUri)
+                    Glide.with(this).load(imageUri)
                         .apply(RequestOptions.circleCropTransform()) // Apply circular transformation
                         .into(icon)
                 }
@@ -236,12 +219,8 @@ class CameraActivity : AppCompatActivity() {
     // Overlaying the Android UI setting
     @Suppress("DEPRECATION")
     private fun hideSystemUI() {
-        window.decorView.systemUiVisibility = (
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                )
+        window.decorView.systemUiVisibility =
+            (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
         window.navigationBarColor = Color.TRANSPARENT
         supportActionBar?.hide()
     }

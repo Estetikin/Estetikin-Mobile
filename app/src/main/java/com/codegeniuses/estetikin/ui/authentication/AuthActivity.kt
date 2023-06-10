@@ -15,4 +15,6 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
 
     }
+
+
 }

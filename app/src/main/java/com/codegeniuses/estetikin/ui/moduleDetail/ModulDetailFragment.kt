@@ -4,77 +4,62 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentModulDetailBinding
-import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.model.result.Result
+import com.codegeniuses.estetikin.model.response.module.DataItem
 import com.codegeniuses.estetikin.ui.MainActivity
 
 class ModulDetailFragment : Fragment(), LoadingHandler {
 
     private var _binding: FragmentModulDetailBinding? = null
     private val binding get() = _binding!!
-    private lateinit var factory: ViewModelFactory
-    private val moduleDetailViewModel: ModulDetailViewModel by viewModels { factory }
-
+    private val adapter = ModuleDetailAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+        _binding = FragmentModulDetailBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViewModel()
-//        setupModule()
+
+        val layoutManager = LinearLayoutManager(requireContext())
+        binding.rvModule.layoutManager = layoutManager
+        binding.rvModule.adapter = adapter
+
+        setupView()
     }
 
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_module_detail))
         val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
-        bottomNavigation.visibility = View.VISIBLE
+        bottomNavigation.visibility = View.INVISIBLE
+
+        val layoutManager = LinearLayoutManager(requireContext())
+        binding.rvModule.layoutManager = layoutManager
+        binding.rvModule.adapter = adapter
+
+        setupView()
     }
 
-    private fun setupViewModel() {
-        factory = ViewModelFactory.getInstance(requireContext())
-    }
-
-    private fun setupModuleDetail() {
-        moduleDetailViewModel.getAllModuleDetail().observe(requireActivity()) {
-            it?.let { result ->
-                when (result) {
-                    is Result.Loading -> {
-                        loadingHandler(true)
-                    }
-                    is Result.Error -> {
-                        loadingHandler(false)
-                        Toast.makeText(
-                            requireContext(),
-                            "Failed to fetch module data",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    }
-                    is Result.Success -> {
-                        loadingHandler(false)
-                        Toast.makeText(
-                            requireContext(),
-                            "Module fetched successfully!",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                    }
-                }
+    private fun setupView() {
+        val module = arguments?.getParcelable<DataItem>("module") ?: null
+        if (module != null) {
+            binding.apply {
+                tvModuleTitlePlaceholde.text = module.title
+                tvModuleDescriptionPlaceholder.text = module.description
             }
+            adapter.setModuleDetailData(module.content)
         }
     }
+
 
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {

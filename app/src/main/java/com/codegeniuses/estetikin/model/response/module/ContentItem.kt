@@ -4,8 +4,9 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class ModuleResponse(
-	val data: List<DataItem>,
-	val message: String,
-	val error: Boolean
+data class ContentItem(
+	val description: String,
+	val id: Int,
+	val title: String,
+	val url: String
 ) : Parcelable

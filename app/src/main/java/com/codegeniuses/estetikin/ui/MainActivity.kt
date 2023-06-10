@@ -20,6 +20,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.codegeniuses.estetikin.R
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityMainBinding
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
 import com.codegeniuses.estetikin.ui.setting.SettingFragment
@@ -31,12 +32,7 @@ import java.io.File
 class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-    companion object {
-        const val CAMERA_X_RESULT = 200
-
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
-    }
+    private lateinit var preferences: UserPreference
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -76,6 +72,8 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
         binding.botNav.background = null
         binding.botNav.menu.getItem(2).isEnabled = false
 
+        setupLanguage()
+        setupTheme()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_home_nav) as NavHostFragment
@@ -96,6 +94,16 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
                 setupPermission()
             }
         }
+    }
+
+    private fun setupLanguage(){
+        preferences = UserPreference(this)
+        preferences.setLocale(this)
+    }
+
+    private fun setupTheme(){
+        preferences = UserPreference(this)
+        preferences.applyTheme()
     }
 
     fun setActionBarTitle(title: String) {
@@ -175,5 +183,12 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
         navController = findNavController(R.id.fragment_home_nav)
         navController.navigate(R.id.settingFragment)
     }
+    companion object {
+        const val CAMERA_X_RESULT = 200
+
+        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+        private const val REQUEST_CODE_PERMISSIONS = 10
+    }
+
 }
 
