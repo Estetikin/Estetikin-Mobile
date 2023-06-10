@@ -28,6 +28,7 @@ class AlbumFragment : Fragment(), LoadingHandler {
     private lateinit var factory: ViewModelFactory
     private val albumViewModel: AlbumViewModel by viewModels { factory }
     private val adapter = AlbumAdapter()
+    private var isRefreshing = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,9 +57,11 @@ class AlbumFragment : Fragment(), LoadingHandler {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.rvAlbum.layoutManager = layoutManager
         binding.rvAlbum.adapter = adapter
+        swipeRefresh()
     }
 
     private fun setupAlbum() {
+        isRefreshing = true
         albumViewModel.getHistoryAlbum().observe(requireActivity()) {
             it?.let { result ->
                 when (result) {
@@ -118,6 +121,18 @@ class AlbumFragment : Fragment(), LoadingHandler {
             binding.loadingAnimation.visibility = View.VISIBLE
         } else {
             binding.loadingAnimation.visibility = View.GONE
+            if (isRefreshing) {
+                binding.swipeRefresh.isRefreshing = false
+                isRefreshing = false
+            }
         }
     }
+
+    private fun swipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            setupAlbum()
+        }
+    }
+
+
 }
