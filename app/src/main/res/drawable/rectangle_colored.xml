@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Left line -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/purple" />
+            <corners android:radius="@dimen/spacing_8" />
+        </shape>
+    </item>
+
+    <!-- Rectangle -->
+    <item
+        android:drawable="@drawable/rectangle_article_item"
+        android:left="@dimen/spacing_10" />
+</layer-list>

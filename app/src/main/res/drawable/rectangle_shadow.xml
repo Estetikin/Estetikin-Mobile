@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shadow -->
+    <item>
+        <bitmap
+            android:src="@drawable/shadow_background"
+            android:gravity="center" />
+    </item>
+
+    <!-- Rectangle -->
+    <item
+        android:drawable="@drawable/rectangle_colored" />
+</layer-list>
+
