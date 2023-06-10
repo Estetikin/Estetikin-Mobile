@@ -210,19 +210,26 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun startGallery() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        launcherIntentGallery.launch(intent)
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
     }
 
-    private val launcherIntentGallery =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                val selectedImg = result.data?.data as Uri
-                selectedImg.let { uri ->
-                    val myFile = uriToFile(uri, this@CameraActivity)
-                }
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            val selectedImg = result.data?.data as Uri
+
+            selectedImg.let { uri ->
+                val intent = Intent(this, ConfirmActivity::class.java)
+                intent.putExtra("image", uri)
+                startActivity(intent)
             }
         }
+    }
 
     // Overlaying the Android UI setting
     @Suppress("DEPRECATION")
