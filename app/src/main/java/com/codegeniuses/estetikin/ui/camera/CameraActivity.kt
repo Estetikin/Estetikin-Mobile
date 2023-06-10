@@ -238,6 +238,7 @@ class CameraActivity : AppCompatActivity() {
                     val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                     saveImageToGallery(savedUri)
 
+                    // pasang ml di gambar hasil kamera
                     
 
                     val intent = Intent()
