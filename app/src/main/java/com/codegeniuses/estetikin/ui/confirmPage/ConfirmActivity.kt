@@ -1,10 +1,13 @@
 package com.codegeniuses.estetikin.ui.confirmPage
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
+import com.codegeniuses.estetikin.ui.result.ResultActivity
+import com.codegeniuses.estetikin.ui.sentiment.SentimentActivity
 
 class ConfirmActivity : AppCompatActivity() {
 
@@ -29,15 +32,22 @@ class ConfirmActivity : AppCompatActivity() {
     }
 
     private fun setupAction(fileUri: Uri?) {
-
         binding.btnSend.setOnClickListener {
             classifyImage(fileUri)
+            moveToResultActivity(fileUri)
         }
     }
 
     private fun classifyImage(fileUri: Uri?) {
         Toast.makeText(this, "proses ml", Toast.LENGTH_SHORT).show()
     }
+
+    private fun moveToResultActivity(fileUri: Uri?){
+        val intent = Intent(this@ConfirmActivity, ResultActivity::class.java)
+        intent.putExtra("image", fileUri)
+        startActivity(intent)
+    }
+
 }
 
 
