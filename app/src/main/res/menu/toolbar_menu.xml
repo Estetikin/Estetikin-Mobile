@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/settingFragment"
+        android:id="@+id/settingsActivity"
         android:icon="@drawable/ic_setting"
         android:title="@string/title_setting"
         android:visible="true"

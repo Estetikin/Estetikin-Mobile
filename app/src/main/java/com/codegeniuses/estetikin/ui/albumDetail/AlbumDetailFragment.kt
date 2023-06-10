@@ -28,6 +28,10 @@ class AlbumDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         hideSupportActionBar()
         setupAction()
+
+        binding.ivBackButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
 
@@ -48,9 +52,5 @@ class AlbumDetailFragment : Fragment() {
                 .load(album.link)
                 .into(binding.ivAlbumPhoto)
         }
-
-//        binding.ivBackButton.setOnClickListener{
-//           findNavController().navigate(R.id.action_albumDetailFragment_to_albumFragment)
-//        }
     }
 }

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -65,6 +66,10 @@ class ArticleFragment : Fragment(), LoadingHandler {
     override fun onResume() {
         super.onResume()
         (activity as? MainActivity)?.setActionBarTitle(getString(R.string.title_article))
+
+        val toolbar: Toolbar = requireActivity().findViewById(R.id.toolbar_container)
+        toolbar.visibility = View.VISIBLE
+
         val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
         bottomNavigation.visibility = View.VISIBLE
     }

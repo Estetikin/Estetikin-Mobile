@@ -14,7 +14,9 @@
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingEnd="@dimen/spacing_8"
+        android:paddingStart="@dimen/spacing_24">
 
     <ImageView
         android:id="@+id/iv_back_button"
@@ -28,8 +30,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_24"
+        android:layout_marginStart="@dimen/spacing_16"
         android:fontFamily="@font/opensans_bold"
+        android:textColor="@color/white"
         android:text="@string/title_module_detail"
         android:textSize="@dimen/text_size_16"
         app:layout_constraintStart_toEndOf="@+id/iv_back_button"

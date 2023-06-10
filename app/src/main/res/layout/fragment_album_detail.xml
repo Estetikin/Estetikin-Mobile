@@ -31,7 +31,7 @@
             style="@style/Text.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_24"
+            android:layout_marginStart="@dimen/spacing_16"
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_16"

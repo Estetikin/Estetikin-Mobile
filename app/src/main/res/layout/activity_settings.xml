@@ -4,7 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingFragment">
+    tools:context=".ui.setting.SettingsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="?attr/colorPrimary"
+        android:paddingEnd="@dimen/spacing_8"
+        android:paddingStart="@dimen/spacing_24">
+
+        <ImageView
+            android:id="@+id/iv_back_button"
+            android:layout_width="@dimen/spacing_24"
+            android:layout_height="@dimen/spacing_20"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_back_button"
+            android:contentDescription="@string/back_button" />
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            style="@style/Text.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16"
+            android:text="@string/title_setting"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@+id/iv_back_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/language_item"
@@ -12,9 +46,9 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/spacing_8"
         android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_72"
+        android:layout_marginTop="@dimen/spacing_24"
         android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_container">
 
         <ImageView
             android:id="@+id/iv_language"

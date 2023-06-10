@@ -34,6 +34,10 @@ class ModulDetailFragment : Fragment(), LoadingHandler {
         binding.rvModule.adapter = adapter
 
         setupView()
+
+        binding.ivBackButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     override fun onResume() {

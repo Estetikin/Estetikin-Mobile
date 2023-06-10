@@ -1,19 +1,15 @@
 package com.codegeniuses.estetikin.ui.home
 
 import android.Manifest
-import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.R
-import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.ml.Model
@@ -42,8 +37,8 @@ class HomeFragment : Fragment(), LoadingHandler {
     private val binding get() = _binding!!
     private val homeViewModel: HomeViewModel by viewModels()
 
-    private lateinit var preferenceSelected: TextView
-    private var selectedPreference: String = ""
+//    private lateinit var preferenceSelected: TextView
+//    private var selectedPreference: String = ""
 
     var imageSize = 224
 
@@ -60,11 +55,11 @@ class HomeFragment : Fragment(), LoadingHandler {
         setupPermission()
         setupAction()
 
-        preferenceSelected = binding.tvPreferencesSelected
-        binding.preferencesContainer.setOnClickListener {
-            showPreferences()
-        }
-        updatePreferencesSelected()
+//        preferenceSelected = binding.tvPreferencesSelected
+//        binding.preferencesContainer.setOnClickListener {
+//            showPreferences()
+//        }
+//        updatePreferencesSelected()
     }
 
     override fun onResume() {
@@ -131,74 +126,74 @@ class HomeFragment : Fragment(), LoadingHandler {
         }
     }
 
-    private fun showPreferences() {
-        val dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.item_preferences)
+//    private fun showPreferences() {
+//        val dialog = Dialog(requireContext())
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//        dialog.setContentView(R.layout.item_preferences)
+//
+//        val ios = dialog.findViewById<TextView>(R.id.ios)
+//        val android = dialog.findViewById<TextView>(R.id.android)
+//        val dslr = dialog.findViewById<TextView>(R.id.dslr)
+//        val mirrorless = dialog.findViewById<TextView>(R.id.mirrorless)
+//
+//        ios.setOnClickListener {
+//            saveUserPreference("IOS")
+//            dialog.dismiss()
+//            makeText()
+//        }
+//
+//        android.setOnClickListener {
+//            saveUserPreference("Android")
+//            dialog.dismiss()
+//            makeText()
+//        }
+//
+//        dslr.setOnClickListener {
+//            saveUserPreference("DSLR")
+//            dialog.dismiss()
+//            makeText()
+//        }
+//
+//        mirrorless.setOnClickListener {
+//            saveUserPreference("Mirrorless")
+//            dialog.dismiss()
+//            makeText()
+//        }
+//
+//        dialog.window?.apply {
+//            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+//            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
+//            setGravity(Gravity.BOTTOM)
+//        }
+//
+//        dialog.show()
+//    }
+//    private fun saveUserPreference(data: String) {
+////        TODO(The Selected Preferences haven't saved on User Preferenecs)
+////        TODO(Also, After I update the preferences, the article cannot fetch the article based on the preferences)
+//        selectedPreference = data
+//        val pref = UserPreference(requireContext())
+//        pref.saveUserPreference(data)
+//        updatePreferencesSelected()
+//    }
 
-        val ios = dialog.findViewById<TextView>(R.id.ios)
-        val android = dialog.findViewById<TextView>(R.id.android)
-        val dslr = dialog.findViewById<TextView>(R.id.dslr)
-        val mirrorless = dialog.findViewById<TextView>(R.id.mirrorless)
 
-        ios.setOnClickListener {
-            saveUserPreference("IOS")
-            dialog.dismiss()
-            makeText()
-        }
-
-        android.setOnClickListener {
-            saveUserPreference("Android")
-            dialog.dismiss()
-            makeText()
-        }
-
-        dslr.setOnClickListener {
-            saveUserPreference("DSLR")
-            dialog.dismiss()
-            makeText()
-        }
-
-        mirrorless.setOnClickListener {
-            saveUserPreference("Mirrorless")
-            dialog.dismiss()
-            makeText()
-        }
-
-        dialog.window?.apply {
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
-            setGravity(Gravity.BOTTOM)
-        }
-
-        dialog.show()
-    }
-    private fun saveUserPreference(data: String) {
-//        TODO(The Selected Preferences haven't saved on User Preferenecs)
-//        TODO(Also, After I update the preferences, the article cannot fetch the article based on the preferences)
-        selectedPreference = data
-        val pref = UserPreference(requireContext())
-        pref.saveUserPreference(data)
-        updatePreferencesSelected()
-    }
-
-
-    private fun updatePreferencesSelected() {
-        if (selectedPreference.isNotEmpty()) {
-            binding.tvPreferencesSelected.text = selectedPreference
-        }
-    }
-
-    private fun makeText() {
-        if (selectedPreference.isNotEmpty()) {
-            Toast.makeText(
-                requireContext(),
-                "You chose $selectedPreference as your preference",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
+//    private fun updatePreferencesSelected() {
+//        if (selectedPreference.isNotEmpty()) {
+//            binding.tvPreferencesSelected.text = selectedPreference
+//        }
+//    }
+//
+//    private fun makeText() {
+//        if (selectedPreference.isNotEmpty()) {
+//            Toast.makeText(
+//                requireContext(),
+//                "You chose $selectedPreference as your preference",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+//    }
 
 
     override fun loadingHandler(isLoading: Boolean) {

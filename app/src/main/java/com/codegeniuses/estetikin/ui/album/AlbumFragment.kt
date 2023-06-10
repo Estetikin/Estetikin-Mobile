@@ -45,6 +45,10 @@ class AlbumFragment : Fragment(), LoadingHandler {
 
         val toolbar: Toolbar = requireActivity().findViewById(R.id.toolbar_container)
         toolbar.visibility = View.VISIBLE
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.rvAlbum.layoutManager = layoutManager
+        binding.rvAlbum.adapter = adapter
+        swipeRefresh()
         setupViewModel()
         setupAlbum()
         setupAction()
@@ -53,14 +57,6 @@ class AlbumFragment : Fragment(), LoadingHandler {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        binding.rvAlbum.layoutManager = layoutManager
-        binding.rvAlbum.adapter = adapter
-        swipeRefresh()
-        setupViewModel()
-        setupAlbum()
-        setupAction()
     }
 
     private fun setupAlbum() {

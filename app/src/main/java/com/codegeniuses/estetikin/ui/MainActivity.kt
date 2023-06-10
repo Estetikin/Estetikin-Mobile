@@ -16,52 +16,23 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityMainBinding
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
-import com.codegeniuses.estetikin.ui.setting.SettingFragment
+import com.codegeniuses.estetikin.ui.setting.SettingsActivity
 import com.codegeniuses.estetikin.utils.rotateFile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.File
 
 
 class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var preferences: UserPreference
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (!allPermissionsGranted()) {
-                Toast.makeText(
-                    this,
-                    "Tidak mendapatkan permission.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-    }
-
-    private fun setupPermission() {
-        ActivityCompat.requestPermissions(
-            this,
-            REQUIRED_PERMISSIONS,
-            REQUEST_CODE_PERMISSIONS
-        )
-    }
-
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,12 +67,41 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
         }
     }
 
-    private fun setupLanguage(){
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (!allPermissionsGranted()) {
+                Toast.makeText(
+                    this,
+                    "Tidak mendapatkan permission.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun setupPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            REQUIRED_PERMISSIONS,
+            REQUEST_CODE_PERMISSIONS
+        )
+    }
+
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun setupLanguage() {
         preferences = UserPreference(this)
         preferences.setLocale(this)
     }
 
-    private fun setupTheme(){
+    private fun setupTheme() {
         preferences = UserPreference(this)
         preferences.applyTheme()
     }
@@ -125,24 +125,23 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
         }
     }
 
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CAMERA_X_RESULT) {
-            val myFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.data?.getSerializableExtra("picture", File::class.java)
-            } else {
-                @Suppress("DEPRECATION")
-                it.data?.getSerializableExtra("picture")
-            } as? File
+    private val launcherIntentCameraX =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == CAMERA_X_RESULT) {
+                val myFile = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    it.data?.getSerializableExtra("picture", File::class.java)
+                } else {
+                    @Suppress("DEPRECATION")
+                    it.data?.getSerializableExtra("picture")
+                } as? File
 
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+                val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
 
-            myFile?.let { file ->
-                rotateFile(file, isBackCamera)
+                myFile?.let { file ->
+                    rotateFile(file, isBackCamera)
+                }
             }
         }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
@@ -151,8 +150,8 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
 
     override fun onMenuItemClick(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.settingFragment -> {
-                navigateToSettingFragment()
+            R.id.settingsActivity -> {
+                navigateToSettingActivity()
                 true
             }
             else -> false
@@ -162,33 +161,25 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_home_nav)
-                if (currentFragment is SettingFragment) {
-                    // Handle the back navigation from SettingsFragment
-                    val previousFragmentTag = currentFragment.getPreviousFragmentTag()
-                    val previousFragment = supportFragmentManager.findFragmentByTag(previousFragmentTag)
-                    if (previousFragment != null) {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_home_nav, previousFragment)
-                            .commit()
-                    }
-                    return true
-                }
+                onBackPressed()
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun navigateToSettingFragment() {
-        navController = findNavController(R.id.fragment_home_nav)
-        navController.navigate(R.id.settingFragment)
+
+
+    private fun navigateToSettingActivity() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
+
     companion object {
         const val CAMERA_X_RESULT = 200
 
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
     }
-
 }
 

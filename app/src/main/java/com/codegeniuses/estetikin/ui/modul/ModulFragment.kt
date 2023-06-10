@@ -13,13 +13,9 @@ import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentModulBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
-import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 import com.codegeniuses.estetikin.model.response.module.DataItem
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
-import com.codegeniuses.estetikin.ui.album.AlbumAdapter
-import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment
-import com.codegeniuses.estetikin.ui.article.ArticleAdapter
 import com.codegeniuses.estetikin.ui.moduleDetail.ModulDetailFragment
 
 class ModulFragment : Fragment(), LoadingHandler {
@@ -28,6 +24,7 @@ class ModulFragment : Fragment(), LoadingHandler {
     private lateinit var factory: ViewModelFactory
     private val moduleViewModel: ModuleViewModel by viewModels { factory }
     private val adapter = ModuleAdapter()
+    private var isRefreshing = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +46,7 @@ class ModulFragment : Fragment(), LoadingHandler {
         binding.rvItemModule.layoutManager = layoutManager
         binding.rvItemModule.adapter = adapter
 
+        swipeRefresh()
     }
     override fun onResume() {
         super.onResume()
@@ -56,12 +54,14 @@ class ModulFragment : Fragment(), LoadingHandler {
         val bottomNavigation: CoordinatorLayout = requireActivity().findViewById(R.id.bottom)
         bottomNavigation.visibility = View.VISIBLE
 
+        swipeRefresh()
         setupViewModel()
         setupModule()
         setupAction()
     }
 
     private fun setupModule() {
+        isRefreshing = true
         moduleViewModel.getAllModule().observe(requireActivity()) {
             it?.let { result ->
                 when (result) {
@@ -116,11 +116,20 @@ class ModulFragment : Fragment(), LoadingHandler {
         factory = ViewModelFactory.getInstance(requireContext())
     }
 
+    private fun swipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            setupModule()
+        }
+    }
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingAnimation.visibility = View.VISIBLE
         } else {
             binding.loadingAnimation.visibility = View.GONE
+            if (isRefreshing) {
+                binding.swipeRefresh.isRefreshing = false
+                isRefreshing = false
+            }
         }
     }
 
