@@ -26,6 +26,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var tvUiSelected: TextView
     private val settingViewModel: SettingViewModel by viewModels()
     private lateinit var preferences: UserPreference
+    private lateinit var tvSelectedPreference: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +34,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
         setupAction()
-
+        updateSelectedPreferences()
         binding.ivBackButton.setOnClickListener {
             finish()
         }
@@ -50,7 +51,7 @@ class SettingsActivity : AppCompatActivity() {
         val sharedPreferences =
             getSharedPreferences("settings", Context.MODE_PRIVATE)
         val languageCode = sharedPreferences.getString("language", "en") // Default to English if not found
-        // Update the text of tv_title_language based on the saved language
+
         val languageTextResId = if (languageCode == "en") {
             R.string.english
         } else {
@@ -71,6 +72,11 @@ class SettingsActivity : AppCompatActivity() {
             showUiBottomSheet()
         }
         checkUiSelected()
+
+        tvSelectedPreference = binding.tvPreferencesSelected
+        binding.preferencesItem.setOnClickListener {
+            showPreferencesBottomSheet()
+        }
 
         binding.logoutItem.setOnClickListener {
             val pref = UserPreference(this)
@@ -119,80 +125,6 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun showUiBottomSheet() {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.item_ui_mode)
-
-        val light = dialog.findViewById<TextView>(R.id.light_mode)
-        val dark = dialog.findViewById<TextView>(R.id.dark_mode)
-
-        light.setOnClickListener {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            binding.ivUi.setImageResource(R.drawable.ic_light_mode)
-            binding.ivLanguage.setImageResource(R.drawable.ic_language)
-            binding.ivLogout.setImageResource(R.drawable.ic_logout)
-            tvUiSelected.setText(R.string.light_theme)  // Use the stored reference to update tvUiSelected
-            dialog.dismiss()
-            preferences.setTheme("Light")
-            Toast.makeText(this, "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        dark.setOnClickListener {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            binding.ivUi.setImageResource(R.drawable.ic_dark_mode)
-            binding.ivLanguage.setImageResource(R.drawable.ic_language_light)
-            binding.ivLogout.setImageResource(R.drawable.ic_logout_light)
-            tvUiSelected.setText(R.string.dark_theme)  // Use the stored reference to update tvUiSelected
-            dialog.dismiss()
-            preferences.setTheme("Dark")
-            Toast.makeText(this, "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
-        }
-
-        dialog.window?.apply {
-            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
-            setGravity(Gravity.BOTTOM)
-        }
-
-        dialog.show()
-    }
-
-    private fun checkUiSelected() {
-        val nightMode = AppCompatDelegate.getDefaultNightMode()
-        val uiModeTextResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.string.dark_theme
-        } else {
-            R.string.light_theme
-        }
-        tvUiSelected.setText(uiModeTextResId)
-
-
-        val uiModeIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_dark_mode
-        } else {
-            R.drawable.ic_light_mode
-        }
-        binding.ivUi.setImageResource(uiModeIconResId)
-
-
-        val languageIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_language_light
-        } else {
-            R.drawable.ic_language
-        }
-        binding.ivLanguage.setImageResource(languageIconResId)
-
-
-        val logoutIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
-            R.drawable.ic_logout_light
-        } else {
-            R.drawable.ic_logout
-        }
-        binding.ivLogout.setImageResource(logoutIconResId)
-    }
-
     private fun changeLanguage(languageCode: String) {
         val sharedPreferences =
             getSharedPreferences("settings", Context.MODE_PRIVATE)
@@ -217,6 +149,154 @@ class SettingsActivity : AppCompatActivity() {
         recreate()
     }
 
+    private fun showUiBottomSheet() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.item_ui_mode)
+
+        val light = dialog.findViewById<TextView>(R.id.light_mode)
+        val dark = dialog.findViewById<TextView>(R.id.dark_mode)
+
+        light.setOnClickListener {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            tvUiSelected.setText(R.string.light_theme)
+            dialog.dismiss()
+            preferences.setTheme("Light")
+            Toast.makeText(this, "Light Mode is Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        dark.setOnClickListener {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            tvUiSelected.setText(R.string.dark_theme)
+            dialog.dismiss()
+            preferences.setTheme("Dark")
+            Toast.makeText(this, "Dark Mode is Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        dialog.window?.apply {
+            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
+            setGravity(Gravity.BOTTOM)
+        }
+
+        dialog.show()
+    }
+
+    private fun checkUiSelected() {
+        val nightMode = AppCompatDelegate.getDefaultNightMode()
+        val uiModeTextResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.string.dark_theme
+        } else {
+            R.string.light_theme
+        }
+        tvUiSelected.setText(uiModeTextResId)
+
+        val uiModeIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_dark_mode
+        } else {
+            R.drawable.ic_light_mode
+        }
+        binding.ivUi.setImageResource(uiModeIconResId)
+
+
+        val languageIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_language_light
+        } else {
+            R.drawable.ic_language
+        }
+        binding.ivLanguage.setImageResource(languageIconResId)
+
+        val preferencesIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_preferences_light
+        } else {
+            R.drawable.ic_preferences
+        }
+        binding.ivPreferences.setImageResource(preferencesIconResId)
+
+        val logoutIconResId = if (nightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            R.drawable.ic_logout_light
+        } else {
+            R.drawable.ic_logout
+        }
+        binding.ivLogout.setImageResource(logoutIconResId)
+    }
+
+    private fun showPreferencesBottomSheet() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.item_preferences)
+
+        val ios = dialog.findViewById<TextView>(R.id.ios)
+        val android = dialog.findViewById<TextView>(R.id.android)
+        val dslr = dialog.findViewById<TextView>(R.id.dslr)
+        val mirrorless = dialog.findViewById<TextView>(R.id.mirrorless)
+
+        ios.setOnClickListener {
+            saveUserPreference("ios")
+            tvSelectedPreference.text = getString(R.string.ios)
+            dialog.dismiss()
+            makePrefText("IOS")
+            updateSelectedPreferences()
+        }
+
+        android.setOnClickListener {
+            saveUserPreference("android")
+            tvSelectedPreference.setText(R.string.android)
+            dialog.dismiss()
+            makePrefText("Android")
+            updateSelectedPreferences()
+        }
+
+        dslr.setOnClickListener {
+            saveUserPreference("dslr")
+            tvSelectedPreference.setText(R.string.dslr)
+            dialog.dismiss()
+            makePrefText("DSLR")
+            updateSelectedPreferences()
+        }
+
+        mirrorless.setOnClickListener {
+            saveUserPreference("mirrorless")
+            tvSelectedPreference.setText(R.string.mirrorless)
+            dialog.dismiss()
+            makePrefText("Mirrorless")
+            updateSelectedPreferences()
+        }
+
+
+        dialog.window?.apply {
+            setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            attributes?.windowAnimations = R.style.Bottom_Sheet_Animation
+            setGravity(Gravity.BOTTOM)
+        }
+
+        dialog.show()
+    }
+
+    private fun updateSelectedPreferences() {
+        val selectedPreference = preferences.getUserPreference()
+        tvSelectedPreference.text = selectedPreference?.let { getPreferenceText(it) }
+    }
+
+    private fun getPreferenceText(preference: String): String {
+        return when (preference) {
+            "ios" -> getString(R.string.ios)
+            "android" -> getString(R.string.android)
+            "dslr" -> getString(R.string.dslr)
+            "mirrorless" -> getString(R.string.mirrorless)
+            else -> ""
+        }
+    }
+    private fun makePrefText(text: String) {
+        Toast.makeText(this@SettingsActivity, "You choose $text as your preference", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun saveUserPreference(data: String) {
+        val pref = UserPreference(this)
+        pref.saveUserPreference(data)
+    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

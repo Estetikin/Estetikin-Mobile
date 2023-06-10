@@ -137,6 +137,7 @@
     <string name="kumaa">Kumaa</string>
     <string name="greeting_message">Let\'s start taking picture</string>
     <string name="title_preferences">Preferences</string>
-    <string name="preferences_selected">Android</string>
+    <string name="preferences_selected">Preferences Selected</string>
     <string name="your_preferences">Your Preferences: </string>
+    <string name="prefereneces_icon">Preferences Icon</string>
 </resources>
