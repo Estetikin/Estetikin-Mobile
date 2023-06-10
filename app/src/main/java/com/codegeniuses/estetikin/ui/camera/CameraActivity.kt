@@ -32,6 +32,8 @@ import java.util.*
 // Machine Learning Deploy
 import com.codegeniuses.estetikin.ml.Model1
 import com.codegeniuses.estetikin.ml.Model2
+import com.codegeniuses.estetikin.ml.Model3
+import com.codegeniuses.estetikin.ml.Model4
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
@@ -126,6 +128,8 @@ class CameraActivity : AppCompatActivity() {
         try {
             val model1 = Model1.newInstance(applicationContext)
             val model2 = Model2.newInstance(applicationContext)
+            val model3 = Model3.newInstance(applicationContext)
+            val model4 = Model4.newInstance(applicationContext)
 
             // Creates inputs for reference.
             val inputFeature0: TensorBuffer =
@@ -210,9 +214,71 @@ class CameraActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, s2, Toast.LENGTH_SHORT).show()
             Log.d("success", s2)
 
+            // Model 3
+            val outputs3: Model3.Outputs = model3.process(inputFeature0)
+            val outputFeature3: TensorBuffer = outputs3.getOutputFeature0AsTensorBuffer()
+            val confidences3: FloatArray = outputFeature3.getFloatArray()
+
+            // find the index of the class with the biggest confidence.
+            var maxPos3 = 0
+            var maxConfidence3 = 0f
+            for (i in confidences3.indices) {
+                if (confidences3[i] > maxConfidence3) {
+                    maxConfidence3 = confidences3[i]
+                    maxPos3 = i
+                }
+            }
+
+            //make the feature output data
+            val classes3 = arrayOf("low brightness", "normal brightness", "high brightness")
+            Toast.makeText(
+                applicationContext,
+                classes3[maxPos3],
+                Toast.LENGTH_SHORT
+            ).show()
+            Log.d("success", classes3[maxPos2])
+            var s3 = ""
+            for (i in classes3.indices) {
+                s3 += String.format("%s: %.1f%%\n", classes3[i], confidences3[i] * 100)
+            }
+            Toast.makeText(applicationContext, s3, Toast.LENGTH_SHORT).show()
+            Log.d("success", s3)
+
+            // Model 4
+            val outputs4: Model4.Outputs = model4.process(inputFeature0)
+            val outputFeature4: TensorBuffer = outputs4.getOutputFeature0AsTensorBuffer()
+            val confidences4: FloatArray = outputFeature4.getFloatArray()
+
+            // find the index of the class with the biggest confidence.
+            var maxPos4 = 0
+            var maxConfidence4 = 0f
+            for (i in confidences4.indices) {
+                if (confidences4[i] > maxConfidence4) {
+                    maxConfidence4 = confidences4[i]
+                    maxPos4 = i
+                }
+            }
+
+            //make the feature output data
+            val classes4 = arrayOf("centered", "non-centered")
+            Toast.makeText(
+                applicationContext,
+                classes4[maxPos4],
+                Toast.LENGTH_SHORT
+            ).show()
+            Log.d("success", classes4[maxPos4])
+            var s4 = ""
+            for (i in classes4.indices) {
+                s4 += String.format("%s: %.1f%%\n", classes4[i], confidences4[i] * 100)
+            }
+            Toast.makeText(applicationContext, s4, Toast.LENGTH_SHORT).show()
+            Log.d("success", s4)
+
             // Releases model resources if no longer used.
             model1.close()
             model2.close()
+            model3.close()
+            model4.close()
         } catch (e: IOException) {
             // TODO Handle the exception
         }
