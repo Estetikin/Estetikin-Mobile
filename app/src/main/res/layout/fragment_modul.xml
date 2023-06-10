@@ -42,7 +42,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_14"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/white"
             android:text="@string/unlock_your_photographic_potential"/>
 
         <TextView
@@ -54,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_unlock"
             android:fontFamily="@font/opensans_regular"
             android:textSize="@dimen/text_size_10"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/white"
             android:text="@string/master_the_art_of_photography_and_capture_breathtaking_moments"/>
 
         <ImageView
