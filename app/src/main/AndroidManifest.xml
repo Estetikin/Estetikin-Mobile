@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.forgetPassword.CreatePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.forgetPassword.ForgetPasswordActivity"
             android:exported="false" />
         <activity
