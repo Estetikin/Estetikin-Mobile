@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.model.response.module.DataItem
 
@@ -22,13 +23,17 @@ class ModuleAdapter : RecyclerView.Adapter<ModuleAdapter.ListViewHolder>() {
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvModuleTitle: TextView = itemView.findViewById(R.id.tv_item_module_title)
-//        val imgUrl: ImageView = itemView.findViewById(R.id.iv_icon_item_module)
+        val imgUrl: ImageView = itemView.findViewById(R.id.iv_icon_item_module)
 
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val title = currentList[position].title
-//        val img = currentList[position].url
+
+        Glide.with(holder.itemView.context)
+            .load(currentList[position].url)
+            .into(holder.imgUrl)
+
         holder.tvModuleTitle.text = title
 
         holder.itemView.setOnClickListener {

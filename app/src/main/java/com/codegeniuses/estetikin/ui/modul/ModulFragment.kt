@@ -13,9 +13,14 @@ import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentModulBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
+import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
+import com.codegeniuses.estetikin.model.response.module.DataItem
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.album.AlbumAdapter
+import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment
 import com.codegeniuses.estetikin.ui.article.ArticleAdapter
+import com.codegeniuses.estetikin.ui.moduleDetail.ModulDetailFragment
 
 class ModulFragment : Fragment(), LoadingHandler {
     private var _binding: FragmentModulBinding? = null
@@ -53,6 +58,7 @@ class ModulFragment : Fragment(), LoadingHandler {
 
         setupViewModel()
         setupModule()
+        setupAction()
     }
 
     private fun setupModule() {
@@ -81,7 +87,29 @@ class ModulFragment : Fragment(), LoadingHandler {
     }
 
     private fun setupAction() {
+        adapter.setOnItemClickCallback(object : ModuleAdapter.OnItemClickCallBack {
+            override fun onItemClicked(data: DataItem) {
+                showSelectedModule(data)
+            }
+        })
+    }
 
+    private fun showSelectedModule(data: DataItem){
+        moveToDetailModule(data)
+    }
+
+    private fun moveToDetailModule(data: DataItem){
+        val fragment = ModulDetailFragment()
+        val bundle = Bundle().apply {
+            putParcelable("module", data)
+        }
+        fragment.arguments = bundle
+
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_home_nav, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     private fun setupViewModel() {
