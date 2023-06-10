@@ -33,6 +33,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
     private val articleViewModel: ArticleViewModel by viewModels { factory }
     private val adapter = ArticleAdapter()
     private val adapterPreference = ArticlePreferenceAdapter()
+    private var isRefreshing = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +55,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
         binding.rvArticleCategory.layoutManager = layoutManagerPreference
         binding.rvArticleCategory.adapter = adapterPreference
 
+        swipeRefresh()
         setupViewModel()
         setupAction()
         setupArticle()
@@ -102,6 +104,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
     }
 
     private fun setupArticle() {
+        isRefreshing = true
         articleViewModel.getArticles("all").observe(requireActivity()) {
             it?.let { result ->
                 when (result) {
@@ -162,6 +165,20 @@ class ArticleFragment : Fragment(), LoadingHandler {
             binding.loadingAnimation.visibility = View.VISIBLE
         } else {
             binding.loadingAnimation.visibility = View.GONE
+            if (isRefreshing) {
+                binding.swipeRefresh.isRefreshing = false
+                binding.swipeRefreshPreference.isRefreshing = false
+                isRefreshing = false
+            }
+        }
+    }
+
+    private fun swipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            setupArticle()
+        }
+        binding.swipeRefreshPreference.setOnRefreshListener {
+            setupArticle()
         }
     }
 

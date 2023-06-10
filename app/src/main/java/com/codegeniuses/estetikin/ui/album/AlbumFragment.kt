@@ -58,6 +58,9 @@ class AlbumFragment : Fragment(), LoadingHandler {
         binding.rvAlbum.layoutManager = layoutManager
         binding.rvAlbum.adapter = adapter
         swipeRefresh()
+        setupViewModel()
+        setupAlbum()
+        setupAction()
     }
 
     private fun setupAlbum() {
