@@ -91,12 +91,26 @@ class ConfirmActivity : AppCompatActivity() {
             }
             inputFeature0.loadBuffer(byteBuffer)
 
-            // Runs model inference and gets result.
+            // Setup Model, Feature, Confidence
             // Model 1
             val outputs1: Model1.Outputs = model1.process(inputFeature0)
             val outputFeature1: TensorBuffer = outputs1.getOutputFeature0AsTensorBuffer()
             val confidences1: FloatArray = outputFeature1.getFloatArray()
+            // Model 2
+            val outputs2: Model2.Outputs = model2.process(inputFeature0)
+            val outputFeature2: TensorBuffer = outputs2.getOutputFeature0AsTensorBuffer()
+            val confidences2: FloatArray = outputFeature2.getFloatArray()
+            // Model 3
+            val outputs3: Model3.Outputs = model3.process(inputFeature0)
+            val outputFeature3: TensorBuffer = outputs3.getOutputFeature0AsTensorBuffer()
+            val confidences3: FloatArray = outputFeature3.getFloatArray()
+            // Model 4
+            val outputs4: Model4.Outputs = model4.process(inputFeature0)
+            val outputFeature4: TensorBuffer = outputs4.getOutputFeature0AsTensorBuffer()
+            val confidences4: FloatArray = outputFeature4.getFloatArray()
 
+            // Setting Rules for Predict()
+            //Model 1
             // find the index of the class with the biggest confidence.
             var maxPos1 = 0
             var maxConfidence1 = 0f
@@ -106,7 +120,6 @@ class ConfirmActivity : AppCompatActivity() {
                     maxPos1 = i
                 }
             }
-
             //make the feature output data
             val classes1 = arrayOf("well-focused picture", "blurry picture")
             Toast.makeText(
@@ -122,11 +135,7 @@ class ConfirmActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, s1, Toast.LENGTH_SHORT).show()
             Log.d("success", s1)
 
-            // Model 2
-            val outputs2: Model2.Outputs = model2.process(inputFeature0)
-            val outputFeature2: TensorBuffer = outputs2.getOutputFeature0AsTensorBuffer()
-            val confidences2: FloatArray = outputFeature2.getFloatArray()
-
+            //Model 2
             // find the index of the class with the biggest confidence.
             var maxPos2 = 0
             var maxConfidence2 = 0f
@@ -152,11 +161,7 @@ class ConfirmActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, s2, Toast.LENGTH_SHORT).show()
             Log.d("success", s2)
 
-            // Model 3
-            val outputs3: Model3.Outputs = model3.process(inputFeature0)
-            val outputFeature3: TensorBuffer = outputs3.getOutputFeature0AsTensorBuffer()
-            val confidences3: FloatArray = outputFeature3.getFloatArray()
-
+            //Model 3
             // find the index of the class with the biggest confidence.
             var maxPos3 = 0
             var maxConfidence3 = 0f
@@ -182,11 +187,7 @@ class ConfirmActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, s3, Toast.LENGTH_SHORT).show()
             Log.d("success", s3)
 
-            // Model 4
-            val outputs4: Model4.Outputs = model4.process(inputFeature0)
-            val outputFeature4: TensorBuffer = outputs4.getOutputFeature0AsTensorBuffer()
-            val confidences4: FloatArray = outputFeature4.getFloatArray()
-
+            //Model 4
             // find the index of the class with the biggest confidence.
             var maxPos4 = 0
             var maxConfidence4 = 0f
