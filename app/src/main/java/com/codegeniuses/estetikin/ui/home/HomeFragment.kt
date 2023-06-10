@@ -220,22 +220,20 @@ class HomeFragment : Fragment(), LoadingHandler {
             // find the index of the class with the biggest confidence.
             var maxPos3 = 0
             var maxConfidence3 = 0f
-
-            //rules
-            if (confidences3[1] > 70){
-                // output low
-                maxPos3 = 1
-            } else if (confidences3[1] < 40){
-                // output high
-                maxPos3 = 2
-            } else  {
-                //output normal
-                maxPos3 = 0
+            for (i in confidences3.indices) {
+                if (confidences3[i] > maxConfidence3) {
+                    maxConfidence3 = confidences3[i]
+                    maxPos3 = i
+                }
             }
+
 
 
             //make the feature output data
             val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
+
+            Log.d("INI HASIL LOGIKA = ", classes3[maxPos3])
+
             Toast.makeText(
                 requireActivity().applicationContext,
                 classes3[maxPos3],
