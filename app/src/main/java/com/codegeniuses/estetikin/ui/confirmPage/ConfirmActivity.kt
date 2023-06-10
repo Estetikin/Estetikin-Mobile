@@ -9,6 +9,18 @@ import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
 import com.codegeniuses.estetikin.ui.result.ResultActivity
 import com.codegeniuses.estetikin.ui.sentiment.SentimentActivity
 
+// Machine Learning Deploy
+import com.codegeniuses.estetikin.ml.Model1
+import com.codegeniuses.estetikin.ml.Model2
+import com.codegeniuses.estetikin.ml.Model3
+import com.codegeniuses.estetikin.ml.Model4
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.IOException
+import java.io.InputStream
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+
 class ConfirmActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConfirmBinding
