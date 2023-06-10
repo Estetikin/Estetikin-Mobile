@@ -239,7 +239,7 @@ class CameraActivity : AppCompatActivity() {
                     saveImageToGallery(savedUri)
 
                     // pasang ml di gambar hasil kamera
-                    
+
 
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
