@@ -27,6 +27,7 @@ import android.util.Log
 class ConfirmActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConfirmBinding
+    private val imageSize = 224
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +49,8 @@ class ConfirmActivity : AppCompatActivity() {
 
     private fun setupAction(fileUri: Uri?) {
         binding.btnSend.setOnClickListener {
-            classifyImage(fileUri)
             // pasang ml di gambar hasil kamera
-            val inputStream: InputStream? = contentResolver.openInputStream(fileUri)
+            val inputStream: InputStream? = contentResolver.openInputStream(fileUri!!)
             var image = BitmapFactory.decodeStream(inputStream)
 
             val dimension = Math.min(image.width, image.height)
@@ -68,7 +68,6 @@ class ConfirmActivity : AppCompatActivity() {
             val model2 = Model2.newInstance(applicationContext)
             val model3 = Model3.newInstance(applicationContext)
             val model4 = Model4.newInstance(applicationContext)
-            var imageSize = 224
 
             // Creates inputs for reference.
             val inputFeature0: TensorBuffer =
@@ -161,21 +160,12 @@ class ConfirmActivity : AppCompatActivity() {
             // find the index of the class with the biggest confidence.
             var maxPos3 = 0
             var maxConfidence3 = 0f
-
-            //rules
-            var x = confidences3[1]
-//            var y = confidences3[2]
-            if (x > 70){
-                // output low
-                maxPos3 = 1
-            } else if (x < 40){
-                // output high
-                maxPos3 = 2
-            } else  {
-                //output normal
-                maxPos3 = 0
+            for (i in confidences3.indices) {
+                if (confidences3[i] > maxConfidence3) {
+                    maxConfidence3 = confidences3[i]
+                    maxPos3 = i
+                }
             }
-
 
             //make the feature output data
             val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
