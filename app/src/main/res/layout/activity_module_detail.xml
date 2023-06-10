@@ -39,6 +39,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.appcompat.widget.Toolbar>
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_animation"
         android:layout_width="178dp"
@@ -57,7 +58,7 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/tv_module_title_placeholde"
+        android:id="@+id/tv_module_title_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
@@ -75,21 +76,23 @@
         android:layout_marginTop="@dimen/spacing_12"
         android:layout_marginHorizontal="@dimen/spacing_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_module_title_placeholde"
-        android:textSize="@dimen/text_size_12"
+        app:layout_constraintTop_toBottomOf="@id/tv_module_title_placeholder"
+        android:textSize="@dimen/text_size_14"
         android:text="@string/module_description_placeholder" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_module"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:visibility="visible"
-        android:layout_marginTop="@dimen/spacing_12"
-        app:layout_constraintTop_toBottomOf="@id/tv_module_description_placeholder"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="@dimen/spacing_12"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_module_description_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:itemCount="1"
-        tools:listitem="@layout/item_module_detail" />
+        tools:listitem="@layout/item_module_detail"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

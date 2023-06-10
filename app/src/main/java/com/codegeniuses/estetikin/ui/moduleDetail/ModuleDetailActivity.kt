@@ -44,7 +44,7 @@ class ModuleDetailActivity : AppCompatActivity(), LoadingHandler {
         val module = intent.getParcelableExtra<DataItem>("module")
         if (module != null) {
             binding.apply {
-                tvModuleTitlePlaceholde.text = module.title
+                tvModuleTitlePlaceholder.text = module.title
                 tvModuleDescriptionPlaceholder.text = module.description
             }
             adapter.setModuleDetailData(module.content)
