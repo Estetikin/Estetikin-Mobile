@@ -125,4 +125,5 @@
     <string name="your_preferences">"Your Preferences: "</string>
     <string name="mirrorless">Mirrorless</string>
     <string name="prefereneces_icon">Preferences Icon</string>
+    <string name="video">Video</string>
 </resources>

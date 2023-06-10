@@ -230,7 +230,7 @@ class SettingsActivity : AppCompatActivity() {
         val ios = dialog.findViewById<TextView>(R.id.ios)
         val android = dialog.findViewById<TextView>(R.id.android)
         val dslr = dialog.findViewById<TextView>(R.id.dslr)
-        val mirrorless = dialog.findViewById<TextView>(R.id.mirrorless)
+        val video = dialog.findViewById<TextView>(R.id.video)
 
         ios.setOnClickListener {
             saveUserPreference("ios")
@@ -256,11 +256,11 @@ class SettingsActivity : AppCompatActivity() {
             updateSelectedPreferences()
         }
 
-        mirrorless.setOnClickListener {
-            saveUserPreference("mirrorless")
-            tvSelectedPreference.setText(R.string.mirrorless)
+        video.setOnClickListener {
+            saveUserPreference("video")
+            tvSelectedPreference.setText(R.string.video)
             dialog.dismiss()
-            makePrefText("Mirrorless")
+            makePrefText("Video")
             updateSelectedPreferences()
         }
 
@@ -285,7 +285,7 @@ class SettingsActivity : AppCompatActivity() {
             "ios" -> getString(R.string.ios)
             "android" -> getString(R.string.android)
             "dslr" -> getString(R.string.dslr)
-            "mirrorless" -> getString(R.string.mirrorless)
+            "video" -> getString(R.string.video)
             else -> ""
         }
     }

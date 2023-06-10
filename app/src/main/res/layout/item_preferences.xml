@@ -38,12 +38,12 @@
         android:text="@string/dslr"/>
 
     <TextView
-        android:id="@+id/mirrorless"
+        android:id="@+id/video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:padding="@dimen/spacing_8"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/mirrorless"/>
+        android:text="@string/video"/>
 </LinearLayout>
