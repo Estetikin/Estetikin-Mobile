@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.albumDetail.AlbumDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.setting.SettingsActivity"
             android:exported="false" />
         <activity

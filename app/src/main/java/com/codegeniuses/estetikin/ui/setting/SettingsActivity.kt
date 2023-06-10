@@ -297,9 +297,5 @@ class SettingsActivity : AppCompatActivity() {
         val pref = UserPreference(this)
         pref.saveUserPreference(data)
     }
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
 
 }

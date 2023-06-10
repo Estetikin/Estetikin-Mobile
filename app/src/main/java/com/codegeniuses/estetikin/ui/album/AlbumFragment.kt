@@ -1,6 +1,6 @@
 package com.codegeniuses.estetikin.ui.album
 
-import com.codegeniuses.estetikin.R
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +11,14 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.FragmentAlbumBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.album.ArrAlbumItem
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.MainActivity
-import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailFragment
+import com.codegeniuses.estetikin.ui.albumDetail.AlbumDetailActivity
 
 
 class AlbumFragment : Fragment(), LoadingHandler {
@@ -29,6 +30,7 @@ class AlbumFragment : Fragment(), LoadingHandler {
     private val albumViewModel: AlbumViewModel by viewModels { factory }
     private val adapter = AlbumAdapter()
     private var isRefreshing = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +56,6 @@ class AlbumFragment : Fragment(), LoadingHandler {
         setupAction()
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
@@ -73,8 +74,7 @@ class AlbumFragment : Fragment(), LoadingHandler {
                             requireContext(),
                             "Failed to fetch Album",
                             Toast.LENGTH_SHORT
-                        )
-                            .show()
+                        ).show()
                     }
                     is Result.Success -> {
                         loadingHandler(false)
@@ -102,17 +102,9 @@ class AlbumFragment : Fragment(), LoadingHandler {
     }
 
     private fun moveToDetailAlbum(data: ArrAlbumItem) {
-        val fragment = AlbumDetailFragment()
-        val bundle = Bundle().apply {
-            putParcelable("data", data)
-        }
-        fragment.arguments = bundle
-
-        val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_home_nav, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        val intent = Intent(activity, AlbumDetailActivity::class.java)
+        intent.putExtra("data", data)
+        startActivity(intent)
     }
 
     override fun loadingHandler(isLoading: Boolean) {
@@ -133,5 +125,8 @@ class AlbumFragment : Fragment(), LoadingHandler {
         }
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
