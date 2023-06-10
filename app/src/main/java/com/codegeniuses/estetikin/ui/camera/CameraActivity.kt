@@ -222,24 +222,18 @@ class CameraActivity : AppCompatActivity() {
             // find the index of the class with the biggest confidence.
             var maxPos3 = 0
             var maxConfidence3 = 0f
-
-            //rules
-            var x = confidences3[1]
-//            var y = confidences3[2]
-            if (x > 70){
-                // output low
-                maxPos3 = 1
-            } else if (x < 40){
-                // output high
-                maxPos3 = 2
-            } else  {
-                //output normal
-                maxPos3 = 0
+            for (i in confidences3.indices) {
+                if (confidences3[i] > maxConfidence3) {
+                    maxConfidence3 = confidences3[i]
+                    maxPos3 = i
+                }
             }
-
 
             //make the feature output data
             val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
+
+            Log.d("INI HASIL LOGIKA = ", classes3[maxPos3])
+
             Toast.makeText(
                 applicationContext,
                 classes3[maxPos3],
@@ -292,7 +286,6 @@ class CameraActivity : AppCompatActivity() {
             // TODO Handle the exception
         }
     }
-
 
     private fun takePhoto() {
         val imageCapture = imageCapture ?: return
