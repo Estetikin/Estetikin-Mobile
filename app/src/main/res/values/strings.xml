@@ -141,4 +141,8 @@
     <string name="your_preferences">Your Preferences: </string>
     <string name="prefereneces_icon">Preferences Icon</string>
     <string name="video">Video</string>
+    <string name="forgot_password_description">No Worries. I Gotchu Bro. We’ll send you an email.</string>
+    <string name="enter_email">Enter your email here: </string>
+    <string name="reset_password">Reset Password</string>
+    <string name="title_back">Back</string>
 </resources>
