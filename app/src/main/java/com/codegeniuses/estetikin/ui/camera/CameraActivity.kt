@@ -222,21 +222,30 @@ class CameraActivity : AppCompatActivity() {
             // find the index of the class with the biggest confidence.
             var maxPos3 = 0
             var maxConfidence3 = 0f
-            for (i in confidences3.indices) {
-                if (confidences3[i] > maxConfidence3) {
-                    maxConfidence3 = confidences3[i]
-                    maxPos3 = i
-                }
+
+            //rules
+            var x = confidences3[1]
+//            var y = confidences3[2]
+            if (x > 70){
+                // output low
+                maxPos3 = 1
+            } else if (x < 40){
+                // output high
+                maxPos3 = 2
+            } else  {
+                //output normal
+                maxPos3 = 0
             }
 
+
             //make the feature output data
-            val classes3 = arrayOf("low brightness", "normal brightness", "high brightness")
+            val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
             Toast.makeText(
                 applicationContext,
                 classes3[maxPos3],
                 Toast.LENGTH_SHORT
             ).show()
-            Log.d("success", classes3[maxPos2])
+            Log.d("success", classes3[maxPos3])
             var s3 = ""
             for (i in classes3.indices) {
                 s3 += String.format("%s: %.1f%%\n", classes3[i], confidences3[i] * 100)
