@@ -11,9 +11,8 @@
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="?attr/colorPrimary"
         android:paddingEnd="@dimen/spacing_8"
         android:paddingStart="@dimen/spacing_24"
         app:menu="@menu/toolbar_menu">

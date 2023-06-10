@@ -222,7 +222,4 @@ class SettingsActivity : AppCompatActivity() {
         return true
     }
 
-    fun getPreviousFragmentTag(): String {
-        return ""
-    }
 }

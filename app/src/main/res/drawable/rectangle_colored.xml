@@ -3,7 +3,7 @@
     <!-- Left line -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/purple" />
+            <solid android:color="?attr/itemArticleColor" />
             <corners android:radius="@dimen/spacing_8" />
         </shape>
     </item>

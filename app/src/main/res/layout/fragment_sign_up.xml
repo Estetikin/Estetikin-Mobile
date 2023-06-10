@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:textSize="@dimen/text_size_20"
-        android:alpha="0"
+        android:textColor="?attr/colorTextDark"
         android:text="@string/signup_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +57,7 @@
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_4"
         android:textSize="@dimen/text_size_12"
-        android:alpha="0"
+        android:textColor="?attr/colorTextDark"
         android:text="@string/signup_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,11 +125,12 @@
         android:layout_marginHorizontal="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_18"
         android:padding="@dimen/spacing_12"
+        android:textColor="@color/white"
         android:text="@string/signup"
+        android:background="@drawable/button_background_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_confirm_password"
-        app:cornerRadius="100dp" />
+        app:layout_constraintTop_toBottomOf="@id/et_confirm_password" />
 
     <LinearLayout
         android:id="@+id/ll_signup_with"
@@ -155,7 +156,7 @@
             android:layout_marginStart="@dimen/spacing_24"
             android:layout_marginEnd="@dimen/spacing_24"
             android:text="@string/or_signup_with"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark" />
 
         <View
             android:layout_width="0dp"
@@ -196,7 +197,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/spacing_12"
             android:text="@string/signup_with_google"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark" />
     </LinearLayout>
 
     <LinearLayout
@@ -214,7 +215,7 @@
             android:layout_height="wrap_content"
             android:text="@string/already_have_an_account"
             android:textSize="@dimen/text_size_12"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark" />
 
         <TextView
             android:layout_width="wrap_content"

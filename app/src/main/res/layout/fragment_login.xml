@@ -44,6 +44,7 @@
         android:layout_marginTop="@dimen/spacing_16"
         android:alpha="0"
         android:textSize="@dimen/text_size_28"
+        android:textColor="?attr/colorTextDark"
         android:text="@string/login_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +60,7 @@
         android:layout_marginTop="@dimen/spacing_4"
         android:alpha="0"
         android:textSize="@dimen/text_size_12"
+        android:textColor="?attr/colorTextDark"
         android:text="@string/login_message"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +103,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgot_password"
-        android:textColor="@color/dark_green"
         app:layout_constraintEnd_toEndOf="@id/et_password"
         app:layout_constraintTop_toBottomOf="@id/et_password"
         tools:alpha="1" />
@@ -111,15 +112,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_32"
-
         android:layout_marginTop="@dimen/spacing_24"
         android:padding="@dimen/spacing_12"
+        android:textColor="@color/white"
         android:text="@string/login"
+        android:background="@drawable/button_background_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
-        tools:alpha="1"
-        app:cornerRadius="100dp" />
+        tools:alpha="1"/>
 
     <LinearLayout
         android:id="@+id/ll_login_with"
@@ -146,7 +147,7 @@
             android:layout_marginStart="@dimen/spacing_24"
             android:layout_marginEnd="@dimen/spacing_24"
             android:text="@string/or_login_with"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark" />
 
         <View
             android:layout_width="0dp"
@@ -188,7 +189,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/spacing_12"
             android:text="@string/login_with_google"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark"  />
     </LinearLayout>
 
     <LinearLayout
@@ -207,7 +208,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_12"
             android:text="@string/new_to_estetikin"
-            android:textColor="@color/dark_green" />
+            android:textColor="?attr/colorTextDark"  />
 
         <TextView
             android:layout_width="wrap_content"

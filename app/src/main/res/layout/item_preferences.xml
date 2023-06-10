@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_8"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
         android:text="@string/ios"/>
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:padding="@dimen/spacing_8"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
         android:text="@string/android"/>
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:padding="@dimen/spacing_8"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
         android:text="@string/dslr"/>
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_16"
         android:padding="@dimen/spacing_8"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
         android:text="@string/mirrorless"/>
 </LinearLayout>

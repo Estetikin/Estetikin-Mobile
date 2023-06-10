@@ -13,6 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Default Font Family -->
         <item name="android:textViewStyle">@style/OpenSansStyle</item>
+        <!-- Background Color -->
+        <item name="backgroundColor">@color/white_mode</item>
+        <item name="itemArticleColor">@color/purple</item>
+        <item name="colorTextDark">@color/dark_green</item>
     </style>
 
     <style name="OpenSansStyle">

@@ -29,5 +29,9 @@
     <color name="gray">#BDBDBD</color>
     <color name="gray_background">#2F2F2F</color>
     <color name="dark_gray">#212121</color>
-    <color name="white_mode">#EFEFEF</color>
+    <color name="white_mode">#FDFFFD</color>
+    <color name="light_background">#F4F8FB</color>
+
+    <attr name="itemArticleColor" format="color" />
+    <attr name="colorTextDark" format="color" />
 </resources>

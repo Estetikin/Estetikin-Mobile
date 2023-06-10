@@ -10,9 +10,8 @@
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="?attr/colorPrimary"
         android:paddingEnd="@dimen/spacing_8"
         android:paddingStart="@dimen/spacing_24">
 
@@ -69,7 +68,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_14"
-            android:textColor="?attr/colorOnSecondary"
             android:text="@string/language" />
 
         <TextView
@@ -125,7 +123,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_14"
-            android:textColor="?attr/colorOnSecondary"
             android:text="@string/ui_mode" />
 
         <TextView
@@ -183,7 +180,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_14"
-            android:textColor="?attr/colorOnSecondary"
             android:text="@string/logout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

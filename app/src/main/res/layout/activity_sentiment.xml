@@ -37,6 +37,7 @@
         android:layout_marginStart="@dimen/spacing_32"
         android:layout_marginTop="@dimen/spacing_128"
         android:fontFamily="@font/opensans_bold"
+        android:textColor="@color/dark_gray"
         android:text="@string/hi_folks"
         android:textSize="@dimen/text_size_24" />
 
@@ -46,6 +47,7 @@
         android:layout_marginStart="@dimen/spacing_32"
         android:layout_marginTop="169dp"
         android:fontFamily="@font/opensans_regular"
+        android:textColor="@color/dark_gray"
         android:text="@string/personalize_your_preferences_n_and_elevate_our_services_to_new_heights"
         android:textSize="@dimen/text_size_12" />
 
@@ -55,6 +57,7 @@
         android:layout_marginStart="@dimen/spacing_32"
         android:layout_marginTop="320dp"
         android:fontFamily="@font/opensans_semi_bold"
+        android:textColor="@color/dark_gray"
         android:text="@string/what_do_you_use_to_take_a_picture"
         android:textSize="@dimen/text_size_16" />
 
@@ -68,6 +71,7 @@
         android:background="@drawable/sentiment_button_background"
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/ios"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_10" />
 
     <Button
@@ -79,6 +83,7 @@
         android:background="@drawable/sentiment_button_background"
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/android"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_10" />
 
     <Button
@@ -90,6 +95,7 @@
         android:background="@drawable/sentiment_button_background"
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/dslr"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_10" />
 
     <Button
@@ -102,6 +108,7 @@
         android:background="@drawable/sentiment_button_background"
         android:fontFamily="@font/opensans_semi_bold"
         android:text="@string/mirrorless"
+        android:textColor="@color/white"
         android:textSize="@dimen/text_size_10" />
   </FrameLayout>
 
