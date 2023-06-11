@@ -24,6 +24,15 @@
             android:exported="false" />
         <activity
             android:name=".ui.confirmPage.ConfirmActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.forgetPassword.CheckEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.forgetPassword.CreatePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.forgetPassword.ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.moduleDetail.ModuleDetailActivity"

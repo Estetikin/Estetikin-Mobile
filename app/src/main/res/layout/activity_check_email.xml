@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.forgetPassword.CheckEmailActivity">
+
+    <ImageView
+        android:id="@+id/illustration_check_email"
+        android:layout_width="264dp"
+        android:layout_height="264dp"
+        android:layout_marginTop="@dimen/spacing_40"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/illustration_check_email"
+        android:contentDescription="@string/illustration_check_email" />
+
+    <TextView
+        android:id="@+id/tv_check_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_40"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:textColor="?attr/colorTextDark"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/text_size_18"
+        android:text="@string/check_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/illustration_check_email" />
+
+    <TextView
+        android:id="@+id/tv_check_email_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_12"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:textColor="?attr/colorTextDark"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="@dimen/text_size_14"
+        android:lineSpacingExtra="@dimen/spacing_4"
+        android:text="@string/check_email_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_check_email" />
+
+    <Button
+        android:id="@+id/btn_ok_check_email"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:layout_marginBottom="@dimen/spacing_40"
+        android:padding="@dimen/spacing_12"
+        android:fontFamily="@font/opensans_bold"
+        android:textColor="@color/white"
+        android:text="@string/ok"
+        android:background="@drawable/button_background_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

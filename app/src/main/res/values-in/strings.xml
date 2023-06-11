@@ -126,4 +126,16 @@
     <string name="mirrorless">Mirrorless</string>
     <string name="prefereneces_icon">Preferences Icon</string>
     <string name="video">Video</string>
+    <string name="forgot_password_description">No Worries. I Gotchu Bro. We’ll send you an email.</string>
+    <string name="enter_email">Enter your email here: </string>
+    <string name="reset_password">Reset Password</string>
+    <string name="title_back">Back</string>
+    <string name="create_password">Create New Password</string>
+    <string name="create_password_description">Your new password must be different from the previous one.</string>
+    <string name="save">Save</string>
+    <string name="illustration_check_email">Check Email Illustration</string>
+    <string name="check_email">Stay Connected! Check Your Email.</string>
+    <string name="check_email_description">Almost there! We\'ve sent you an email with instructions on how to reset your password. Please check your inbox and follow the provided link to proceed.</string>
+    <string name="ok">OK</string>
+    <string name="back_to_login">Back to Login</string>
 </resources>
