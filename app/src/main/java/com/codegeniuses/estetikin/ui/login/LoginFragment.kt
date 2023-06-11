@@ -18,7 +18,7 @@ import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.result.Result
-import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.forgetPassword.ForgetPasswordActivity
 import com.codegeniuses.estetikin.ui.sentiment.SentimentActivity
 
 class LoginFragment : Fragment(), LoadingHandler {
@@ -38,6 +38,7 @@ class LoginFragment : Fragment(), LoadingHandler {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navigateToForgotPassword()
         setupViewModel()
         playAnimation()
         setupAction()
@@ -132,6 +133,12 @@ class LoginFragment : Fragment(), LoadingHandler {
         pref.saveToken(result)
     }
 
+    private fun navigateToForgotPassword(){
+        binding.tvForgotPassword.setOnClickListener {
+            val intent = Intent (requireContext(), ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
+    }
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingAnimation.visibility = View.VISIBLE
