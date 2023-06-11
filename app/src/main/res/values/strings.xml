@@ -153,4 +153,10 @@
     <string name="check_email_description">Almost there! We\'ve sent you an email with instructions on how to reset your password. Please check your inbox and follow the provided link to proceed.</string>
     <string name="ok">OK</string>
     <string name="back_to_login">Back to Login</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="change_picture">Change Profile Picture Button</string>
+    <string name="sign_out">Sign out</string>
+    <string name="dynamic_background">Dynamic Background Color</string>
+    <string name="password_icon">Icon Password</string>
+    <string name="change_password">Change Password</string>
 </resources>

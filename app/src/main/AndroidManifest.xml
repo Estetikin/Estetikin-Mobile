@@ -20,11 +20,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estetikin">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.result.ResultActivity"
             android:exported="false" />
         <activity
             android:name=".ui.confirmPage.ConfirmActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.forgetPassword.CheckEmailActivity"
             android:exported="false" />
