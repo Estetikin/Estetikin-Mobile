@@ -146,4 +146,5 @@
     <string name="change_password">Change Password</string>
     <string name="nickname">Nickname</string>
     <string name="confirm_picture_placeholder">Confirm Picture Placeholder</string>
+    <string name="title_profile">Profile</string>
 </resources>

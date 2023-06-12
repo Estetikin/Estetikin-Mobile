@@ -84,10 +84,11 @@ class SignUpFragment : Fragment(), LoadingHandler {
     private fun setupAction() {
         binding.btnSignUp.setOnClickListener {
             val name = binding.etFullname.text.toString()
+            val nickname = binding.etNickname.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             val confirmPassword = binding.etConfirmPassword.text.toString()
-            viewModel.register(name, email, password, confirmPassword)
+            viewModel.register(name, nickname, email, password, confirmPassword)
                 .observe(viewLifecycleOwner) {
                     it?.let { result ->
                         when (result) {

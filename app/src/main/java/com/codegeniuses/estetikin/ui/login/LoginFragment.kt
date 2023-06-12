@@ -106,6 +106,7 @@ class LoginFragment : Fragment(), LoadingHandler {
                             Toast.makeText(requireContext(), "Login Success!", Toast.LENGTH_SHORT)
                                 .show()
                             saveTokenToPreference(result.data)
+                            saveNicknameToPreference(result.data)
                             //save nickname (result.nickname)
                             navigateToSentimentActivity()
                         }
@@ -134,6 +135,11 @@ class LoginFragment : Fragment(), LoadingHandler {
         pref.saveToken(result)
     }
 
+    private fun saveNicknameToPreference(data: LoginResponse){
+        val pref = UserPreference(requireContext())
+        val result = data.nickname
+        pref.saveNickname(result)
+    }
     private fun navigateToForgotPassword(){
         binding.tvForgotPassword.setOnClickListener {
             val intent = Intent (requireContext(), ForgetPasswordActivity::class.java)

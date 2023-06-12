@@ -25,7 +25,7 @@ class HomeFragment : Fragment(), LoadingHandler {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val homeViewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -39,6 +39,7 @@ class HomeFragment : Fragment(), LoadingHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPermission()
+        setupNickname()
         // setup view, declare nickname = pref.getnickname
         //binding to the tv_username
         setupAction()
@@ -51,6 +52,10 @@ class HomeFragment : Fragment(), LoadingHandler {
         bottomNavigation.visibility = View.VISIBLE
     }
 
+    private fun setupNickname(){
+        val nickname = viewModel.getNickname()
+        binding.tvUserNickcname.text = nickname.toString()
+    }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED

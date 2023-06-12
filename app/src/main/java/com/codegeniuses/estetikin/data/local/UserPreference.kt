@@ -18,9 +18,16 @@ class UserPreference(context: Context) {
         return preferences.getString(USER_PREFERENCE, null)
     }
 
-    //get nickname
+    fun getNickname(): String? {
+        return preferences.getString(NICKNAME, null)
+    }
 
-    //save nickname
+    fun saveNickname(nickname: String) {
+        val edit = preferences.edit()
+        edit.putString(NICKNAME, nickname)
+        edit.apply()
+    }
+
     fun getToken(): String? {
         return preferences.getString(TOKEN, null)
     }
@@ -74,8 +81,9 @@ class UserPreference(context: Context) {
     }
 
     companion object {
-        private val PREF_LANGUAGE = "Language"
-        private val PREF_THEME = "Theme"
+        private const val PREF_LANGUAGE = "Language"
+        private const val PREF_THEME = "Theme"
+        private const val NICKNAME = "nickname"
         private const val TOKEN = "token"
         private const val USER_PREFERENCE = "user_preference"
     }

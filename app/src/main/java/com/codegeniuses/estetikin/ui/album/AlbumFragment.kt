@@ -56,10 +56,6 @@ class AlbumFragment : Fragment(), LoadingHandler {
         setupAction()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     private fun setupAlbum() {
         isRefreshing = true
         albumViewModel.getHistoryAlbum().observe(requireActivity()) {

@@ -13,5 +13,8 @@ data class LoginResponse(
     val message: String,
 
     @field:SerializedName("token")
-    val token: String,      //nambah nickname
+    val token: String,
+
+    @field:SerializedName("nickname")
+    val nickname: String,
 ) : Parcelable

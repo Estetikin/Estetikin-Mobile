@@ -17,10 +17,10 @@ interface ApiService {
     @POST("auth/v1/register")
     suspend fun register(
         @Field("name") name: String,
+        @Field("nickname") nickname: String,
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("passwordConfirm") confirmPassword: String
-        //nambah nickname
     ): GeneralResponse
 
     @FormUrlEncoded

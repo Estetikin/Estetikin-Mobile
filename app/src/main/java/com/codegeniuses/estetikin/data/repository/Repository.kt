@@ -20,14 +20,15 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
 
     fun register(
         name: String,
+        nickname: String,
         email: String,
         password: String,
-        confirmPassword: String //nambah parameter
+        confirmPassword: String
     ): LiveData<Result<GeneralResponse>> =
         liveData {
             emit(Loading)
             try {
-                val response = apiService.register(name, email, password, confirmPassword) //nambah parameter
+                val response = apiService.register(name, nickname, email, password, confirmPassword)
                 if (response.error) {
                     emit(Error(response.message))
                 } else {
@@ -50,6 +51,10 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         } catch (e: Exception) {
             emit(Error(e.message.toString()))
         }
+    }
+
+    fun getNickname(){
+//        TODO("I Don't Know what to get here, where should i get it?")
     }
 
     fun getAllModule(): LiveData<Result<ModuleResponse>> = liveData {
@@ -82,7 +87,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
-    fun getHisotryAlbum(): LiveData<Result<AlbumResponse>> = liveData {
+    fun getHistoryAlbum(): LiveData<Result<AlbumResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()
         try {
