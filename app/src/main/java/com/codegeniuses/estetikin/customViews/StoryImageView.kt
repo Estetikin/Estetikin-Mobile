@@ -42,7 +42,7 @@ class StoryImageView @JvmOverloads constructor(
         val width: Int
         val height: Int
 
-        if (aspectRatio > 1f) {
+        if (aspectRatio >= 1f) {
             // Landscape image
             width = widthSize
             height = (widthSize / aspectRatio).toInt()
