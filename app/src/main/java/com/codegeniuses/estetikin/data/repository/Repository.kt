@@ -98,10 +98,10 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
 
     fun uploadImage(
         imageMultipart: MultipartBody.Part,
-        class1: RequestBody,
-        class2: RequestBody,
-        class3: RequestBody,
-        class4: RequestBody
+        class1: Int,
+        class2: Int,
+        class3: Int,
+        class4: Int
     ): LiveData<Result<UploadResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()

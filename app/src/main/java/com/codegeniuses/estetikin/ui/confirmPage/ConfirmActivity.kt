@@ -8,30 +8,39 @@ import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
+import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.ml.Model1
 import com.codegeniuses.estetikin.ml.Model2
 import com.codegeniuses.estetikin.ml.Model3
 import com.codegeniuses.estetikin.ml.Model4
+import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.result.ResultActivity
+import com.codegeniuses.estetikin.utils.reduceFileImage
+import com.codegeniuses.estetikin.utils.uriToFile
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.io.File
 import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
-class ConfirmActivity : AppCompatActivity() {
+class ConfirmActivity : AppCompatActivity(), LoadingHandler {
 
     private lateinit var binding: ActivityConfirmBinding
     private val imageSize = 224
     private lateinit var factory: ViewModelFactory
     private val viewModel: ConfirmViewModel by viewModels { factory }
-
+    private var getFile: File? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConfirmBinding.inflate(layoutInflater)
@@ -39,6 +48,8 @@ class ConfirmActivity : AppCompatActivity() {
 
         val intent = intent
         val fileUri = intent.getParcelableExtra<Uri>("image")
+        getFile = uriToFile(fileUri!!, this@ConfirmActivity)
+
         setupViewModel()
         setupView(fileUri)
         setupAction(fileUri)
@@ -49,9 +60,11 @@ class ConfirmActivity : AppCompatActivity() {
             binding.ivYourImage.setImageURI(fileUri)
         }
     }
+
     private fun setupViewModel() {
         factory = ViewModelFactory.getInstance(binding.root.context)
     }
+
     private fun setupAction(fileUri: Uri?) {
         binding.btnSend.setOnClickListener {
             // pasang ml di gambar hasil kamera
@@ -62,12 +75,11 @@ class ConfirmActivity : AppCompatActivity() {
             image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
 
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
-            classifyImage(image)
-            moveToResultActivity(fileUri)
+            classifyImage(fileUri, image)
         }
     }
-    
-    private fun classifyImage(image: Bitmap) {
+
+    private fun classifyImage(fileUri: Uri?, image: Bitmap) {
         try {
             val model1 = Model1.newInstance(applicationContext)
             val model2 = Model2.newInstance(applicationContext)
@@ -99,20 +111,20 @@ class ConfirmActivity : AppCompatActivity() {
             // Setup Model, Feature, Confidence
             // Model 1
             val outputs1: Model1.Outputs = model1.process(inputFeature0)
-            val outputFeature1: TensorBuffer = outputs1.getOutputFeature0AsTensorBuffer()
-            val confidences1: FloatArray = outputFeature1.getFloatArray()
+            val outputFeature1: TensorBuffer = outputs1.outputFeature0AsTensorBuffer
+            val confidences1: FloatArray = outputFeature1.floatArray
             // Model 2
             val outputs2: Model2.Outputs = model2.process(inputFeature0)
-            val outputFeature2: TensorBuffer = outputs2.getOutputFeature0AsTensorBuffer()
-            val confidences2: FloatArray = outputFeature2.getFloatArray()
+            val outputFeature2: TensorBuffer = outputs2.outputFeature0AsTensorBuffer
+            val confidences2: FloatArray = outputFeature2.floatArray
             // Model 3
             val outputs3: Model3.Outputs = model3.process(inputFeature0)
-            val outputFeature3: TensorBuffer = outputs3.getOutputFeature0AsTensorBuffer()
-            val confidences3: FloatArray = outputFeature3.getFloatArray()
+            val outputFeature3: TensorBuffer = outputs3.outputFeature0AsTensorBuffer
+            val confidences3: FloatArray = outputFeature3.floatArray
             // Model 4
             val outputs4: Model4.Outputs = model4.process(inputFeature0)
-            val outputFeature4: TensorBuffer = outputs4.getOutputFeature0AsTensorBuffer()
-            val confidences4: FloatArray = outputFeature4.getFloatArray()
+            val outputFeature4: TensorBuffer = outputs4.outputFeature0AsTensorBuffer
+            val confidences4: FloatArray = outputFeature4.floatArray
 
             // Setting Rules for Predict()
             //Model 1
@@ -127,18 +139,11 @@ class ConfirmActivity : AppCompatActivity() {
             }
             //make the feature output data
             val classes1 = arrayOf("well-focused picture", "blurry picture")
-            Toast.makeText(
-                applicationContext,
-                classes1[maxPos1],
-                Toast.LENGTH_SHORT
-            ).show()
             Log.d("success", classes1[maxPos1])
             var s1 = ""
             for (i in classes1.indices) {
                 s1 += String.format("%s: %.1f%%\n", classes1[i], confidences1[i] * 100)
             }
-            Toast.makeText(applicationContext, s1, Toast.LENGTH_SHORT).show()
-            Log.d("success", s1)
 
             //Model 2
             // find the index of the class with the biggest confidence.
@@ -153,17 +158,11 @@ class ConfirmActivity : AppCompatActivity() {
 
             //make the feature output data
             val classes2 = arrayOf("food and drinks", "indoor", "outdoor", "modeling")
-            Toast.makeText(
-                applicationContext,
-                classes2[maxPos2],
-                Toast.LENGTH_SHORT
-            ).show()
             Log.d("success", classes2[maxPos2])
             var s2 = ""
             for (i in classes2.indices) {
                 s2 += String.format("%s: %.1f%%\n", classes2[i], confidences2[i] * 100)
             }
-            Toast.makeText(applicationContext, s2, Toast.LENGTH_SHORT).show()
             Log.d("success", s2)
 
             //Model 3
@@ -179,17 +178,11 @@ class ConfirmActivity : AppCompatActivity() {
 
             //make the feature output data
             val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
-            Toast.makeText(
-                applicationContext,
-                classes3[maxPos3],
-                Toast.LENGTH_SHORT
-            ).show()
             Log.d("success", classes3[maxPos3])
             var s3 = ""
             for (i in classes3.indices) {
                 s3 += String.format("%s: %.1f%%\n", classes3[i], confidences3[i] * 100)
             }
-            Toast.makeText(applicationContext, s3, Toast.LENGTH_SHORT).show()
             Log.d("success", s3)
 
             //Model 4
@@ -205,19 +198,14 @@ class ConfirmActivity : AppCompatActivity() {
 
             //make the feature output data
             val classes4 = arrayOf("centered", "non-centered")
-            Toast.makeText(
-                applicationContext,
-                classes4[maxPos4],
-                Toast.LENGTH_SHORT
-            ).show()
             Log.d("success", classes4[maxPos4])
             var s4 = ""
             for (i in classes4.indices) {
                 s4 += String.format("%s: %.1f%%\n", classes4[i], confidences4[i] * 100)
             }
-            Toast.makeText(applicationContext, s4, Toast.LENGTH_SHORT).show()
             Log.d("success", s4)
 
+            uploadImage(fileUri, maxPos1,maxPos2, maxPos3, maxPos4)
             // Releases model resources if no longer used.
             model1.close()
             model2.close()
@@ -228,10 +216,48 @@ class ConfirmActivity : AppCompatActivity() {
         }
     }
 
+    private fun uploadImage(fileUri: Uri?, class1: Int, class2: Int, class3: Int, class4: Int) {
+        val file = reduceFileImage(getFile as File)
+        val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "image",
+            file.name,
+            requestImageFile
+        )
+
+        viewModel.uploadImage(imageMultipart, class1, class2, class3, class4)
+            .observe(this) { result ->
+                if (result != null) {
+                    when (result) {
+                        is Result.Loading -> {
+                            loadingHandler(true)
+                        }
+                        is Result.Error -> {
+                            loadingHandler(false)
+                            Toast.makeText(this, "Failed to Upload Image", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                        is Result.Success -> {
+                            loadingHandler(false)
+                            moveToResultActivity(fileUri)
+                        }
+                    }
+                }
+            }
+    }
+
     private fun moveToResultActivity(fileUri: Uri?) {
         val intent = Intent(this@ConfirmActivity, ResultActivity::class.java)
         intent.putExtra("image", fileUri)
         startActivity(intent)
+    }
+
+    override fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            binding.loadingAnimation.visibility = View.VISIBLE
+        } else {
+            binding.loadingAnimation.visibility = View.GONE
+        }
     }
 
 }

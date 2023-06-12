@@ -17,7 +17,6 @@ class ResultActivity : AppCompatActivity() {
         setupView()
     }
 
-
     private fun setupView() {
         val intent = intent
         val fileUri = intent.getParcelableExtra<Uri>("image")

@@ -49,9 +49,9 @@ interface ApiService {
     suspend fun uploadImage(
         @Header("Authorization") token: String,
         @Part file: MultipartBody.Part,
-        @Part("class1") class1: RequestBody,
-        @Part("class2") class2: RequestBody,
-        @Part("class3") class3: RequestBody,
-        @Part("class4") class4: RequestBody
+        @Part("class1") class1: Int,
+        @Part("class2") class2: Int,
+        @Part("class3") class3: Int,
+        @Part("class4") class4: Int
     ): UploadResponse
 }

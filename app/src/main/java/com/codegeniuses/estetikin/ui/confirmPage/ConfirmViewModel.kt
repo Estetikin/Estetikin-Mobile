@@ -9,9 +9,9 @@ class ConfirmViewModel(private val repo: Repository) : ViewModel() {
 
     fun uploadImage(
         imageMultipartBody: MultipartBody.Part,
-        class1: RequestBody,
-        class2: RequestBody,
-        class3: RequestBody,
-        class4: RequestBody
+        class1: Int,
+        class2: Int,
+        class3: Int,
+        class4: Int
     ) = repo.uploadImage(imageMultipartBody, class1, class2, class3, class4)
 }
