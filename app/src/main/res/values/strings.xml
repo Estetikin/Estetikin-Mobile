@@ -159,4 +159,5 @@
     <string name="dynamic_background">Dynamic Background Color</string>
     <string name="password_icon">Icon Password</string>
     <string name="change_password">Change Password</string>
+    <string name="nickname">Nickname</string>
 </resources>
