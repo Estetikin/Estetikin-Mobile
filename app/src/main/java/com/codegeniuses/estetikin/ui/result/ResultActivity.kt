@@ -3,8 +3,6 @@ package com.codegeniuses.estetikin.ui.result
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
-import com.codegeniuses.estetikin.databinding.ActivityMainBinding
 import com.codegeniuses.estetikin.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {
@@ -20,12 +18,13 @@ class ResultActivity : AppCompatActivity() {
     }
 
 
-    private fun setupView(){
+    private fun setupView() {
         val intent = intent
         val fileUri = intent.getParcelableExtra<Uri>("image")
         if (fileUri != null) {
             binding.ivPicture.setImageURI(fileUri)
         }
     }
+
 
 }

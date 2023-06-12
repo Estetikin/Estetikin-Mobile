@@ -1,33 +1,36 @@
 package com.codegeniuses.estetikin.ui.confirmPage
 
+// Machine Learning Deploy
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
-import com.codegeniuses.estetikin.ui.result.ResultActivity
-
-// Machine Learning Deploy
+import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.ml.Model1
 import com.codegeniuses.estetikin.ml.Model2
 import com.codegeniuses.estetikin.ml.Model3
 import com.codegeniuses.estetikin.ml.Model4
+import com.codegeniuses.estetikin.ui.result.ResultActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.media.ThumbnailUtils
-import android.util.Log
 
 class ConfirmActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConfirmBinding
     private val imageSize = 224
+    private lateinit var factory: ViewModelFactory
+    private val viewModel: ConfirmViewModel by viewModels { factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +39,7 @@ class ConfirmActivity : AppCompatActivity() {
 
         val intent = intent
         val fileUri = intent.getParcelableExtra<Uri>("image")
-
+        setupViewModel()
         setupView(fileUri)
         setupAction(fileUri)
     }
@@ -46,7 +49,9 @@ class ConfirmActivity : AppCompatActivity() {
             binding.ivYourImage.setImageURI(fileUri)
         }
     }
-
+    private fun setupViewModel() {
+        factory = ViewModelFactory.getInstance(binding.root.context)
+    }
     private fun setupAction(fileUri: Uri?) {
         binding.btnSend.setOnClickListener {
             // pasang ml di gambar hasil kamera
@@ -61,7 +66,7 @@ class ConfirmActivity : AppCompatActivity() {
             moveToResultActivity(fileUri)
         }
     }
-
+    
     private fun classifyImage(image: Bitmap) {
         try {
             val model1 = Model1.newInstance(applicationContext)
@@ -223,7 +228,7 @@ class ConfirmActivity : AppCompatActivity() {
         }
     }
 
-    private fun moveToResultActivity(fileUri: Uri?){
+    private fun moveToResultActivity(fileUri: Uri?) {
         val intent = Intent(this@ConfirmActivity, ResultActivity::class.java)
         intent.putExtra("image", fileUri)
         startActivity(intent)

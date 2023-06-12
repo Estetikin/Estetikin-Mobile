@@ -6,6 +6,9 @@ import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.response.module.ModuleResponse
+import com.codegeniuses.estetikin.model.response.upload.UploadResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {
@@ -40,4 +43,15 @@ interface ApiService {
     suspend fun getHistoryAlbum(
         @Header("Authorization") token: String
     ): AlbumResponse
+
+    @Multipart
+    @POST("api/v1/upload")
+    suspend fun uploadImage(
+        @Header("Authorization") token: String,
+        @Part file: MultipartBody.Part,
+        @Part("class1") class1: RequestBody,
+        @Part("class2") class2: RequestBody,
+        @Part("class3") class3: RequestBody,
+        @Part("class4") class4: RequestBody
+    ): UploadResponse
 }

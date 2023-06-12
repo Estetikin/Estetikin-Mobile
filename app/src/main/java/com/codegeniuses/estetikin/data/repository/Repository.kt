@@ -4,13 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.data.remote.ApiService
-import com.codegeniuses.estetikin.model.response.*
+import com.codegeniuses.estetikin.model.response.GeneralResponse
 import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.response.module.ModuleResponse
+import com.codegeniuses.estetikin.model.response.upload.UploadResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.model.result.Result.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 class Repository(private val pref: UserPreference, private val apiService: ApiService) {
 
@@ -85,6 +88,34 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
             val response = apiService.getHistoryAlbum("Bearer $token")
             if (response.error) {
                 emit(Error(response.status))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+    }
+
+    fun uploadImage(
+        imageMultipart: MultipartBody.Part,
+        class1: RequestBody,
+        class2: RequestBody,
+        class3: RequestBody,
+        class4: RequestBody
+    ): LiveData<Result<UploadResponse>> = liveData {
+        emit(Loading)
+        val token = pref.getToken()
+        try {
+            val response = apiService.uploadImage(
+                "Bearer $token",
+                imageMultipart,
+                class1,
+                class2,
+                class3,
+                class4
+            )
+            if (response.error) {
+                emit(Error(response.message))
             } else {
                 emit(Success(response))
             }
