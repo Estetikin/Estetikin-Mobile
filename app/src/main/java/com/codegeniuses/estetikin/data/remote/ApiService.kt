@@ -6,9 +6,10 @@ import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.response.module.ModuleResponse
+import com.codegeniuses.estetikin.model.response.profile.GetProfileResponse
+import com.codegeniuses.estetikin.model.response.profile.ProfileResponse
 import com.codegeniuses.estetikin.model.response.upload.UploadResponse
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {
@@ -19,6 +20,7 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("passwordConfirm") confirmPassword: String
+        //nambah nickname
     ): GeneralResponse
 
     @FormUrlEncoded
@@ -54,4 +56,16 @@ interface ApiService {
         @Part("class3") class3: Int,
         @Part("class4") class4: Int
     ): UploadResponse
+
+    @GET("api/v1/profile")
+    suspend fun getProfilePicture(
+        @Header("Authorization") token: String
+    ): GetProfileResponse
+
+    @Multipart
+    @POST("api/v1/uploadprofile")
+    suspend fun uploadProfilePicture(
+        @Header("Authorization") token: String,
+        @Part file: MultipartBody.Part
+    ): ProfileResponse
 }

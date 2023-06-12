@@ -18,6 +18,7 @@ import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivitySettingsBinding
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
+import com.codegeniuses.estetikin.ui.profile.ProfileActivity
 import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -37,6 +38,10 @@ class SettingsActivity : AppCompatActivity() {
         updateSelectedPreferences()
         binding.ivBackButton.setOnClickListener {
             finish()
+        }
+        binding.btnProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 

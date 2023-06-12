@@ -9,11 +9,12 @@ import com.codegeniuses.estetikin.model.response.album.AlbumResponse
 import com.codegeniuses.estetikin.model.response.article.ArticleResponse
 import com.codegeniuses.estetikin.model.response.login.LoginResponse
 import com.codegeniuses.estetikin.model.response.module.ModuleResponse
+import com.codegeniuses.estetikin.model.response.profile.GetProfileResponse
+import com.codegeniuses.estetikin.model.response.profile.ProfileResponse
 import com.codegeniuses.estetikin.model.response.upload.UploadResponse
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.model.result.Result.*
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 
 class Repository(private val pref: UserPreference, private val apiService: ApiService) {
 
@@ -21,12 +22,12 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         name: String,
         email: String,
         password: String,
-        confirmPassword: String
+        confirmPassword: String //nambah parameter
     ): LiveData<Result<GeneralResponse>> =
         liveData {
             emit(Loading)
             try {
-                val response = apiService.register(name, email, password, confirmPassword)
+                val response = apiService.register(name, email, password, confirmPassword) //nambah parameter
                 if (response.error) {
                     emit(Error(response.message))
                 } else {
@@ -122,6 +123,41 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         } catch (e: Exception) {
             emit(Error(e.message.toString()))
         }
+    }
+
+    fun getProfilePicture(): LiveData<Result<GetProfileResponse>> = liveData {
+        emit(Loading)
+        val token = pref.getToken()
+        try {
+            val response = apiService.getProfilePicture("Bearer $token")
+            if (response.error) {
+                emit(Error(response.status))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+    }
+    fun uploadProfile(
+        imageMultipart: MultipartBody.Part
+    ): LiveData<Result<ProfileResponse>> = liveData{
+        emit(Loading)
+        val token = pref.getToken()
+        try {
+            val response = apiService.uploadProfilePicture(
+                "Bearer $token",
+                imageMultipart,
+            )
+            if (response.error) {
+                emit(Error(response.message))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+
     }
 
     companion object {

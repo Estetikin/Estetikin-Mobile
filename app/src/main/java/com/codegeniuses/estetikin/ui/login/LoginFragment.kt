@@ -106,6 +106,7 @@ class LoginFragment : Fragment(), LoadingHandler {
                             Toast.makeText(requireContext(), "Login Success!", Toast.LENGTH_SHORT)
                                 .show()
                             saveTokenToPreference(result.data)
+                            //save nickname (result.nickname)
                             navigateToSentimentActivity()
                         }
                     }

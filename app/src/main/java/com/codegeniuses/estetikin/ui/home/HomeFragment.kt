@@ -20,7 +20,6 @@ import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
 import com.codegeniuses.estetikin.ui.confirmPage.ConfirmActivity
-import com.codegeniuses.estetikin.utils.uriToFile
 
 class HomeFragment : Fragment(), LoadingHandler {
 
@@ -40,6 +39,8 @@ class HomeFragment : Fragment(), LoadingHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPermission()
+        // setup view, declare nickname = pref.getnickname
+        //binding to the tv_username
         setupAction()
     }
 

@@ -7,9 +7,10 @@ import com.codegeniuses.estetikin.data.repository.Repository
 import com.codegeniuses.estetikin.di.Injection
 import com.codegeniuses.estetikin.ui.album.AlbumViewModel
 import com.codegeniuses.estetikin.ui.article.ArticleViewModel
+import com.codegeniuses.estetikin.ui.confirmPage.ConfirmViewModel
 import com.codegeniuses.estetikin.ui.login.LoginViewModel
 import com.codegeniuses.estetikin.ui.modul.ModuleViewModel
-import com.codegeniuses.estetikin.ui.confirmPage.ConfirmViewModel
+import com.codegeniuses.estetikin.ui.profile.ProfileViewModel
 import com.codegeniuses.estetikin.ui.signup.SignUpViewModel
 
 class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInstanceFactory() {
@@ -33,6 +34,9 @@ class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(ConfirmViewModel::class.java) -> {
                 ConfirmViewModel(repo) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repo) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

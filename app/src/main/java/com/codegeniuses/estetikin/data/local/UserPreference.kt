@@ -18,6 +18,9 @@ class UserPreference(context: Context) {
         return preferences.getString(USER_PREFERENCE, null)
     }
 
+    //get nickname
+
+    //save nickname
     fun getToken(): String? {
         return preferences.getString(TOKEN, null)
     }
