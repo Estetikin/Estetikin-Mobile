@@ -54,6 +54,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
         setupViewModel()
         setupView(fileUri)
         setupAction(fileUri)
+        navigateBackButton()
     }
 
     private fun setupView(fileUri: Uri?) {
@@ -77,6 +78,12 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
 
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
             classifyImage(fileUri, image)
+        }
+    }
+
+    private fun navigateBackButton(){
+        binding.backButtonContainer.setOnClickListener {
+            finish()
         }
     }
 

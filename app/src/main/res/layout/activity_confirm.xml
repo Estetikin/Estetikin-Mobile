@@ -45,7 +45,7 @@
             android:contentDescription="@string/your_picture" />
 
         <FrameLayout
-            android:id="@+id/gallery_icon_container"
+            android:id="@+id/back_button_container"
             android:layout_width="@dimen/spacing_40"
             android:layout_height="@dimen/spacing_40"
             android:layout_marginTop="@dimen/spacing_16"
