@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.confirmPage.ConfirmActivity">
+    tools:context=".ui.confirmPage.ConfirmActivity"
+    android:background="@color/black">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_animation"
@@ -23,40 +25,53 @@
         app:lottie_rawRes="@raw/loading"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/iv_back_button"
-        android:layout_width="@dimen/spacing_24"
-        android:layout_height="@dimen/spacing_20"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/spacing_24"
-        android:layout_marginStart="@dimen/spacing_24"
-        android:src="@drawable/ic_back_button"
-        android:contentDescription="@string/back_button" />
-
-    <TextView
-        android:id="@+id/tv_your_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_back_button"
-        android:layout_marginTop="@dimen/spacing_24"
-        android:layout_marginStart="@dimen/spacing_24"
-        android:fontFamily="@font/opensans_bold"
-        android:textSize="@dimen/text_size_16"
-        android:text="@string/your_picture"/>
-
-    <ImageView
-        android:id="@+id/iv_your_image"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_your_picture"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_send"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/spacing_24"
-        android:layout_marginBottom="@dimen/spacing_24"
-        android:contentDescription="@string/your_picture" />
+        android:layout_marginBottom="@dimen/spacing_8"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="@dimen/spacing_24">
+
+        <ImageView
+            android:id="@+id/iv_your_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/your_picture" />
+
+        <FrameLayout
+            android:id="@+id/gallery_icon_container"
+            android:layout_width="@dimen/spacing_40"
+            android:layout_height="@dimen/spacing_40"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginStart="@dimen/spacing_16"
+            android:layout_gravity="start|top">
+
+            <!-- Background circle -->
+            <ImageView
+                android:id="@+id/gallery_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_camera_activity_background"
+                android:scaleType="centerCrop"
+                android:alpha="0.8"
+                android:contentDescription="@string/camera_background_icon" />
+
+            <ImageView
+                android:id="@+id/iv_back_button"
+                android:layout_width="@dimen/spacing_28"
+                android:layout_height="@dimen/spacing_24"
+                android:src="@drawable/ic_back_button"
+                android:contentDescription="@string/back_button"
+                android:layout_gravity="center"/>
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/btn_send"
@@ -65,10 +80,11 @@
         android:src="@drawable/ic_send"
         android:padding="@dimen/spacing_16"
         android:layout_marginEnd="@dimen/spacing_24"
-        android:layout_marginBottom="@dimen/spacing_24"
+        android:layout_marginBottom="@dimen/spacing_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/ic_confirm_background"
-        android:contentDescription="@string/send_button" />
+        android:contentDescription="@string/send_button"
+        app:tint="@color/dark_gray" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

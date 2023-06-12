@@ -45,6 +45,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
         super.onCreate(savedInstanceState)
         binding = ActivityConfirmBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val intent = intent
         val fileUri = intent.getParcelableExtra<Uri>("image")
