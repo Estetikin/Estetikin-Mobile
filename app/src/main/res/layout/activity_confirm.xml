@@ -36,12 +36,10 @@
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="@dimen/spacing_24">
 
-        <ImageView
+        <com.codegeniuses.estetikin.customViews.StoryImageView
             android:id="@+id/iv_your_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
             android:contentDescription="@string/your_picture" />
 
         <FrameLayout
