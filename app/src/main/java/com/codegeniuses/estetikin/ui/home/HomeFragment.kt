@@ -13,10 +13,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.codegeniuses.estetikin.R
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.FragmentHomeBinding
-import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.camera.CameraActivity
@@ -26,9 +25,6 @@ class HomeFragment : Fragment(), LoadingHandler {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var factory: ViewModelFactory
-    private val viewModel: HomeViewModel by viewModels { factory }
-
 
 
     override fun onCreateView(
@@ -42,10 +38,7 @@ class HomeFragment : Fragment(), LoadingHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupPermission()
-        setupViewModel()
         setupNickname()
-        // setup view, declare nickname = pref.getnickname
-        //binding to the tv_username
         setupAction()
     }
 
@@ -56,12 +49,9 @@ class HomeFragment : Fragment(), LoadingHandler {
         bottomNavigation.visibility = View.VISIBLE
     }
 
-    private fun setupViewModel() {
-        factory = ViewModelFactory.getInstance(requireContext())
-    }
-
-    private fun setupNickname(){
-        val nickname = viewModel.getNickname()
+    private fun setupNickname() {
+        val pref = UserPreference(requireContext())
+        val nickname = pref.getNickname()
         binding.tvUserNickcname.text = nickname.toString()
     }
 

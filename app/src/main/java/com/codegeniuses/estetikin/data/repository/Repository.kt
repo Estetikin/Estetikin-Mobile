@@ -53,10 +53,6 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         }
     }
 
-    fun getNickname(){
-//        TODO("I Don't Know what to get here, where should i get it?")
-    }
-
     fun getAllModule(): LiveData<Result<ModuleResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()

@@ -8,7 +8,6 @@ import com.codegeniuses.estetikin.di.Injection
 import com.codegeniuses.estetikin.ui.album.AlbumViewModel
 import com.codegeniuses.estetikin.ui.article.ArticleViewModel
 import com.codegeniuses.estetikin.ui.confirmPage.ConfirmViewModel
-import com.codegeniuses.estetikin.ui.home.HomeViewModel
 import com.codegeniuses.estetikin.ui.login.LoginViewModel
 import com.codegeniuses.estetikin.ui.modul.ModuleViewModel
 import com.codegeniuses.estetikin.ui.profile.ProfileViewModel
@@ -23,9 +22,6 @@ class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repo) as T
-            }
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(repo) as T
             }
             modelClass.isAssignableFrom(ArticleViewModel::class.java) -> {
                 ArticleViewModel(repo) as T
