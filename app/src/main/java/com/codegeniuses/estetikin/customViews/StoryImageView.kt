@@ -68,7 +68,7 @@ import android.widget.ImageView
                 height = heightSize
 
                 // Set scale type
-                imageView.scaleType = ImageView.ScaleType.CENTER
+                imageView.scaleType = ImageView.ScaleType.CENTER_CROP
             }
 
             val finalWidthMeasureSpec = MeasureSpec.makeMeasureSpec(width, widthMode)

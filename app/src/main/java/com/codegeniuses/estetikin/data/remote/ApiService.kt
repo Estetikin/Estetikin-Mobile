@@ -16,6 +16,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("auth/v1/register")
     suspend fun register(
+        @Header("apiKey") apiKey: String,
         @Field("name") name: String,
         @Field("nickname") nickname: String,
         @Field("email") email: String,

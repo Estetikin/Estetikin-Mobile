@@ -1,9 +1,13 @@
 package com.codegeniuses.estetikin.ui.result
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.databinding.ActivityResultBinding
+import com.codegeniuses.estetikin.ui.MainActivity
+import com.codegeniuses.estetikin.ui.album.AlbumFragment
+import com.codegeniuses.estetikin.ui.home.HomeFragment
 
 class ResultActivity : AppCompatActivity() {
 
@@ -24,6 +28,13 @@ class ResultActivity : AppCompatActivity() {
         if (fileUri != null) {
             binding.ivPicture.setImageURI(fileUri)
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 
 

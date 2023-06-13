@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivityProfileBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
@@ -40,7 +41,6 @@ class ProfileActivity : AppCompatActivity(), LoadingHandler {
         swipeRefresh()
         setupViewModel()
         setupView()
-        //setup view -> get api
         setupAction()
     }
 
@@ -49,6 +49,10 @@ class ProfileActivity : AppCompatActivity(), LoadingHandler {
     }
 
     private fun setupView(){
+        val pref = UserPreference(this)
+        val nickname = pref.getNickname()
+        binding.tvProfileName.text = nickname
+
         isRefreshing = true
         viewModel.getProfileImage().observe(this){result ->
             when (result) {

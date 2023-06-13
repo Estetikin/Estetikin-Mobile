@@ -37,12 +37,13 @@
 
         <ImageView
             android:id="@+id/gallery_icon_background"
-            android:layout_width="@dimen/spacing_24"
+            android:alpha="0.5"
+            android:layout_width="19dp"
             android:layout_height="@dimen/spacing_24"
             android:layout_gravity="center"
-            android:src="@drawable/ic_gallery"
+            android:contentDescription="@string/camera_background_icon"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/camera_background_icon" />
+            android:src="@drawable/ic_gallery" />
 
     </FrameLayout>
 

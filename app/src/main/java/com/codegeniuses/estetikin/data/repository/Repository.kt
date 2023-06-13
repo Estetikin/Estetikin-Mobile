@@ -28,7 +28,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         liveData {
             emit(Loading)
             try {
-                val response = apiService.register(name, nickname, email, password, confirmPassword)
+                val response = apiService.register("JojoDepdep",name, nickname, email, password, confirmPassword)
                 if (response.error) {
                     emit(Error(response.message))
                 } else {
