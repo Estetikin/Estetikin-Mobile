@@ -23,7 +23,7 @@ import com.codegeniuses.estetikin.databinding.ActivityCameraBinding
 import com.codegeniuses.estetikin.ui.MainActivity
 import com.codegeniuses.estetikin.ui.confirmPage.ConfirmActivity
 import com.codegeniuses.estetikin.utils.createFile
-import com.codegeniuses.estetikin.utils.uriToFile
+import com.codegeniuses.estetikin.utils.rotateFile
 import java.util.*
 
 class CameraActivity : AppCompatActivity() {
@@ -106,7 +106,7 @@ class CameraActivity : AppCompatActivity() {
     private fun takePhoto() {
         val imageCapture = imageCapture ?: return
 
-        val photoFile = createFile(application)
+        val photoFile = createFile(application, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture.takePicture(outputOptions,
@@ -121,6 +121,7 @@ class CameraActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                     saveImageToGallery(savedUri)
+                    rotateFile(photoFile, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
                     sendImageToConfirmFragment(savedUri)
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
@@ -133,11 +134,16 @@ class CameraActivity : AppCompatActivity() {
             })
     }
 
+
     private fun sendImageToConfirmFragment(uri: Uri) {
         val intent = Intent(this, ConfirmActivity::class.java)
         intent.putExtra("image", uri)
+        intent.putExtra(
+            "isBackCamera", cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
+        )
         startActivity(intent)
     }
+
 
     private fun saveImageToGallery(uri: Uri) {
         val contentResolver = applicationContext.contentResolver

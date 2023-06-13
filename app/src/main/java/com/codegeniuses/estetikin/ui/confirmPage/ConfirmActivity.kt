@@ -4,6 +4,7 @@ package com.codegeniuses.estetikin.ui.confirmPage
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
@@ -59,9 +60,18 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
 
     private fun setupView(fileUri: Uri?) {
         if (fileUri != null) {
-            binding.ivYourImage.setImageURI(fileUri)
+            val isBackCamera = intent.getBooleanExtra("isBackCamera", true)
+            binding.ivYourImage.setImageURI(fileUri, isBackCamera)
         }
     }
+
+
+    private fun rotateBitmap(bitmap: Bitmap, degrees: Int): Bitmap {
+        val matrix = Matrix()
+        matrix.postRotate(degrees.toFloat())
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
 
     private fun setupViewModel() {
         factory = ViewModelFactory.getInstance(binding.root.context)
