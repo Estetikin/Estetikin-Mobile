@@ -11,7 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/text_size_16"
+        android:textSize="@dimen/text_size_12"
         android:fontFamily="@font/opensans_regular"
         android:text="@string/improve_suggestion_placeholder" />
 

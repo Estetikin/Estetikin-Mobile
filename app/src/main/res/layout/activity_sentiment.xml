@@ -51,67 +51,75 @@
         android:text="@string/personalize_your_preferences_n_and_elevate_our_services_to_new_heights"
         android:textSize="@dimen/text_size_12" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_32"
-        android:layout_marginTop="320dp"
-        android:fontFamily="@font/opensans_semi_bold"
-        android:textColor="@color/dark_gray"
-        android:text="@string/what_do_you_use_to_take_a_picture"
-        android:textSize="@dimen/text_size_16" />
-
-
-    <Button
-        android:id="@+id/btn_ios"
-        android:layout_width="@dimen/spacing_72"
-        android:layout_height="@dimen/spacing_32"
-        android:layout_marginStart="@dimen/spacing_32"
-        android:layout_marginTop="356dp"
-        android:background="@drawable/sentiment_button_background"
-        android:fontFamily="@font/opensans_semi_bold"
-        android:text="@string/ios"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_10" />
-
-    <Button
-        android:id="@+id/btn_android"
-        android:layout_width="@dimen/spacing_72"
-        android:layout_height="@dimen/spacing_32"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="356dp"
-        android:background="@drawable/sentiment_button_background"
-        android:fontFamily="@font/opensans_semi_bold"
-        android:text="@string/android"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_10" />
-
-    <Button
-        android:id="@+id/btn_dslr"
-        android:layout_width="@dimen/spacing_72"
-        android:layout_height="@dimen/spacing_32"
-        android:layout_marginStart="222dp"
-        android:layout_marginTop="356dp"
-        android:background="@drawable/sentiment_button_background"
-        android:fontFamily="@font/opensans_semi_bold"
-        android:text="@string/dslr"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_10" />
-
-    <Button
-        android:id="@+id/btn_video"
-        android:layout_width="@dimen/spacing_72"
-        android:layout_height="@dimen/spacing_32"
-        android:layout_marginStart="318dp"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="@dimen/spacing_88"
-        android:background="@drawable/sentiment_button_background"
-        android:fontFamily="@font/opensans_semi_bold"
-        android:text="@string/video"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_10" />
   </FrameLayout>
 
+  <TextView
+      android:id="@+id/tv_sentiment_question"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/spacing_32"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="328dp"
+      android:fontFamily="@font/opensans_semi_bold"
+      android:textColor="@color/dark_gray"
+      android:text="@string/what_do_you_use_to_take_a_picture"
+      android:textSize="@dimen/text_size_16" />
+
+
+  <Button
+      android:id="@+id/btn_ios"
+      android:layout_width="@dimen/spacing_72"
+      android:layout_height="@dimen/spacing_32"
+      app:layout_constraintTop_toBottomOf="@id/tv_sentiment_question"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="@dimen/spacing_24"
+      android:layout_marginStart="@dimen/spacing_32"
+      android:background="@drawable/sentiment_button_background"
+      android:fontFamily="@font/opensans_semi_bold"
+      android:text="@string/ios"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_10" />
+
+  <Button
+      android:id="@+id/btn_android"
+      android:layout_width="@dimen/spacing_88"
+      android:layout_height="@dimen/spacing_32"
+      app:layout_constraintTop_toTopOf="@id/btn_ios"
+      app:layout_constraintStart_toEndOf="@id/btn_ios"
+      android:layout_marginStart="@dimen/spacing_56"
+      android:background="@drawable/sentiment_button_background"
+      android:fontFamily="@font/opensans_semi_bold"
+      android:text="@string/android"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_10" />
+
+  <Button
+      android:id="@+id/btn_dslr"
+      android:layout_width="@dimen/spacing_72"
+      android:layout_height="@dimen/spacing_32"
+      app:layout_constraintTop_toBottomOf="@id/btn_ios"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="@dimen/spacing_24"
+      android:layout_marginStart="@dimen/spacing_32"
+      android:background="@drawable/sentiment_button_background"
+      android:fontFamily="@font/opensans_semi_bold"
+      android:text="@string/dslr"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_10" />
+
+  <Button
+      android:id="@+id/btn_video"
+      android:layout_width="@dimen/spacing_88"
+      android:layout_height="@dimen/spacing_32"
+      app:layout_constraintTop_toTopOf="@id/btn_dslr"
+      app:layout_constraintStart_toEndOf="@id/btn_dslr"
+      android:layout_marginStart="@dimen/spacing_56"
+      android:background="@drawable/sentiment_button_background"
+      android:fontFamily="@font/opensans_semi_bold"
+      android:text="@string/video"
+      android:textColor="@color/white"
+      android:textSize="@dimen/text_size_10" />
 
   <ImageView
       android:layout_width="match_parent"
