@@ -31,7 +31,8 @@
         android:paddingHorizontal="@dimen/spacing_24"
         android:layout_marginTop="@dimen/spacing_56"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/modul_background">
+        android:background="@drawable/modul_background"
+        android:backgroundTint="?attr/colorPrimary">
 
         <TextView
             android:id="@+id/tv_unlock"
