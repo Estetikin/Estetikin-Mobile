@@ -39,10 +39,6 @@ class SettingsActivity : AppCompatActivity() {
         binding.ivBackButton.setOnClickListener {
             finish()
         }
-        binding.btnProfile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onResume() {
@@ -63,8 +59,12 @@ class SettingsActivity : AppCompatActivity() {
             R.string.bahasa_indonesia
         }
 
-        binding.tvLanguageSelected.text = getString(languageTextResId)
+        binding.ivProfilePicture.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
 
+        binding.tvLanguageSelected.text = getString(languageTextResId)
 
         val language = binding.languageItem
         language.setOnClickListener {

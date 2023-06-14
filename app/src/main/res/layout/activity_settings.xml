@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefresh"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.setting.SettingsActivity">
@@ -39,6 +45,53 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <FrameLayout
+        android:id="@+id/profile_picture_container"
+        android:layout_width="@dimen/spacing_108"
+        android:layout_height="@dimen/spacing_108"
+        android:layout_marginTop="@dimen/spacing_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_container">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="128dp">
+
+            <ImageView
+                android:id="@+id/iv_profile_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_profile_picture"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/profile_picture" />
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/ic_change_profile_picture"
+            android:layout_width="@dimen/spacing_16"
+            android:layout_height="@dimen/spacing_16"
+            app:tint="?attr/colorPrimary"
+            android:src="@drawable/ic_change_picture"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/change_picture" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        app:layout_constraintTop_toBottomOf="@id/profile_picture_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/opensans_bold"
+        android:textSize="@dimen/text_size_18"
+        android:text="@string/kumaa"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/language_item"
         android:layout_width="match_parent"
@@ -47,7 +100,7 @@
         android:paddingBottom="@dimen/spacing_8"
         android:layout_marginTop="@dimen/spacing_24"
         android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_container">
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_name">
 
         <ImageView
             android:id="@+id/iv_language"
@@ -204,6 +257,73 @@
             android:contentDescription="@string/arrow_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/confirm_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toBottomOf="@id/preferences_item">
+
+        <ImageView
+            android:id="@+id/iv_confirm"
+            android:layout_width="@dimen/spacing_32"
+            android:layout_height="@dimen/spacing_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_message"
+            app:tint="@color/dark_gray"
+            android:contentDescription="@string/confirm_email" />
+
+        <TextView
+            android:id="@+id/tv_confirm_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@id/iv_confirm"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/confirm_email" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/change_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_8"
+        android:paddingBottom="@dimen/spacing_8"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toBottomOf="@id/confirm_email">
+
+        <ImageView
+            android:id="@+id/iv_change_password"
+            android:layout_width="@dimen/spacing_32"
+            android:layout_height="@dimen/spacing_32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_lock"
+            android:contentDescription="@string/change_password"
+            app:tint="@color/dark_gray" />
+
+        <TextView
+            android:id="@+id/tv_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_16"
+            app:layout_constraintStart_toEndOf="@id/iv_change_password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fontFamily="@font/opensans_bold"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/change_password" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logout_item"
@@ -213,7 +333,7 @@
         android:paddingBottom="@dimen/spacing_8"
         android:layout_marginTop="@dimen/spacing_16"
         android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/preferences_item">
+        app:layout_constraintTop_toBottomOf="@id/change_email">
 
         <ImageView
             android:id="@+id/iv_logout"
@@ -238,13 +358,5 @@
             android:text="@string/logout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btn_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/logout_item"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/title_profile"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
