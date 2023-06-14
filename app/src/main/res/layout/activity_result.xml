@@ -87,7 +87,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/picture_container">
+                app:layout_constraintTop_toBottomOf="@id/picture_container"
+                android:gravity="center_horizontal">
 
                 <TextView
                     android:id="@+id/tv_what_can_you_improve"
@@ -99,11 +100,53 @@
                     android:layout_gravity="center"
                     android:text="@string/what_can_you_improve" />
 
-                <include
-                    layout="@layout/item_suggestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/tv_module_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/text_size_12"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/improve_suggestion_placeholder" />
+
+                <TextView
+                    android:id="@+id/tv_module_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/text_size_12"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/improve_suggestion_placeholder" />
+
+                <TextView
+                    android:id="@+id/tv_module_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/text_size_12"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/improve_suggestion_placeholder" />
+
+                <TextView
+                    android:id="@+id/tv_module_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="@dimen/text_size_12"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/improve_suggestion_placeholder" />
 
             </LinearLayout>
 

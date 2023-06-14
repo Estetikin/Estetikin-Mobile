@@ -5,27 +5,42 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.bumptech.glide.Glide
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.data.local.UserPreference
 import com.codegeniuses.estetikin.databinding.ActivitySettingsBinding
+import com.codegeniuses.estetikin.factory.ViewModelFactory
+import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
-import com.codegeniuses.estetikin.ui.profile.ProfileActivity
+import com.codegeniuses.estetikin.utils.reduceFileImage
+import com.codegeniuses.estetikin.utils.uriToFile
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
+    private lateinit var factory: ViewModelFactory
+    private val viewModel: SettingViewModel by viewModels { factory }
+    private var isRefreshing = false
+    private var getFile: File? = null
+
     private lateinit var tvUiSelected: TextView
-    private val settingViewModel: SettingViewModel by viewModels()
     private lateinit var preferences: UserPreference
     private lateinit var tvSelectedPreference: TextView
 
@@ -34,11 +49,14 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        swipeRefresh()
+
+        setupViewModel()
+        setupView()
         setupAction()
         updateSelectedPreferences()
-        binding.ivBackButton.setOnClickListener {
-            finish()
-        }
+
+        setupBackButton()
     }
 
     override fun onResume() {
@@ -59,9 +77,8 @@ class SettingsActivity : AppCompatActivity() {
             R.string.bahasa_indonesia
         }
 
-        binding.ivProfilePicture.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
+        binding.icChangeProfilePicture.setOnClickListener {
+            startGallery()
         }
 
         binding.tvLanguageSelected.text = getString(languageTextResId)
@@ -88,6 +105,10 @@ class SettingsActivity : AppCompatActivity() {
             pref.clearPreferences()
             navigateToLogin()
         }
+    }
+
+    private fun setupViewModel() {
+        factory = ViewModelFactory.getInstance(binding.root.context)
     }
 
     private fun navigateToLogin() {
@@ -303,4 +324,113 @@ class SettingsActivity : AppCompatActivity() {
         pref.saveUserPreference(data)
     }
 
+    private fun setupView(){
+        val pref = UserPreference(this)
+        val nickname = pref.getNickname()
+        binding.tvProfileName.text = nickname
+
+        isRefreshing = true
+        viewModel.getProfileImage().observe(this){result ->
+            when (result) {
+                is Result.Loading -> {
+                    loadingHandler(true)
+                }
+                is Result.Error -> {
+                    loadingHandler(false)
+                    Toast.makeText(
+                        this,
+                        "Failed to update Profile Picture",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                is Result.Success -> {
+                    loadingHandler(false)
+                    showProfilePicture(result.data.picture)
+
+                }
+            }
+        }
+    }
+
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
+    }
+
+    private fun uploadProfileImage(){ val file = reduceFileImage(getFile as File)
+        val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "image",
+            file.name,
+            requestImageFile
+        )
+        viewModel.uploadProfileImage(imageMultipart).observe(this){result ->
+            if (result != null) {
+                when (result) {
+                    is Result.Loading -> {
+                        loadingHandler(true)
+                    }
+                    is Result.Error -> {
+                        loadingHandler(false)
+                        Toast.makeText(this, "Failed to Upload Image", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    is Result.Success -> {
+                        loadingHandler(false)
+                        Toast.makeText(this, "Success Upload", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImg = result.data?.data as Uri
+
+            selectedImg.let { uri ->
+                val myFile = uriToFile(uri, this@SettingsActivity)
+                getFile = myFile
+                binding.ivProfilePicture.setImageURI(uri)
+                uploadProfileImage()
+            }
+        }
+    }
+
+    private fun showProfilePicture(photoUrl: String){
+        Glide.with(this)
+            .load(photoUrl)
+            .into(binding.ivProfilePicture)
+
+        val pref = UserPreference(this)
+        val nickname = pref.getNickname()
+        binding.tvProfileName.text = nickname
+    }
+
+    private fun swipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            setupView()
+        }
+    }
+    private fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            binding.loadingAnimation.visibility = View.VISIBLE
+        } else {
+            binding.loadingAnimation.visibility = View.GONE
+            if (isRefreshing) {
+                binding.swipeRefresh.isRefreshing = false
+                isRefreshing = false
+            }
+        }
+    }
+    private fun setupBackButton(){
+        binding.ivBackButton.setOnClickListener {
+            finish()
+        }
+    }
 }
