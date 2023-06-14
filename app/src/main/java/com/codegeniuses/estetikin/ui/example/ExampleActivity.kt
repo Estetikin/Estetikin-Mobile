@@ -11,11 +11,6 @@ import com.codegeniuses.estetikin.ui.result.ResultActivity
 class ExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExampleBinding
 
-    private var getFile: Uri? = null
-    private var getClass1: Int? = null
-    private var getClass2: Int? = null
-    private var getClass3: Int? = null
-    private var getClass4: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExampleBinding.inflate(layoutInflater)
@@ -28,19 +23,10 @@ class ExampleActivity : AppCompatActivity() {
 
     private fun setupView() {
         val intent = intent
-        val fileUri = intent.getParcelableExtra<Uri>("image")
-        getFile = fileUri
-
         val class1 = intent.getIntExtra("model1", 0)
         val class2 = intent.getIntExtra("model2", 0)
         val class3 = intent.getIntExtra("model3", 0)
         val class4 = intent.getIntExtra("model4", 0)
-
-        getClass1 = class1
-        getClass2 = class2
-        getClass3 = class3
-        getClass4 = class4
-
         bindingImage(class1, class2, class3, class4)
     }
 
@@ -67,15 +53,7 @@ class ExampleActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra("image", getFile)
-        intent.putExtra("model1", getClass1)
-        intent.putExtra("model2", getClass2)
-        intent.putExtra("model3", getClass3)
-        intent.putExtra("model4", getClass4)
-        intent.flags =
-            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
+        finish()
     }
 
 
