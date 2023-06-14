@@ -97,7 +97,7 @@ class HomeFragment : Fragment(), LoadingHandler {
     }
 
     private fun setupAction() {
-        binding.tvAlbum.setOnClickListener {
+        binding.tvGallery.setOnClickListener {
             startGallery()
         }
 

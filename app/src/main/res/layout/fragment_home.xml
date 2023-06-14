@@ -25,12 +25,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/greeting_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_108"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        android:layout_marginTop="@dimen/spacing_80">
+        android:layout_marginTop="@dimen/spacing_56"
+        android:paddingHorizontal="@dimen/spacing_24"
+        android:paddingVertical="@dimen/spacing_24"
+        android:background="@drawable/ic_background_home"
+        android:backgroundTint="?attr/colorPrimary">
+
         <TextView
             android:id="@+id/tv_greetings"
             android:layout_width="wrap_content"
@@ -38,6 +42,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_14"
             android:text="@string/halo"/>
 
@@ -49,6 +54,7 @@
             app:layout_constraintStart_toEndOf="@id/tv_greetings"
             android:layout_marginStart="@dimen/spacing_4"
             android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_14"
             android:text="@string/kumaa"/>
 
@@ -60,6 +66,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/spacing_4"
             android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_12"
             android:text="@string/greeting_message"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -79,34 +86,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_album"
+    <LinearLayout
+        android:id="@+id/tv_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/spacing_24"
-        android:drawablePadding="@dimen/spacing_6"
-        android:fontFamily="@font/opensans_regular"
-        android:textSize="@dimen/text_size_12"
         app:layout_constraintTop_toBottomOf="@id/tv_upload_instruction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_camera"
-        android:text="@string/from_gallery"
-        app:drawableTopCompat="@drawable/ic_album_add" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
+        <FrameLayout
+            android:layout_width="125dp"
+            android:layout_height="125dp">
+
+            <ImageView
+                android:id="@+id/bg_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_home_feature"
+                android:contentDescription="@string/dynamic_background" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_album_add"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/spacing_6"
+                android:contentDescription="@string/from_gallery" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_from_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/text_size_12"
+            android:text="@string/from_gallery"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:id="@+id/tv_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:drawablePadding="@dimen/spacing_6"
-        android:fontFamily="@font/opensans_regular"
-        android:textSize="@dimen/text_size_12"
-        android:text="@string/use_camera"
         android:layout_marginTop="@dimen/spacing_24"
         app:layout_constraintTop_toBottomOf="@id/tv_upload_instruction"
-        app:layout_constraintStart_toEndOf="@id/tv_album"
+        app:layout_constraintStart_toEndOf="@id/tv_gallery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:drawableTopCompat="@drawable/ic_camera_add" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="125dp"
+            android:layout_height="125dp">
+
+            <ImageView
+                android:id="@+id/bg_camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_home_feature"
+                android:contentDescription="@string/dynamic_background" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_camera_add"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/spacing_6"
+                android:contentDescription="@string/from_gallery" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_from_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="@dimen/text_size_12"
+            android:text="@string/use_camera"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
