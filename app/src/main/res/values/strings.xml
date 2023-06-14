@@ -163,4 +163,22 @@
     <string name="confirm_picture_placeholder">Confirm Picture Placeholder</string>
     <string name="title_profile">Profile</string>
     <string name="confirm_email">Confirm Email</string>
+
+    <!-- ML Recomendation -->
+    <!-- Model 1 -->
+    <string name="food_beverage" translatable="false">You are doing Food/Beverages Photography</string>
+    <string name="model" translatable="false">There is a model inside your picture</string>
+    <string name="indoor" translatable="false">You are doing an indoor photography </string>
+    <string name="outdoor" translatable="false">You are doing an outdoor photography</string>
+    <!-- Model 2-->
+    <string name="blurry" translatable="false">Your picture is blurry</string>
+    <string name="wellFocused" translatable="false">Your camera lens is clear and well-focused!</string>
+    <!-- Model 3-->
+    <string name="dark" translatable="false"> Your picture is too dark</string>
+    <string name="bright" translatable="false">Your picture is too bright</string>
+    <string name="normal" translatable="false">Your picture brightness comes out great!</string>
+    <!-- Model 4-->
+    <string name="centered" translatable="false">Your object in this picture is in a good position!</string>
+    <string name="nonCentered" translatable="false">Your object in this picture is not in a good position</string>
+    <string name="see_our_example" translatable="false">See Our Example</string>
 </resources>
