@@ -36,7 +36,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): ModuleResponse
 
-    @GET("articles/{type}")
+    @GET("api/v1/article/{type}")
     suspend fun getArticles(
         @Header("Authorization") token: String,
         @Path("type") type: String
@@ -69,4 +69,10 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Part file: MultipartBody.Part
     ): ProfileResponse
+
+    @FormUrlEncoded
+    @POST("auth/v1/forgetpassword")
+    suspend fun sendEmail(
+        @Field("email") email: String,
+    ): GeneralResponse
 }
