@@ -91,7 +91,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
         }
     }
 
-    private fun navigateBackButton(){
+    private fun navigateBackButton() {
         binding.backButtonContainer.setOnClickListener {
             finish()
         }
@@ -223,7 +223,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             }
             Log.d("success", s4)
 
-            uploadImage(fileUri, maxPos1,maxPos2, maxPos3, maxPos4)
+            uploadImage(fileUri, maxPos1, maxPos2, maxPos3, maxPos4)
             // Releases model resources if no longer used.
             model1.close()
             model2.close()
@@ -238,9 +238,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
         val file = reduceFileImage(getFile as File)
         val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-            "image",
-            file.name,
-            requestImageFile
+            "image", file.name, requestImageFile
         )
 
         viewModel.uploadImage(imageMultipart, class1, class2, class3, class4)
@@ -257,16 +255,22 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
                         }
                         is Result.Success -> {
                             loadingHandler(false)
-                            moveToResultActivity(fileUri)
+                            moveToResultActivity(fileUri, class1, class2, class3, class4)
                         }
                     }
                 }
             }
     }
 
-    private fun moveToResultActivity(fileUri: Uri?) {
+    private fun moveToResultActivity(
+        fileUri: Uri?, class1: Int, class2: Int, class3: Int, class4: Int
+    ) {
         val intent = Intent(this@ConfirmActivity, ResultActivity::class.java)
         intent.putExtra("image", fileUri)
+        intent.putExtra("model1", class1)
+        intent.putExtra("model2", class2)
+        intent.putExtra("model3", class3)
+        intent.putExtra("model4", class4)
         startActivity(intent)
     }
 
