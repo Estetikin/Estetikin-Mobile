@@ -23,9 +23,6 @@
             android:name=".ui.example.ExampleActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profile.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.result.ResultActivity"
             android:exported="false" />
         <activity
