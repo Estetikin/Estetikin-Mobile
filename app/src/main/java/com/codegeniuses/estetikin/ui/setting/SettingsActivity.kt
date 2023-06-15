@@ -24,6 +24,7 @@ import com.codegeniuses.estetikin.databinding.ActivitySettingsBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.authentication.AuthActivity
+import com.codegeniuses.estetikin.ui.forgetPassword.ForgetPasswordActivity
 import com.codegeniuses.estetikin.utils.reduceFileImage
 import com.codegeniuses.estetikin.utils.uriToFile
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -106,12 +107,22 @@ class SettingsActivity : AppCompatActivity() {
             pref.clearPreferences()
             navigateToLogin()
         }
+
+        binding.changePassword.setOnClickListener{
+            navigateToChangePassword()
+        }
     }
 
     private fun setupViewModel() {
         factory = ViewModelFactory.getInstance(binding.root.context)
     }
 
+    private fun navigateToChangePassword() {
+        val intent = Intent(this, ForgetPasswordActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
+    }
     private fun navigateToLogin() {
         val intent = Intent(this, AuthActivity::class.java)
         intent.flags =

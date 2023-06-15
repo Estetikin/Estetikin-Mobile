@@ -273,38 +273,7 @@
                 android:contentDescription="@string/arrow_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/confirm_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/spacing_8"
-            android:paddingBottom="@dimen/spacing_8"
-            android:layout_marginTop="@dimen/spacing_16"
-            android:layout_marginHorizontal="@dimen/spacing_24"
-            app:layout_constraintTop_toBottomOf="@id/preferences_item">
 
-            <ImageView
-                android:id="@+id/iv_confirm"
-                android:layout_width="@dimen/spacing_32"
-                android:layout_height="@dimen/spacing_32"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/ic_message_dynamic"
-                android:contentDescription="@string/confirm_email" />
-
-            <TextView
-                android:id="@+id/tv_confirm_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_16"
-                app:layout_constraintStart_toEndOf="@id/iv_confirm"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:fontFamily="@font/opensans_bold"
-                android:textSize="@dimen/text_size_14"
-                android:text="@string/confirm_email" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/change_password"
@@ -314,7 +283,7 @@
             android:paddingBottom="@dimen/spacing_8"
             android:layout_marginTop="@dimen/spacing_16"
             android:layout_marginHorizontal="@dimen/spacing_24"
-            app:layout_constraintTop_toBottomOf="@id/confirm_email">
+            app:layout_constraintTop_toBottomOf="@id/preferences_item">
 
             <ImageView
                 android:id="@+id/iv_change_password"
