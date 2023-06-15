@@ -44,7 +44,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_14"
-            android:text="@string/halo"/>
+            android:text="@string/halo" />
 
         <TextView
             android:id="@+id/tv_user_nickcname"
@@ -56,7 +56,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_14"
-            android:text="@string/kumaa"/>
+            android:text="@string/kumaa" />
 
         <TextView
             android:id="@+id/tv_greeting_message"
@@ -68,7 +68,7 @@
             android:fontFamily="@font/opensans_regular"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/greeting_message"/>
+            android:text="@string/greeting_message" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_regular"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/from_gallery"/>
+            android:text="@string/from_gallery" />
 
     </LinearLayout>
 
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/opensans_regular"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/use_camera"/>
+            android:text="@string/use_camera" />
 
     </LinearLayout>
 

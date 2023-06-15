@@ -89,7 +89,8 @@ class PasswordEditText : AppCompatEditText {
 
     private fun updateError() {
         val password = text?.toString() ?: ""
-        val error = if (password.length >= 6) null else "Password should be at least 6 characters long."
+        val error =
+            if (password.length >= 6) null else "Password should be at least 6 characters long."
         this.error = error
     }
 

@@ -48,7 +48,11 @@ class SentimentActivity : AppCompatActivity() {
     }
 
     private fun makeText(text: String) {
-        Toast.makeText(this@SentimentActivity, "You choose $text as your preference", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this@SentimentActivity,
+            "You choose $text as your preference",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun navigateToHomeFragment() {

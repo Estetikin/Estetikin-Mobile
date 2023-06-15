@@ -1,377 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:id="@+id/swipeRefresh"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swipeRefresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingsActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_container"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingEnd="@dimen/spacing_8"
-        android:paddingStart="@dimen/spacing_24">
+        android:layout_height="match_parent"
+        tools:context=".ui.setting.SettingsActivity">
 
-        <ImageView
-            android:id="@+id/iv_back_button"
-            android:layout_width="@dimen/spacing_24"
-            android:layout_height="@dimen/spacing_20"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ic_back_button"
-            android:contentDescription="@string/back_button" />
-
-        <TextView
-            android:id="@+id/tv_toolbar_title"
-            style="@style/Text.Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_bold"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_16"
-            android:text="@string/title_setting"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@+id/iv_back_button"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <FrameLayout
-        android:id="@+id/profile_picture_container"
-        android:layout_width="@dimen/spacing_108"
-        android:layout_height="@dimen/spacing_108"
-        android:layout_marginTop="@dimen/spacing_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_container">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loading_animation"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="10dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.481"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading"
-            tools:visibility="visible" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="128dp">
+            android:paddingEnd="@dimen/spacing_8"
+            android:paddingStart="@dimen/spacing_24">
 
             <ImageView
-                android:id="@+id/iv_profile_picture"
+                android:id="@+id/iv_back_button"
+                android:layout_width="@dimen/spacing_24"
+                android:layout_height="@dimen/spacing_20"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_back_button"
+                android:contentDescription="@string/back_button" />
+
+            <TextView
+                android:id="@+id/tv_toolbar_title"
+                style="@style/Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16"
+                android:text="@string/title_setting"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@+id/iv_back_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/profile_picture_container"
+            android:layout_width="@dimen/spacing_108"
+            android:layout_height="@dimen/spacing_108"
+            android:layout_marginTop="@dimen/spacing_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_container">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loading_animation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_profile_picture"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/profile_picture" />
+                android:elevation="10dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.481"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading"
+                tools:visibility="visible" />
 
-        </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="128dp">
 
-        <ImageView
-            android:id="@+id/ic_change_profile_picture"
-            android:layout_width="@dimen/spacing_20"
-            android:layout_height="@dimen/spacing_20"
-            app:tint="?attr/colorPrimary"
-            android:src="@drawable/ic_change_picture"
-            android:layout_gravity="bottom|end"
-            android:contentDescription="@string/change_picture" />
-    </FrameLayout>
+                <ImageView
+                    android:id="@+id/iv_profile_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_profile_picture"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/profile_picture" />
 
-    <TextView
-        android:id="@+id/tv_profile_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_12"
-        app:layout_constraintTop_toBottomOf="@id/profile_picture_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="@font/opensans_bold"
-        android:textSize="@dimen/text_size_18"
-        android:text="@string/kumaa"/>
+            </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/language_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/tv_profile_name">
-
-        <ImageView
-            android:id="@+id/iv_language"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_language"
-            android:contentDescription="@string/language_icon" />
+            <ImageView
+                android:id="@+id/ic_change_profile_picture"
+                android:layout_width="@dimen/spacing_20"
+                android:layout_height="@dimen/spacing_20"
+                app:tint="?attr/colorPrimary"
+                android:src="@drawable/ic_change_picture"
+                android:layout_gravity="bottom|end"
+                android:contentDescription="@string/change_picture" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/tv_title_language"
+            android:id="@+id/tv_profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_language"
-            app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/language" />
-
-        <TextView
-            android:id="@+id/tv_language_selected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            android:layout_marginTop="@dimen/spacing_4"
-            app:layout_constraintStart_toEndOf="@id/iv_language"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_language"
-            android:fontFamily="@font/opensans_regular"
-            android:textSize="@dimen/text_size_10"
-            android:text="@string/language_selected" />
-
-        <ImageView
-            android:id="@+id/ic_arrow_language"
-            android:layout_width="@dimen/spacing_16"
-            android:layout_height="@dimen/spacing_16"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/spacing_12"
+            app:layout_constraintTop_toBottomOf="@id/profile_picture_container"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/gray"
-            android:src="@drawable/ic_arrow"
-            android:contentDescription="@string/arrow_icon" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ui_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/language_item">
-
-        <ImageView
-            android:id="@+id/iv_ui"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_light_mode"
-            android:contentDescription="@string/ui_mode_icon" />
-
-        <TextView
-            android:id="@+id/tv_title_ui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_ui"
-            app:layout_constraintTop_toTopOf="parent"
             android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/ui_mode" />
+            android:textSize="@dimen/text_size_18"
+            android:text="@string/kumaa" />
 
-        <TextView
-            android:id="@+id/tv_ui_selected"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/language_item"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            android:layout_marginTop="@dimen/spacing_4"
-            app:layout_constraintStart_toEndOf="@id/iv_ui"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_ui"
-            android:fontFamily="@font/opensans_regular"
-            android:textSize="@dimen/text_size_10"
-            android:text="@string/ui_mode_selected" />
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_name">
 
-        <ImageView
-            android:id="@+id/ic_arrow_ui"
-            android:layout_width="@dimen/spacing_16"
-            android:layout_height="@dimen/spacing_16"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/gray"
-            android:src="@drawable/ic_arrow"
-            android:contentDescription="@string/arrow_icon" />
+            <ImageView
+                android:id="@+id/iv_language"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_language"
+                android:contentDescription="@string/language_icon" />
+
+            <TextView
+                android:id="@+id/tv_title_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_language"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/language" />
+
+            <TextView
+                android:id="@+id/tv_language_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                app:layout_constraintStart_toEndOf="@id/iv_language"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_language"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="@dimen/text_size_10"
+                android:text="@string/language_selected" />
+
+            <ImageView
+                android:id="@+id/ic_arrow_language"
+                android:layout_width="@dimen/spacing_16"
+                android:layout_height="@dimen/spacing_16"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/gray"
+                android:src="@drawable/ic_arrow"
+                android:contentDescription="@string/arrow_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ui_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/language_item">
+
+            <ImageView
+                android:id="@+id/iv_ui"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_light_mode"
+                android:contentDescription="@string/ui_mode_icon" />
+
+            <TextView
+                android:id="@+id/tv_title_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_ui"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/ui_mode" />
+
+            <TextView
+                android:id="@+id/tv_ui_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                app:layout_constraintStart_toEndOf="@id/iv_ui"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_ui"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="@dimen/text_size_10"
+                android:text="@string/ui_mode_selected" />
+
+            <ImageView
+                android:id="@+id/ic_arrow_ui"
+                android:layout_width="@dimen/spacing_16"
+                android:layout_height="@dimen/spacing_16"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/gray"
+                android:src="@drawable/ic_arrow"
+                android:contentDescription="@string/arrow_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/preferences_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/ui_item">
+
+            <ImageView
+                android:id="@+id/iv_preferences"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_preferences"
+                android:contentDescription="@string/prefereneces_icon" />
+
+            <TextView
+                android:id="@+id/tv_title_preferences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_preferences"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/title_preferences" />
+
+            <TextView
+                android:id="@+id/tv_preferences_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:layout_marginTop="@dimen/spacing_4"
+                app:layout_constraintStart_toEndOf="@id/iv_preferences"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_preferences"
+                android:fontFamily="@font/opensans_regular"
+                android:textSize="@dimen/text_size_10"
+                android:text="@string/preferences_selected" />
+
+            <ImageView
+                android:id="@+id/ic_arrow_preferences"
+                android:layout_width="@dimen/spacing_16"
+                android:layout_height="@dimen/spacing_16"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/gray"
+                android:src="@drawable/ic_arrow"
+                android:contentDescription="@string/arrow_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/confirm_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/preferences_item">
+
+            <ImageView
+                android:id="@+id/iv_confirm"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_message_dynamic"
+                android:contentDescription="@string/confirm_email" />
+
+            <TextView
+                android:id="@+id/tv_confirm_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_confirm"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/confirm_email" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/confirm_email">
+
+            <ImageView
+                android:id="@+id/iv_change_password"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_lock_dynamic"
+                android:contentDescription="@string/change_password" />
+
+            <TextView
+                android:id="@+id/tv_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_change_password"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/change_password" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/logout_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_8"
+            android:paddingBottom="@dimen/spacing_8"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:layout_marginHorizontal="@dimen/spacing_24"
+            app:layout_constraintTop_toBottomOf="@id/change_password">
+
+            <ImageView
+                android:id="@+id/iv_logout"
+                android:layout_width="@dimen/spacing_32"
+                android:layout_height="@dimen/spacing_32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_logout"
+                android:contentDescription="@string/ui_mode_icon" />
+
+            <TextView
+                android:id="@+id/tv_title_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintStart_toEndOf="@id/iv_logout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/logout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/preferences_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/ui_item">
-
-        <ImageView
-            android:id="@+id/iv_preferences"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_preferences"
-            android:contentDescription="@string/prefereneces_icon" />
-
-        <TextView
-            android:id="@+id/tv_title_preferences"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_preferences"
-            app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/title_preferences" />
-
-        <TextView
-            android:id="@+id/tv_preferences_selected"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            android:layout_marginTop="@dimen/spacing_4"
-            app:layout_constraintStart_toEndOf="@id/iv_preferences"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_preferences"
-            android:fontFamily="@font/opensans_regular"
-            android:textSize="@dimen/text_size_10"
-            android:text="@string/preferences_selected" />
-
-        <ImageView
-            android:id="@+id/ic_arrow_preferences"
-            android:layout_width="@dimen/spacing_16"
-            android:layout_height="@dimen/spacing_16"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/gray"
-            android:src="@drawable/ic_arrow"
-            android:contentDescription="@string/arrow_icon" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/confirm_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/preferences_item">
-
-        <ImageView
-            android:id="@+id/iv_confirm"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_message_dynamic"
-            android:contentDescription="@string/confirm_email" />
-
-        <TextView
-            android:id="@+id/tv_confirm_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_confirm"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/confirm_email" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/change_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/confirm_email">
-
-        <ImageView
-            android:id="@+id/iv_change_password"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_lock_dynamic"
-            android:contentDescription="@string/change_password" />
-
-        <TextView
-            android:id="@+id/tv_change_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_change_password"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/change_password" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/logout_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/spacing_8"
-        android:paddingBottom="@dimen/spacing_8"
-        android:layout_marginTop="@dimen/spacing_16"
-        android:layout_marginHorizontal="@dimen/spacing_24"
-        app:layout_constraintTop_toBottomOf="@id/change_password">
-
-        <ImageView
-            android:id="@+id/iv_logout"
-            android:layout_width="@dimen/spacing_32"
-            android:layout_height="@dimen/spacing_32"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:src="@drawable/ic_logout"
-            android:contentDescription="@string/ui_mode_icon" />
-
-        <TextView
-            android:id="@+id/tv_title_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_16"
-            app:layout_constraintStart_toEndOf="@id/iv_logout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:fontFamily="@font/opensans_bold"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/logout" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

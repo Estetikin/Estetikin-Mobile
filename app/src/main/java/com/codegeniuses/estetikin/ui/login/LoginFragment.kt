@@ -121,7 +121,6 @@ class LoginFragment : Fragment(), LoadingHandler {
     }
 
 
-
     private fun navigateToSentimentActivity() {
         val intent = Intent(requireContext(), SentimentActivity::class.java)
         intent.flags =
@@ -135,17 +134,19 @@ class LoginFragment : Fragment(), LoadingHandler {
         pref.saveToken(result)
     }
 
-    private fun saveNicknameToPreference(data: LoginResponse){
+    private fun saveNicknameToPreference(data: LoginResponse) {
         val pref = UserPreference(requireContext())
         val result = data.nickname
         pref.saveNickname(result)
     }
-    private fun navigateToForgotPassword(){
+
+    private fun navigateToForgotPassword() {
         binding.tvForgotPassword.setOnClickListener {
-            val intent = Intent (requireContext(), ForgetPasswordActivity::class.java)
+            val intent = Intent(requireContext(), ForgetPasswordActivity::class.java)
             startActivity(intent)
         }
     }
+
     override fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingAnimation.visibility = View.VISIBLE

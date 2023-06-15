@@ -17,7 +17,7 @@ class CheckEmailActivity : AppCompatActivity() {
         navigateToLogin()
     }
 
-    private fun navigateToLogin(){
+    private fun navigateToLogin() {
         binding.btnOkCheckEmail.setOnClickListener {
             val intent = Intent(this@CheckEmailActivity, AuthActivity::class.java)
             startActivity(intent)

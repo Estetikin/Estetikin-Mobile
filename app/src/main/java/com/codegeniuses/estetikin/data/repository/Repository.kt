@@ -28,7 +28,14 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
         liveData {
             emit(Loading)
             try {
-                val response = apiService.register("JojoDepdep",name, nickname, email, password, confirmPassword)
+                val response = apiService.register(
+                    "JojoDepdep",
+                    name,
+                    nickname,
+                    email,
+                    password,
+                    confirmPassword
+                )
                 if (response.error) {
                     emit(Error(response.message))
                 } else {
@@ -140,9 +147,10 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
             emit(Error(e.message.toString()))
         }
     }
+
     fun uploadProfile(
         imageMultipart: MultipartBody.Part
-    ): LiveData<Result<ProfileResponse>> = liveData{
+    ): LiveData<Result<ProfileResponse>> = liveData {
         emit(Loading)
         val token = pref.getToken()
         try {
@@ -161,7 +169,7 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
 
     }
 
-    fun sendEmail(email:String): LiveData<Result<GeneralResponse>> = liveData {
+    fun sendEmail(email: String): LiveData<Result<GeneralResponse>> = liveData {
         emit(Loading)
         try {
             val response = apiService.sendEmail(email)

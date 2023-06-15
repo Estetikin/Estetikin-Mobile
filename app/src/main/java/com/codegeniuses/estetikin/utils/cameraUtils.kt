@@ -46,7 +46,8 @@ fun reduceFileImage(file: File): File {
 
 fun createFile(application: Application, isBackCamera: Boolean): File {
     val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmssSSS", Locale.US).format(Date())
-    val orientation = if (isBackCamera) "B" else "F" // Use "B" for back camera and "F" for front camera
+    val orientation =
+        if (isBackCamera) "B" else "F" // Use "B" for back camera and "F" for front camera
     val mediaDir = application.externalMediaDirs.firstOrNull()?.let {
         File(it, application.resources.getString(R.string.app_name)).apply { mkdirs() }
     }

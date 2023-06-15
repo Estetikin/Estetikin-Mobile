@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-        <style name="Theme.Estetikin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Estetikin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_green</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>

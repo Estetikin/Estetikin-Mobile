@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_72">
-        
+
         <ImageView
             android:id="@+id/iv_icon_item_module"
             android:layout_width="@dimen/spacing_48"
@@ -36,6 +36,6 @@
             android:layout_marginEnd="@dimen/spacing_24"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_12"
-            android:text="@string/belajar_dasar_setting_kamera"/>
+            android:text="@string/belajar_dasar_setting_kamera" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingVertical="@dimen/spacing_12"
@@ -15,7 +14,7 @@
         android:padding="@dimen/spacing_8"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/ios"/>
+        android:text="@string/ios" />
 
     <TextView
         android:id="@+id/android"
@@ -25,7 +24,7 @@
         android:padding="@dimen/spacing_8"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/android"/>
+        android:text="@string/android" />
 
     <TextView
         android:id="@+id/dslr"
@@ -35,7 +34,7 @@
         android:padding="@dimen/spacing_8"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/dslr"/>
+        android:text="@string/dslr" />
 
     <TextView
         android:id="@+id/video"
@@ -45,5 +44,5 @@
         android:padding="@dimen/spacing_8"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/text_size_12"
-        android:text="@string/video"/>
+        android:text="@string/video" />
 </LinearLayout>

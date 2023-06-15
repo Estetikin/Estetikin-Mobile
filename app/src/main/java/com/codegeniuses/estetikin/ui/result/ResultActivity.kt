@@ -40,7 +40,7 @@ class ResultActivity : AppCompatActivity() {
 
         classifyText(class1, class2, class3, class4)
         binding.btnExample.setOnClickListener {
-            navigateToExampleResult(fileUri,class1, class2, class3, class4)
+            navigateToExampleResult(fileUri, class1, class2, class3, class4)
         }
 
     }
@@ -70,7 +70,13 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
-    private fun navigateToExampleResult(fileUri:Uri?,class1: Int, class2: Int, class3: Int, class4: Int) {
+    private fun navigateToExampleResult(
+        fileUri: Uri?,
+        class1: Int,
+        class2: Int,
+        class3: Int,
+        class4: Int
+    ) {
         val intent = Intent(this, ExampleActivity::class.java)
         intent.putExtra("image", fileUri)
         intent.putExtra("model1", class1)

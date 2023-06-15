@@ -106,7 +106,8 @@ class CameraActivity : AppCompatActivity() {
     private fun takePhoto() {
         val imageCapture = imageCapture ?: return
 
-        val photoFile = createFile(application, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
+        val photoFile =
+            createFile(application, cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
         imageCapture.takePicture(outputOptions,

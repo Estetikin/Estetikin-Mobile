@@ -230,7 +230,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             model3.close()
             model4.close()
 
-            
+
             moveToResultActivity(fileUri, maxPos1, maxPos2, maxPos3, maxPos4)
         } catch (e: IOException) {
             // TODO Handle the exception

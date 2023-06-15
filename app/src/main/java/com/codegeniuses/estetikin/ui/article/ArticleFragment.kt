@@ -162,7 +162,7 @@ class ArticleFragment : Fragment(), LoadingHandler {
 
     private fun getUserPreference(): String {
         val pref = UserPreference(requireContext())
-        return pref.getUserPreference() ?:"all"
+        return pref.getUserPreference() ?: "all"
     }
 
     override fun loadingHandler(isLoading: Boolean) {

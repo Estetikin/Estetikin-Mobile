@@ -1,12 +1,9 @@
 package com.codegeniuses.estetikin.ui.example
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.ActivityExampleBinding
-import com.codegeniuses.estetikin.ui.result.ResultActivity
 
 class ExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExampleBinding

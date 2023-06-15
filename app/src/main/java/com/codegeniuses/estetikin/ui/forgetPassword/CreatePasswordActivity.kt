@@ -17,9 +17,9 @@ class CreatePasswordActivity : AppCompatActivity() {
         navigateToLogin()
     }
 
-    private fun navigateToLogin(){
+    private fun navigateToLogin() {
         binding.btnSavePassword.setOnClickListener {
-            val intent = Intent (this@CreatePasswordActivity, AuthActivity::class.java)
+            val intent = Intent(this@CreatePasswordActivity, AuthActivity::class.java)
             startActivity(intent)
         }
     }

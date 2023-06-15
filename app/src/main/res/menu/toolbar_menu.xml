@@ -6,6 +6,5 @@
         android:icon="@drawable/ic_setting"
         android:title="@string/title_setting"
         android:visible="true"
-        app:showAsAction="always"
-        />
+        app:showAsAction="always" />
 </menu>

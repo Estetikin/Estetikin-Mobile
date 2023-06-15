@@ -69,7 +69,8 @@ class SettingsActivity : AppCompatActivity() {
 
         val sharedPreferences =
             getSharedPreferences("settings", Context.MODE_PRIVATE)
-        val languageCode = sharedPreferences.getString("language", "en") // Default to English if not found
+        val languageCode =
+            sharedPreferences.getString("language", "en") // Default to English if not found
 
         val languageTextResId = if (languageCode == "en") {
             R.string.english
@@ -315,8 +316,13 @@ class SettingsActivity : AppCompatActivity() {
             else -> ""
         }
     }
+
     private fun makePrefText(text: String) {
-        Toast.makeText(this@SettingsActivity, "You choose $text as your preference", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this@SettingsActivity,
+            "You choose $text as your preference",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun saveUserPreference(data: String) {
@@ -324,13 +330,13 @@ class SettingsActivity : AppCompatActivity() {
         pref.saveUserPreference(data)
     }
 
-    private fun setupView(){
+    private fun setupView() {
         val pref = UserPreference(this)
         val nickname = pref.getNickname()
         binding.tvProfileName.text = nickname
 
         isRefreshing = true
-        viewModel.getProfileImage().observe(this){result ->
+        viewModel.getProfileImage().observe(this) { result ->
             when (result) {
                 is Result.Loading -> {
                     loadingHandler(true)
@@ -360,14 +366,15 @@ class SettingsActivity : AppCompatActivity() {
         launcherIntentGallery.launch(chooser)
     }
 
-    private fun uploadProfileImage(){ val file = reduceFileImage(getFile as File)
+    private fun uploadProfileImage() {
+        val file = reduceFileImage(getFile as File)
         val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
         val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
             "image",
             file.name,
             requestImageFile
         )
-        viewModel.uploadProfileImage(imageMultipart).observe(this){result ->
+        viewModel.uploadProfileImage(imageMultipart).observe(this) { result ->
             if (result != null) {
                 when (result) {
                     is Result.Loading -> {
@@ -402,7 +409,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun showProfilePicture(photoUrl: String){
+    private fun showProfilePicture(photoUrl: String) {
         Glide.with(this)
             .load(photoUrl)
             .into(binding.ivProfilePicture)
@@ -417,6 +424,7 @@ class SettingsActivity : AppCompatActivity() {
             setupView()
         }
     }
+
     private fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingAnimation.visibility = View.VISIBLE
@@ -428,7 +436,8 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
     }
-    private fun setupBackButton(){
+
+    private fun setupBackButton() {
         binding.ivBackButton.setOnClickListener {
             finish()
         }

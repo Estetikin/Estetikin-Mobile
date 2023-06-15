@@ -8,7 +8,6 @@
     </item>
 
     <!-- Rectangle -->
-    <item
-        android:drawable="@drawable/rectangle_colored" />
+    <item android:drawable="@drawable/rectangle_colored" />
 </layer-list>
 

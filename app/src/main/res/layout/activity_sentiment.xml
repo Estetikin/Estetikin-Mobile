@@ -1,143 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.sentiment.SentimentActivity">
 
-  <FrameLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/sentiment_background"
+        <ImageView
+            android:id="@+id/sentiment_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-28dp"
+            android:contentDescription="@string/sentiment_analysis_background"
+            android:src="@drawable/sentiment_background" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="206dp"
+            android:layout_marginTop="@dimen/spacing_72"
+            android:contentDescription="@string/sentiment_analysis_illustration"
+            android:src="@drawable/sentiment_illustrator" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_32"
+            android:layout_marginTop="@dimen/spacing_128"
+            android:fontFamily="@font/opensans_bold"
+            android:textColor="@color/dark_gray"
+            android:text="@string/hi_folks"
+            android:textSize="@dimen/text_size_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_32"
+            android:layout_marginTop="169dp"
+            android:fontFamily="@font/opensans_regular"
+            android:textColor="@color/dark_gray"
+            android:text="@string/personalize_your_preferences_n_and_elevate_our_services_to_new_heights"
+            android:textSize="@dimen/text_size_12" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_sentiment_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-28dp"
-        android:contentDescription="@string/sentiment_analysis_background"
-        android:src="@drawable/sentiment_background" />
+        android:layout_marginStart="@dimen/spacing_32"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="328dp"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:textColor="@color/dark_gray"
+        android:text="@string/what_do_you_use_to_take_a_picture"
+        android:textSize="@dimen/text_size_16" />
+
+
+    <Button
+        android:id="@+id/btn_ios"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        app:layout_constraintTop_toBottomOf="@id/tv_sentiment_question"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/spacing_24"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:background="@drawable/sentiment_button_background"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/ios"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10" />
+
+    <Button
+        android:id="@+id/btn_android"
+        android:layout_width="@dimen/spacing_88"
+        android:layout_height="@dimen/spacing_32"
+        app:layout_constraintTop_toTopOf="@id/btn_ios"
+        app:layout_constraintStart_toEndOf="@id/btn_ios"
+        android:layout_marginStart="@dimen/spacing_56"
+        android:background="@drawable/sentiment_button_background"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/android"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10" />
+
+    <Button
+        android:id="@+id/btn_dslr"
+        android:layout_width="@dimen/spacing_72"
+        android:layout_height="@dimen/spacing_32"
+        app:layout_constraintTop_toBottomOf="@id/btn_ios"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/spacing_24"
+        android:layout_marginStart="@dimen/spacing_32"
+        android:background="@drawable/sentiment_button_background"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/dslr"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10" />
+
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="@dimen/spacing_88"
+        android:layout_height="@dimen/spacing_32"
+        app:layout_constraintTop_toTopOf="@id/btn_dslr"
+        app:layout_constraintStart_toEndOf="@id/btn_dslr"
+        android:layout_marginStart="@dimen/spacing_56"
+        android:background="@drawable/sentiment_button_background"
+        android:fontFamily="@font/opensans_semi_bold"
+        android:text="@string/video"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_10" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="206dp"
-        android:layout_marginTop="@dimen/spacing_72"
-        android:contentDescription="@string/sentiment_analysis_illustration"
-        android:src="@drawable/sentiment_illustrator" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="370dp"
+        android:src="@drawable/sentiment_lines"
+        android:contentDescription="@string/sentiment_lines" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_32"
-        android:layout_marginTop="@dimen/spacing_128"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="156dp"
+        android:layout_marginEnd="@dimen/spacing_32"
         android:fontFamily="@font/opensans_bold"
-        android:textColor="@color/dark_gray"
-        android:text="@string/hi_folks"
-        android:textSize="@dimen/text_size_24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_32"
-        android:layout_marginTop="169dp"
-        android:fontFamily="@font/opensans_regular"
-        android:textColor="@color/dark_gray"
-        android:text="@string/personalize_your_preferences_n_and_elevate_our_services_to_new_heights"
-        android:textSize="@dimen/text_size_12" />
-
-  </FrameLayout>
-
-  <TextView
-      android:id="@+id/tv_sentiment_question"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/spacing_32"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_marginTop="328dp"
-      android:fontFamily="@font/opensans_semi_bold"
-      android:textColor="@color/dark_gray"
-      android:text="@string/what_do_you_use_to_take_a_picture"
-      android:textSize="@dimen/text_size_16" />
-
-
-  <Button
-      android:id="@+id/btn_ios"
-      android:layout_width="@dimen/spacing_72"
-      android:layout_height="@dimen/spacing_32"
-      app:layout_constraintTop_toBottomOf="@id/tv_sentiment_question"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_marginTop="@dimen/spacing_24"
-      android:layout_marginStart="@dimen/spacing_32"
-      android:background="@drawable/sentiment_button_background"
-      android:fontFamily="@font/opensans_semi_bold"
-      android:text="@string/ios"
-      android:textColor="@color/white"
-      android:textSize="@dimen/text_size_10" />
-
-  <Button
-      android:id="@+id/btn_android"
-      android:layout_width="@dimen/spacing_88"
-      android:layout_height="@dimen/spacing_32"
-      app:layout_constraintTop_toTopOf="@id/btn_ios"
-      app:layout_constraintStart_toEndOf="@id/btn_ios"
-      android:layout_marginStart="@dimen/spacing_56"
-      android:background="@drawable/sentiment_button_background"
-      android:fontFamily="@font/opensans_semi_bold"
-      android:text="@string/android"
-      android:textColor="@color/white"
-      android:textSize="@dimen/text_size_10" />
-
-  <Button
-      android:id="@+id/btn_dslr"
-      android:layout_width="@dimen/spacing_72"
-      android:layout_height="@dimen/spacing_32"
-      app:layout_constraintTop_toBottomOf="@id/btn_ios"
-      app:layout_constraintStart_toStartOf="parent"
-      android:layout_marginTop="@dimen/spacing_24"
-      android:layout_marginStart="@dimen/spacing_32"
-      android:background="@drawable/sentiment_button_background"
-      android:fontFamily="@font/opensans_semi_bold"
-      android:text="@string/dslr"
-      android:textColor="@color/white"
-      android:textSize="@dimen/text_size_10" />
-
-  <Button
-      android:id="@+id/btn_video"
-      android:layout_width="@dimen/spacing_88"
-      android:layout_height="@dimen/spacing_32"
-      app:layout_constraintTop_toTopOf="@id/btn_dslr"
-      app:layout_constraintStart_toEndOf="@id/btn_dslr"
-      android:layout_marginStart="@dimen/spacing_56"
-      android:background="@drawable/sentiment_button_background"
-      android:fontFamily="@font/opensans_semi_bold"
-      android:text="@string/video"
-      android:textColor="@color/white"
-      android:textSize="@dimen/text_size_10" />
-
-  <ImageView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="parent"
-      android:layout_marginTop="370dp"
-      android:src="@drawable/sentiment_lines"
-      android:contentDescription="@string/sentiment_lines" />
-
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
-      android:layout_marginBottom="156dp"
-      android:layout_marginEnd="@dimen/spacing_32"
-      android:fontFamily="@font/opensans_bold"
-      android:textSize="@dimen/text_size_14"
-      android:textColor="@color/colorPrimary"
-      android:text="@string/sentiment_slogan"/>
-  </androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="@dimen/text_size_14"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/sentiment_slogan" />
+</androidx.constraintlayout.widget.ConstraintLayout>

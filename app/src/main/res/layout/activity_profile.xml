@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:id="@+id/swipeRefresh"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swipeRefresh"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +27,7 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loading"
             tools:visibility="visible" />
+
         <ImageView
             android:id="@+id/iv_back_button"
             android:layout_width="@dimen/spacing_24"
@@ -49,20 +49,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="128dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="128dp">
 
-                    <ImageView
-                        android:id="@+id/iv_profile_picture"
-                        android:layout_width="256dp"
-                        android:layout_height="256dp"
-                        android:src="@drawable/ic_profile_picture"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/profile_picture" />
+                <ImageView
+                    android:id="@+id/iv_profile_picture"
+                    android:layout_width="256dp"
+                    android:layout_height="256dp"
+                    android:src="@drawable/ic_profile_picture"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profile_picture" />
 
-                </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <ImageView
@@ -85,7 +85,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/opensans_bold"
             android:textSize="@dimen/text_size_24"
-            android:text="@string/kumaa"/>
+            android:text="@string/kumaa" />
 
         <include
             layout="@layout/item_change_password"
@@ -108,7 +108,7 @@
             android:fontFamily="@font/opensans_bold"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/text_size_18"
-            android:text="@string/sign_out"/>
+            android:text="@string/sign_out" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
