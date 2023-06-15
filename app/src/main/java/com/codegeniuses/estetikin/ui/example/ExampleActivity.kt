@@ -47,8 +47,8 @@ class ExampleActivity : AppCompatActivity() {
             2 -> binding.ivModel3.setImageResource(R.drawable.model3_1)
         }
         when (model4) {
-            0 -> binding.ivModel4.setImageResource(R.drawable.modul4_2)
-            1 -> binding.ivModel4.setImageResource(R.drawable.modul4_1)
+            0 -> binding.ivModel4.setImageResource(R.drawable.modul4_1)
+            1 -> binding.ivModel4.setImageResource(R.drawable.modul4_2)
         }
     }
 
