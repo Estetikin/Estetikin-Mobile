@@ -72,11 +72,11 @@
     <!-- Module Fragment -->
     <string name="title_module">Modul</string>
     <string name="module_cover">Cover Modul</string>
-    <string name="module_title_placeholder">Placeholder Judul Modul</string>
-    <string name="module_description_placeholder">Placeholder Deskripsi Modul</string>
+    <string name="module_title_placeholder">Pengganti Judul Modul</string>
+    <string name="module_description_placeholder">Pengganti Deskripsi Modul</string>
     <string name="number_placeholder">1</string>
     <string name="module_step_image">Gambar Langkah-langkah Modul</string>
-    <string name="module_text_description_placeholder">Alternatively, buy your cameras individually. Once you know how many cameras you need, you\'ll need to think about what specific cameras you want. A home surveillance system can cost anywhere from a few hundred dollars to well over a thousand, so make sure you consider the type of cameras you need before buying — the features below should be clearly labeled on the box. While you can buy all of the parts separately, buying a full \"surveillance set\" is usually cheaper and easier to install. Wireless vs. Wired: Wireless cameras are easy to set-up without drilling or running cables through your house, but the quality can be sub-par the further they get away from the receiver. If you are covering a big area, go wired, but most houses find wireless an easier set-up process. Indoor or Outdoor: </string>
+    <string name="module_text_description_placeholder">Sebagai alternatif, beli kamera secara terpisah. Setelah kamu tahu berapa banyak kamera yang kamu butuhkan, kamu perlu memikirkan kamera spesifik apa yang kamu inginkan. Sistem pengawasan rumah bisa memakan biaya dari beberapa ratus dolar hingga ribuan dolar, jadi pastikan kamu mempertimbangkan jenis kamera yang kamu butuhkan sebelum membeli — fitur-fitur di bawah ini sebaiknya jelas tertera pada kotaknya. Meskipun kamu dapat membeli semua bagian terpisah, membeli "set pengawasan" lengkap biasanya lebih murah dan lebih mudah dipasang. Nirkabel vs. Berkabel: Kamera nirkabel mudah dipasang tanpa harus mengebor atau menjalankan kabel melalui rumahmu, tetapi kualitasnya bisa menurun jika semakin jauh dari penerima. Jika kamu ingin menutupi area yang luas, sebaiknya menggunakan kabel, tetapi kebanyakan rumah lebih mudah mengatur kamera nirkabel. Dalam ruangan atau luar ruangan:</string>
 
 
     <!-- Camera -->
@@ -100,52 +100,73 @@
 
     <!-- Module Fragment <-->
     <string name="unlock_your_photographic_potential">Gali Potensi Fotografimu</string>
-    <string name="master_the_art_of_photography_and_capture_breathtaking_moments">Kuasai seni fotografi dan rekam momen terbaikmu.</string>
+    <string name="master_the_art_of_photography_and_capture_breathtaking_moments">Kuasai seni fotografi dan tangkap momen yang menakjubkan.</string>
     <string name="icon_item_module">Ikon Item Modul</string>
     <string name="belajar_dasar_setting_kamera">Belajar Dasar Setting Kamera</string>
-    <string name="title_module_detail">Module Detail</string>
-    <string name="send_button">Send Button</string>
+    <string name="title_module_detail">Detail Modul</string>
+    <string name="send_button">Tombol Kirim</string>
+
 
     <!-- Sentiment Analysis -->
-    <string name="sentiment_analysis_background">Background Analisis Sentimen</string>
+    <string name="sentiment_analysis_background">Latar Belakang Analisis Sentimen</string>
     <string name="sentiment_analysis_illustration">Ilustrasi Analisis Sentimen</string>
     <string name="hi_folks">Halo Sobat</string>
-    <string name="personalize_your_preferences_n_and_elevate_our_services_to_new_heights">Ayo pilih preferensimu \n dan tingkatkan kami.</string>
+    <string name="personalize_your_preferences_n_and_elevate_our_services_to_new_heights">Personalisasi preferensimu dan tingkatkan layanan kami ke level baru.</string>
     <string name="what_do_you_use_to_take_a_picture">Apa yang kamu gunakan untuk mengambil gambar?</string>
-    <string name="ios">IOS</string>
+    <string name="ios">iOS</string>
     <string name="android">Android</string>
     <string name="dslr">DSLR</string>
-    <string name="sentiment_lines">Sentiment Lines</string>
-    <string name="sentiment_slogan">Make your life more aesthetic</string>
+    <string name="sentiment_lines">Garis Sentimen</string>
+    <string name="sentiment_slogan">Buat hidupmu lebih estetis</string>
     <string name="halo">Halo</string>
     <string name="kumaa">Kumaa</string>
-    <string name="greeting_message">Let\'s start taking picture</string>
-    <string name="title_preferences">Preferences</string>
-    <string name="preferences_selected">Preferencemu</string>
-    <string name="your_preferences">"Your Preferences: "</string>
+    <string name="greeting_message">Ayo mulai mengambil gambar</string>
+    <string name="title_preferences">Preferensi</string>
+    <string name="preferences_selected">Preferensimu</string>
+    <string name="your_preferences">Preferensimu: </string>
     <string name="mirrorless">Mirrorless</string>
-    <string name="prefereneces_icon">Preferences Icon</string>
+    <string name="prefereneces_icon">Ikon Preferensi</string>
     <string name="video">Video</string>
-    <string name="forgot_password_description">No Worries. I Gotchu Bro. We’ll send you an email.</string>
-    <string name="enter_email">Enter your email here: </string>
-    <string name="reset_password">Reset Password</string>
-    <string name="title_back">Back</string>
-    <string name="create_password">Create New Password</string>
-    <string name="create_password_description">Your new password must be different from the previous one.</string>
-    <string name="save">Save</string>
-    <string name="illustration_check_email">Check Email Illustration</string>
-    <string name="check_email">Stay Connected! Check Your Email.</string>
-    <string name="check_email_description">Almost there! We\'ve sent you an email with instructions on how to reset your password. Please check your inbox and follow the provided link to proceed.</string>
+    <string name="forgot_password_description">Jangan khawatir. Aku di sini untukmu. Kami akan mengirimkan email kepadamu.</string>
+    <string name="enter_email">Masukkan emailmu di sini:</string>
+    <string name="reset_password">Reset Kata Sandi</string>
+    <string name="title_back">Kembali</string>
+    <string name="create_password">Buat Kata Sandi Baru</string>
+    <string name="create_password_description">Kata sandi baru kamu harus berbeda dengan yang sebelumnya.</string>
+    <string name="save">Simpan</string>
+    <string name="illustration_check_email">Ilustrasi Periksa Email</string>
+    <string name="check_email">Tetap Terhubung! Periksa Emailmu.</string>
+    <string name="check_email_description">Sampai di sini saja! Kami telah mengirimkan email kepadamu dengan instruksi untuk mereset kata sandi. Silakan periksa kotak masukmu dan ikuti tautan yang disediakan untuk melanjutkan.</string>
     <string name="ok">OK</string>
-    <string name="back_to_login">Back to Login</string>
-    <string name="profile_picture">Profile Picture</string>
-    <string name="change_picture">Change Profile Picture Button</string>
-    <string name="sign_out">Sign out</string>
-    <string name="dynamic_background">Dynamic Background Color</string>
-    <string name="password_icon">Icon Password</string>
-    <string name="change_password">Change Password</string>
-    <string name="nickname">Nickname</string>
-    <string name="confirm_picture_placeholder">Confirm Picture Placeholder</string>
-    <string name="title_profile">Profile</string>
-    <string name="confirm_email">Confirm Email</string>
+    <string name="back_to_login">Kembali ke Login</string>
+    <string name="profile_picture">Foto Profil</string>
+    <string name="change_picture">Ubah Foto Profil</string>
+    <string name="sign_out">Keluar</string>
+    <string name="dynamic_background">Warna Latar Belakang Dinamis</string>
+    <string name="password_icon">Ikon Kata Sandi</string>
+    <string name="change_password">Ubah Kata Sandi</string>
+    <string name="nickname">Nama panggilan</string>
+    <string name="confirm_picture_placeholder">Placeholder Konfirmasi Foto</string>
+    <string name="title_profile">Profil</string>
+    <string name="confirm_email">Konfirmasi Email</string>
+
+    <!-- Rekomendasi ML -->
+    <!-- Model 1 -->
+    <string name="food_beverage">Anda sedang melakukan Fotografi Makanan/Minuman</string>
+    <string name="model">Ada model di dalam gambar Anda</string>
+    <string name="indoor">Anda sedang melakukan fotografi dalam ruangan</string>
+    <string name="outdoor">Anda sedang melakukan fotografi di luar ruangan</string>
+    <!-- Model 2 -->
+    <string name="blurry">Gambar Anda kabur</string>
+    <string name="wellFocused">Lensa kamera Anda jernih dan terfokus dengan baik!</string>
+    <!-- Model 3 -->
+    <string name="dark">Gambar Anda terlalu gelap</string>
+    <string name="bright">Gambar Anda terlalu terang</string>
+    <string name="normal">Kecerahan gambar Anda bagus!</string>
+    <!-- Model 4 -->
+    <string name="centered">Objek dalam gambar ini berada dalam posisi yang baik!</string>
+    <string name="nonCentered">Objek dalam gambar ini tidak berada dalam posisi yang baik</string>
+    <string name="see_our_example">Lihat Contoh Kami</string>
+
+
 </resources>

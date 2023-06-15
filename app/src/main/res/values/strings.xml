@@ -92,7 +92,6 @@
     <string name="module_step_image">Module Step Image</string>
     <string name="module_text_description_placeholder">Alternatively, buy your cameras individually. Once you know how many cameras you need, you\'ll need to think about what specific cameras you want. A home surveillance system can cost anywhere from a few hundred dollars to well over a thousand, so make sure you consider the type of cameras you need before buying — the features below should be clearly labeled on the box. While you can buy all of the parts separately, buying a full \"surveillance set\" is usually cheaper and easier to install. Wireless vs. Wired: Wireless cameras are easy to set-up without drilling or running cables through your house, but the quality can be sub-par the further they get away from the receiver. If you are covering a big area, go wired, but most houses find wireless an easier set-up process. Indoor or Outdoor: </string>
 
-
     <!-- Camera -->
     <string name="title_camera">Camera</string>
     <string name="switch_camera">Switch Camera</string>
@@ -166,19 +165,19 @@
 
     <!-- ML Recomendation -->
     <!-- Model 1 -->
-    <string name="food_beverage" translatable="false">You are doing Food/Beverages Photography</string>
-    <string name="model" translatable="false">There is a model inside your picture</string>
-    <string name="indoor" translatable="false">You are doing an indoor photography </string>
-    <string name="outdoor" translatable="false">You are doing an outdoor photography</string>
+    <string name="food_beverage" >You are doing Food/Beverages Photography</string>
+    <string name="model" >There is a model inside your picture</string>
+    <string name="indoor" >You are doing an indoor photography </string>
+    <string name="outdoor">You are doing an outdoor photography</string>
     <!-- Model 2-->
-    <string name="blurry" translatable="false">Your picture is blurry</string>
-    <string name="wellFocused" translatable="false">Your camera lens is clear and well-focused!</string>
+    <string name="blurry" >Your picture is blurry</string>
+    <string name="wellFocused" >Your camera lens is clear and well-focused!</string>
     <!-- Model 3-->
-    <string name="dark" translatable="false"> Your picture is too dark</string>
-    <string name="bright" translatable="false">Your picture is too bright</string>
-    <string name="normal" translatable="false">Your picture brightness comes out great!</string>
+    <string name="dark"> Your picture is too dark</string>
+    <string name="bright">Your picture is too bright</string>
+    <string name="normal" >Your picture brightness comes out great!</string>
     <!-- Model 4-->
-    <string name="centered" translatable="false">Your object in this picture is in a good position!</string>
-    <string name="nonCentered" translatable="false">Your object in this picture is not in a good position</string>
-    <string name="see_our_example" translatable="false">See Our Example</string>
+    <string name="centered" >Your object in this picture is in a good position!</string>
+    <string name="nonCentered" >Your object in this picture is not in a good position</string>
+    <string name="see_our_example" >See Our Example</string>
 </resources>
