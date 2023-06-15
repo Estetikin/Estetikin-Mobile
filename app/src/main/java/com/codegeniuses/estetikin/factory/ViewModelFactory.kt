@@ -8,6 +8,7 @@ import com.codegeniuses.estetikin.di.Injection
 import com.codegeniuses.estetikin.ui.album.AlbumViewModel
 import com.codegeniuses.estetikin.ui.article.ArticleViewModel
 import com.codegeniuses.estetikin.ui.confirmPage.ConfirmViewModel
+import com.codegeniuses.estetikin.ui.forgetPassword.ForgetPasswordViewModel
 import com.codegeniuses.estetikin.ui.login.LoginViewModel
 import com.codegeniuses.estetikin.ui.modul.ModuleViewModel
 import com.codegeniuses.estetikin.ui.setting.SettingViewModel
@@ -37,6 +38,9 @@ class ViewModelFactory(private val repo: Repository) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(SettingViewModel::class.java) -> {
                 SettingViewModel(repo) as T
+            }
+            modelClass.isAssignableFrom(ForgetPasswordViewModel::class.java) -> {
+                ForgetPasswordViewModel(repo) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

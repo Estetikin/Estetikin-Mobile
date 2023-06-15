@@ -161,6 +161,20 @@ class Repository(private val pref: UserPreference, private val apiService: ApiSe
 
     }
 
+    fun sendEmail(email:String): LiveData<Result<GeneralResponse>> = liveData {
+        emit(Loading)
+        try {
+            val response = apiService.sendEmail(email)
+            if (response.error) {
+                emit(Error(response.message))
+            } else {
+                emit(Success(response))
+            }
+        } catch (e: Exception) {
+            emit(Error(e.message.toString()))
+        }
+    }
+
     companion object {
         @Volatile
         private var instance: Repository? = null
