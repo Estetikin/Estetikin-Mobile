@@ -24,9 +24,9 @@
 
                 <ImageView
                     android:id="@+id/iv_model_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
                     android:src="@drawable/model1_1" />
 
             </androidx.cardview.widget.CardView>
@@ -40,9 +40,9 @@
 
                 <ImageView
                     android:id="@+id/iv_model_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
                     android:src="@drawable/model1_2" />
 
             </androidx.cardview.widget.CardView>
@@ -56,9 +56,9 @@
 
                 <ImageView
                     android:id="@+id/iv_model_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
                     android:src="@drawable/model3_1" />
 
             </androidx.cardview.widget.CardView>
@@ -72,9 +72,9 @@
 
                 <ImageView
                     android:id="@+id/iv_model_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
                     android:src="@drawable/model1_4" />
 
             </androidx.cardview.widget.CardView>
