@@ -34,6 +34,10 @@ class ResultActivity : AppCompatActivity() {
             binding.ivPicture.setImageURI(fileUri)
         }
 
+        binding.ivBackButton.setOnClickListener {
+            onBackPressed()
+        }
+
         classifyText(class1, class2, class3, class4)
         binding.btnExample.setOnClickListener {
             navigateToExampleResult(fileUri,class1, class2, class3, class4)
