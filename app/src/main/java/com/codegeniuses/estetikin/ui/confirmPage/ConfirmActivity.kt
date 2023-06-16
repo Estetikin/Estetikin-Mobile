@@ -211,9 +211,9 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
                 }
             }
             if (maxPos5 == 0){
-                maxPos3 == 1
+                maxPos3 = 1
             } else {
-                maxPos3 == 2
+                maxPos3 = 2
             }
 
 
