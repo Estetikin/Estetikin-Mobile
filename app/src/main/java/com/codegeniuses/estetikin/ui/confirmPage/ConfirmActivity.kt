@@ -20,6 +20,7 @@ import com.codegeniuses.estetikin.ml.Model1
 import com.codegeniuses.estetikin.ml.Model2
 import com.codegeniuses.estetikin.ml.Model3
 import com.codegeniuses.estetikin.ml.Model4
+import com.codegeniuses.estetikin.ml.Model5
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.result.ResultActivity
 import com.codegeniuses.estetikin.utils.reduceFileImage
@@ -102,6 +103,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             val model1 = Model1.newInstance(applicationContext)
             val model2 = Model2.newInstance(applicationContext)
             val model3 = Model3.newInstance(applicationContext)
+            val model5 = Model5.newInstance(applicationContext)
             val model4 = Model4.newInstance(applicationContext)
 
             // Creates inputs for reference.
@@ -139,6 +141,10 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             val outputs3: Model3.Outputs = model3.process(inputFeature0)
             val outputFeature3: TensorBuffer = outputs3.outputFeature0AsTensorBuffer
             val confidences3: FloatArray = outputFeature3.floatArray
+            // Model 5
+            val outputs5: Model5.Outputs = model5.process(inputFeature0)
+            val outputFeature5: TensorBuffer = outputs5.outputFeature0AsTensorBuffer
+            val confidences5: FloatArray = outputFeature5.floatArray
             // Model 4
             val outputs4: Model4.Outputs = model4.process(inputFeature0)
             val outputFeature4: TensorBuffer = outputs4.outputFeature0AsTensorBuffer
@@ -194,8 +200,26 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
                 }
             }
 
+            var maxPos5 = 0
+            var maxConfidence5 = 0f
+            if (maxPos3 == 1){
+                for (i in confidences5.indices) {
+                    if (confidences5[i] > maxConfidence5) {
+                        maxConfidence5 = confidences5[i]
+                        maxPos5 = i
+                    }
+                }
+            }
+            if (maxPos5 == 0){
+                maxPos3 == 1
+            } else {
+                maxPos3 == 2
+            }
+
+
+
             //make the feature output data
-            val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
+            val classes3 = arrayOf("low brightness", "normal brightness", "high brightness")
             Log.d("success", classes3[maxPos3])
             var s3 = ""
             for (i in classes3.indices) {
