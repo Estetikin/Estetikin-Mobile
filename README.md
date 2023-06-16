@@ -25,3 +25,15 @@ Then in this project data source is the only layer that connecting response API 
 # Project Installation
 1. Clone the repository
 2. Run the app from emulator or physical device 
+
+#About Us 
+
+Team ID : C23-PS478
+
+Team Member : 
+(ML) M151DSX1781	- Stragel Alandia Sinaga
+(ML) M309DSY2140	- Ana Aulia Nabilah 
+(CC) C360DSX1615	- Evan Pradipta Hardinatha 
+(CC) C360DKX4279	- Adrian Ferdinand Jotham 
+(MD) A032DSX2084	- Renald Kharisma Tjandra 
+(MD) A136DKX4344	- Daffa Pasya Al-Ghifary 
