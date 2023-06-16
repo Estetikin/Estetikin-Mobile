@@ -41,7 +41,7 @@
             android:textSize="@dimen/text_size_24" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_32"
             android:layout_marginTop="169dp"
