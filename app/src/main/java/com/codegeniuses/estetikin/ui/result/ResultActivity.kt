@@ -58,8 +58,8 @@ class ResultActivity : AppCompatActivity() {
             1 -> binding.tvModule2.setText(R.string.blurry)
         }
         when (model3) {
-            0 -> binding.tvModule3.setText(R.string.normal)
-            1 -> binding.tvModule3.setText(R.string.dark)
+            0 -> binding.tvModule3.setText(R.string.dark)
+            1 -> binding.tvModule3.setText(R.string.normal)
             2 -> binding.tvModule3.setText(R.string.bright)
         }
         when (model4) {

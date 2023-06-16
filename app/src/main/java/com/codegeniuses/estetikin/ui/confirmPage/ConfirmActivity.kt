@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.codegeniuses.estetikin.R
 import com.codegeniuses.estetikin.databinding.ActivityConfirmBinding
 import com.codegeniuses.estetikin.factory.ViewModelFactory
 import com.codegeniuses.estetikin.helper.LoadingHandler
@@ -20,6 +21,7 @@ import com.codegeniuses.estetikin.ml.Model1
 import com.codegeniuses.estetikin.ml.Model2
 import com.codegeniuses.estetikin.ml.Model3
 import com.codegeniuses.estetikin.ml.Model4
+import com.codegeniuses.estetikin.ml.Model5
 import com.codegeniuses.estetikin.model.result.Result
 import com.codegeniuses.estetikin.ui.result.ResultActivity
 import com.codegeniuses.estetikin.utils.reduceFileImage
@@ -102,6 +104,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             val model1 = Model1.newInstance(applicationContext)
             val model2 = Model2.newInstance(applicationContext)
             val model3 = Model3.newInstance(applicationContext)
+            val model5 = Model5.newInstance(applicationContext)
             val model4 = Model4.newInstance(applicationContext)
 
             // Creates inputs for reference.
@@ -139,6 +142,10 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             val outputs3: Model3.Outputs = model3.process(inputFeature0)
             val outputFeature3: TensorBuffer = outputs3.outputFeature0AsTensorBuffer
             val confidences3: FloatArray = outputFeature3.floatArray
+            // Model 5
+            val outputs5: Model5.Outputs = model5.process(inputFeature0)
+            val outputFeature5: TensorBuffer = outputs5.outputFeature0AsTensorBuffer
+            val confidences5: FloatArray = outputFeature5.floatArray
             // Model 4
             val outputs4: Model4.Outputs = model4.process(inputFeature0)
             val outputFeature4: TensorBuffer = outputs4.outputFeature0AsTensorBuffer
@@ -193,15 +200,39 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
                     maxPos3 = i
                 }
             }
+            //Model 5
+            // find the index of the class with the biggest confidence.
+            var maxPos5 = 0
+            var maxConfidence5 = 0f
+            for (i in confidences5.indices) {
+                if (confidences5[i] > maxConfidence5) {
+                    maxConfidence5 = confidences5[i]
+                    maxPos5 = i
+                }
+            }
+
+            var maxPos35 = 3
+            var low_normal = maxPos3
+            var high_normal = maxPos5
+
+            if (low_normal == 0 ){
+                maxPos35 = 0
+            } else {
+                if (high_normal == 0){
+                    maxPos35 = 2
+                } else {
+                    maxPos35 = 1
+                }
+            }
 
             //make the feature output data
-            val classes3 = arrayOf("normal brightness", "low brightness", "high brightness")
-            Log.d("success", classes3[maxPos3])
-            var s3 = ""
-            for (i in classes3.indices) {
-                s3 += String.format("%s: %.1f%%\n", classes3[i], confidences3[i] * 100)
-            }
-            Log.d("success", s3)
+            val classes3 = arrayOf("low brightness", "normal brightness", "high brightness")
+            Log.d("success", classes3[maxPos35])
+//            var s3 = ""
+//            for (i in classes3.indices) {
+//                s3 += String.format("%s: %.1f%%\n", classes3[i], confidences3[i] * 100)
+//            }
+//            Log.d("success", s3)
 
             //Model 4
             // find the index of the class with the biggest confidence.
@@ -223,7 +254,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             }
             Log.d("success", s4)
 
-            uploadImage(maxPos1, maxPos2, maxPos3, maxPos4)
+            uploadImage(maxPos1, maxPos2, maxPos35, maxPos4)
             // Releases model resources if no longer used.
             model1.close()
             model2.close()
@@ -231,7 +262,7 @@ class ConfirmActivity : AppCompatActivity(), LoadingHandler {
             model4.close()
 
 
-            moveToResultActivity(fileUri, maxPos1, maxPos2, maxPos3, maxPos4)
+            moveToResultActivity(fileUri, maxPos1, maxPos2, maxPos35, maxPos4)
         } catch (e: IOException) {
             // TODO Handle the exception
         }
