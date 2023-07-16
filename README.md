@@ -43,3 +43,11 @@ Then in this project data source is the only layer that connecting response API 
 (MD) A032DSX2084	- Renald Kharisma Tjandra 
 
 (MD) A136DKX4344	- Daffa Pasya Al-Ghifary 
+
+
+### Screenshot of the App
+
+![Estetikin Apllication Documentation   Screenshoot (3)](https://github.com/Estetikin/Estetikin-Mobile/assets/85781461/e2eb54ca-e73d-45f0-a392-1e553b2f19cd)
+![Estetikin Apllication Documentation   Screenshoot (2)](https://github.com/Estetikin/Estetikin-Mobile/assets/85781461/f2e9b94c-b464-433d-99a1-9bfc9421fcd7)
+![Estetikin Apllication Documentation   Screenshoot (1)](https://github.com/Estetikin/Estetikin-Mobile/assets/85781461/1b96270e-b255-41af-8c92-be582a61aa05)
+![Estetikin Apllication Documentation   Screenshoot](https://github.com/Estetikin/Estetikin-Mobile/assets/85781461/2c8e1912-b169-4c8d-9c58-f0e78da4a817)
